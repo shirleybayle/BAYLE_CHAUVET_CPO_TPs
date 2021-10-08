@@ -22,6 +22,13 @@ public class TP1_guessMyNumber_CHAUVET_BAYLE {
         int n = generateurAleat.nextInt(100);
         Scanner sc = new Scanner(System.in);
         int nbtest = -1;
+        System.out.println("Choisissez un niveau de diffciulté : \n1) Facile \n2) Intermédiaire \n3) Difficile");
+        int niveau = sc.nextInt();
+        while (niveau<1 || niveau>3) {
+            System.out.println("Erreur, veuillez saisir un nombre entre 1 et 3.");
+            niveau = sc.nextInt();
+        }
+        System.out.println(niveau);
         int compteur = 0;
         while (nbtest!=n) {
         compteur = compteur+1;
