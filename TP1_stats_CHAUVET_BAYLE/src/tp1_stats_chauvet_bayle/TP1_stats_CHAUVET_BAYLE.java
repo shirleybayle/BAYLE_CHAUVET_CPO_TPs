@@ -9,7 +9,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 /**
- *
+ * 
  * @author shirl
  */
 public class TP1_stats_CHAUVET_BAYLE {
