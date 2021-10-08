@@ -1,4 +1,4 @@
-/*
+/*.
  * CHAUVET Ylan - BAYLE Shirley
  * TP1 Cours Programmation Objet
  * Exercice 1 - 08/10/2021
