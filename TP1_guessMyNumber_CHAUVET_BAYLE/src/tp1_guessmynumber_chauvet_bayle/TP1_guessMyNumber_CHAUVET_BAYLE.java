@@ -28,17 +28,28 @@ public class TP1_guessMyNumber_CHAUVET_BAYLE {
             System.out.println("Erreur, veuillez saisir un nombre entre 1 et 3.");
             niveau = sc.nextInt();
         }
-        System.out.println(niveau);
+       
         int compteur = 0;
         while (nbtest!=n) {
         compteur = compteur+1;
         System.out.println("Saisissez un nombre entre 0 et 100");
         nbtest = sc.nextInt();
         if (nbtest<n) {
+            if (niveau == 1 && nbtest+20<n) {
+            System.out.println("Vraiment trop petit !");
+           }
+            else{
             System.out.println("trop petit");
+            }
+           
         }
         else if (nbtest>n) {
+            if (niveau == 1 && nbtest-20>n) {
+                System.out.println("Vraiment trop grand!");
+            }
+            else{
             System.out.println("trop grand");
+            }
         }
         else {
             System.out.println("gagné !");
