@@ -80,7 +80,7 @@ public class TP1_convertisseur_CHAUVET_BAYLE {
             double newtemp = KelvinVersFarenheit(temp);
             System.out.println(temp+" degré Kelvin est égal à "+newtemp+" degré Farenheit.");
         }
-        else if (numero == 6) {
+        else {
             double newtemp = FarenheitVersKelvin(temp);
             System.out.println(temp+" degré Farenheit est égal à "+newtemp+" degré Kelvin");
         }
