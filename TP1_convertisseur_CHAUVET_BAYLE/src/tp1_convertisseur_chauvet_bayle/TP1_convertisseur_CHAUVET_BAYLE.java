@@ -44,7 +44,7 @@ public class TP1_convertisseur_CHAUVET_BAYLE {
     
     public static double FarenheitVersKelvin (double tFarenheit) {
         double tCelcius = FarenheitVersCelcius(tFarenheit);
-        double tKelvin = CelciusVersFarenheit(tCelcius);
+        double tKelvin = CelciusVersKelvin(tCelcius);
         return tKelvin;
     }
     
@@ -54,8 +54,36 @@ public class TP1_convertisseur_CHAUVET_BAYLE {
         double temp = sc.nextDouble();
         System.out.println("Saisissez la conversion que vous souhaitez effectuer :");
         System.out.println("1) De Celcius vers Kelvin \n2) De Kelvin vers Celcius \n3) De Farenheit vers Celcius");
-        System.out.println("4) De Celcius vers Farenheit\n 5) De Kelvin vers Farenheit \n6) De Fareinheit vers Kelvin");
-        
+        System.out.println("4) De Celcius vers Farenheit\n5) De Kelvin vers Farenheit \n6) De Fareinheit vers Kelvin");
+        int numero = sc.nextInt();
+        while (numero<1 || numero>6) {
+            System.out.println("Erreur, veuillez entrer un nombre compris entre 1 et 6.");
+            numero = sc.nextInt();
+        }
+        if (numero == 1) {
+            double newtemp = CelciusVersKelvin(temp);
+            System.out.println(temp+" degré Celcius est égal à "+newtemp+" degré Kelvin.");
+        }
+        else if (numero == 2) {
+            double newtemp = KelvinVersCelcius(temp);
+            System.out.println(temp+" degré Kelvin est égal à "+newtemp+" degré Celcius.");
+        }
+        else if (numero == 3) {
+            double newtemp = FarenheitVersCelcius(temp);
+            System.out.println(temp+" degré Farenheit est égal à "+newtemp+" degré Celcius.");
+        }
+        else if (numero == 4) {
+            double newtemp = CelciusVersFarenheit(temp);
+            System.out.println(temp+" degré Celcius est égal à "+newtemp+" degré Farenheit.");
+        }
+        else if (numero == 5) {
+            double newtemp = KelvinVersFarenheit(temp);
+            System.out.println(temp+" degré Kelvin est égal à "+newtemp+" degré Farenheit.");
+        }
+        else if (numero == 6) {
+            double newtemp = FarenheitVersKelvin(temp);
+            System.out.println(temp+" degré Farenheit est égal à "+newtemp+" degré Kelvin");
+        }
 
     }
     
