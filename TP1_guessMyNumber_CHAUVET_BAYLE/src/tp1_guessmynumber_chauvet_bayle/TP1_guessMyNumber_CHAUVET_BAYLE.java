@@ -9,7 +9,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 /**
- *
+ *.
  * @author shirl
  */
 public class TP1_guessMyNumber_CHAUVET_BAYLE {
