@@ -7,7 +7,7 @@ package tp1_convertisseur_chauvet_bayle;
 
 import java.util.Scanner;
 
-/**
+/** commentaire
  *
  * @author shirl
  */
