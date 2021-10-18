@@ -18,23 +18,23 @@ public class TP1_guessMyNumber_CHAUVET_BAYLE {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Random generateurAleat = new Random();
+        Random generateurAleat = new Random(); //crée une variable "aléatoire"
         Scanner sc = new Scanner(System.in);
         int nbtest = -1;
         int n;
         System.out.println("Choisissez un niveau de diffciulté : \n1) Facile \n2) Intermédiaire \n3) Difficile");
         System.out.println("4) Cauchemar (lorsque vous vous tromperez, il y a 30% de risques que l'ordinateur renvoie une indication fausse).");
-        int niveau = sc.nextInt();
+        int niveau = sc.nextInt();//demande à l'utilisateur un niveau de difficulté
         int proba = -1;
         if (niveau != 3) {
         n = generateurAleat.nextInt(100);
-        }
+        } //affecte à la variable "aléatoire" une valeur aléatoire 
         else {
             n = generateurAleat.nextInt(1000);
         }
         while (niveau<1 || niveau>4) {
             System.out.println("Erreur, veuillez saisir un nombre entre 1 et 4.");
-            niveau = sc.nextInt();
+            niveau = sc.nextInt();//recommence le programme si l'utilisatuer donne une mauvaise valeur
         }
         switch (niveau) {
             case 1:
@@ -52,7 +52,7 @@ public class TP1_guessMyNumber_CHAUVET_BAYLE {
                 break;
         }
         int compteur = 0;
-        while (nbtest!=n) {
+        while (nbtest!=n) { //Tant que l'utilisatuer ne trouve pas la bonne réponse, le programme continue
         proba = generateurAleat.nextInt(100);
         if (compteur == 8 && niveau == 2) {
             break;
@@ -83,7 +83,7 @@ public class TP1_guessMyNumber_CHAUVET_BAYLE {
                 System.out.println("trop petit");
             }
             else if (niveau == 1 && nbtest-20>n) {
-                System.out.println("Vraiment trop grand!");
+                System.out.println("Vraiment trop grand!"); //aide du niveau 1, indique une marge d'erreur
             }
             else{
             System.out.println("trop grand");
@@ -93,7 +93,7 @@ public class TP1_guessMyNumber_CHAUVET_BAYLE {
             System.out.println("gagné !");
         }
         }
-        if (compteur == 8 && niveau == 2) {
+        if (compteur == 8 && niveau == 2) { //après 8 essaie, l'utilisateur a perdu
             System.out.println("Vous n'avez pas réussi à trouver le nombre en moins de 8 tentatives, vous avez perdu.");
         }
         else {

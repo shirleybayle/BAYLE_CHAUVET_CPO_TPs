@@ -19,12 +19,12 @@ public class TP1_manipNombresInt_BAYLE_CHAUVET {
     public static void main(String[] args) {
         System.out.println("Ecrivez un entier.");
         Scanner sc = new Scanner (System.in);
-        int nb1 = sc.nextInt();
+        int nb1 = sc.nextInt(); 
         System.out.println("Ecrivez un deuxième entier.");
-        int nb2 = sc.nextInt();
+        int nb2 = sc.nextInt(); //Demande à l'utilisateur 2 entier
         System.out.println("Vos entiers sont "+nb1+" et "+nb2);
         System.out.println("Somme : "+(nb1+nb2)+"\nDifférence : "+(nb1-nb2)+"\nProduit : "+(nb1*nb2));
-        System.out.println("Quotient entier : "+(nb1/nb2)+"\nReste :"+(nb1%nb2));
+        System.out.println("Quotient entier : "+(nb1/nb2)+"\nReste :"+(nb1%nb2)); //effectue les différents opérateurs aux nombres saisie
         
     }
     
