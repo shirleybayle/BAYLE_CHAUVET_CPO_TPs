@@ -7,7 +7,7 @@ package tp1_convertisseur_chauvet_bayle;
 
 import java.util.Scanner;
 
-/** commentaire
+/** 
  *
  * @author shirl
  */
@@ -17,7 +17,7 @@ public class TP1_convertisseur_CHAUVET_BAYLE {
      * @param args the command line arguments
      */
     public static double CelciusVersKelvin (double tCelcius) {
-        double tKelvin = tCelcius + 273.15;
+        double tKelvin = tCelcius + 273.15; //créer une variable et lui associer une valeur
         return tKelvin;
     }
     
@@ -39,7 +39,7 @@ public class TP1_convertisseur_CHAUVET_BAYLE {
     public static double KelvinVersFarenheit (double tKelvin) {
         double tCelcius = KelvinVersCelcius(tKelvin);
         double tFarenheit = CelciusVersFarenheit(tCelcius);
-        return tFarenheit;
+        return tFarenheit; //Associer une valeur à une varibale en passant par une autre fonction
     }
     
     public static double FarenheitVersKelvin (double tFarenheit) {
@@ -51,18 +51,18 @@ public class TP1_convertisseur_CHAUVET_BAYLE {
     public static void main(String[] args) {
         Scanner sc = new Scanner (System.in);
         System.out.println("Bonjour, saisissez une valeur : ");
-        double temp = sc.nextDouble();
+        double temp = sc.nextDouble(); //Demande à l'utilisateur une valeur
         System.out.println("Saisissez la conversion que vous souhaitez effectuer :");
         System.out.println("1) De Celcius vers Kelvin \n2) De Kelvin vers Celcius \n3) De Farenheit vers Celcius");
         System.out.println("4) De Celcius vers Farenheit\n5) De Kelvin vers Farenheit \n6) De Fareinheit vers Kelvin");
         int numero = sc.nextInt();
         while (numero<1 || numero>6) {
             System.out.println("Erreur, veuillez entrer un nombre compris entre 1 et 6.");
-            numero = sc.nextInt();
+            numero = sc.nextInt();//Recommence le programme si la valeur saisie est incorrecte
         }
-        if (numero == 1) {
+        if (numero == 1) { //convertit des températures 
             double newtemp = CelciusVersKelvin(temp);
-            System.out.println(temp+" degré Celcius est égal à "+newtemp+" degré Kelvin.");
+            System.out.println(temp+" degré Celcius est égal à "+newtemp+" degré Kelvin.");//applique la fonction associé à la valeur saisie 
         }
         else if (numero == 2) {
             double newtemp = KelvinVersCelcius(temp);
@@ -87,4 +87,4 @@ public class TP1_convertisseur_CHAUVET_BAYLE {
 
     }
     
-}
+}//fin
