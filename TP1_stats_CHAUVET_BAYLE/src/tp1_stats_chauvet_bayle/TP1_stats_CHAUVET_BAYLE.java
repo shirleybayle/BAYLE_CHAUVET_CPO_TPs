@@ -25,14 +25,14 @@ public class TP1_stats_CHAUVET_BAYLE {
         }
         Scanner sc = new Scanner(System.in);
         System.out.println("Entrez un entier.");
-        int m = sc.nextInt();
+        int m = sc.nextInt(); //Demande à l'utilisateur un entier m qui représentera le nombre de lancé
         for (int i=0; i<m; i++) {
-            int indice = generateurAleat.nextInt(6);
-            tab[indice] = tab[indice]+1;
+            int indice = generateurAleat.nextInt(6); //Génére une variable aléatoire, qui représente la face du dé
+            tab[indice] = tab[indice]+1;// Applique le lancer de dé m fois 
         }
         for (int i=0; i<6; i++) {
-            int valeur = tab[i];
-            System.out.println("La face numéro "+(i+1)+" du dé a été tirée "+((valeur*100.0)/m)+"% de fois.");
+            int valeur = tab[i]; //renvoie le nombre de fois qu'a été tiré chaque face 
+            System.out.println("La face numéro "+(i+1)+" du dé a été tirée a hauteur de "+((valeur*100.0)/m)+"%."); //affiche le rendement du tirage en pourcentage (nombre de fois qu'est apparu le numéro saisie sur un nombre donné de lancé)
         }
         
     }
