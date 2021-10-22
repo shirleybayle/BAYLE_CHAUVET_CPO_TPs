@@ -18,7 +18,7 @@ public class Convertisseur {
 
     @Override
     public String toString() {
-        return "nombre de conversions" + nbConversions;
+        return "Vous avez effectué " + nbConversions + " conversions.";
     }
     
     public double CelciusVersKelvin (double tCelcius) {
@@ -39,22 +39,25 @@ public class Convertisseur {
         return tCelcius;
     }
     
-    public static double CelciusVersFarenheit (double tCelcius) {
+    public double CelciusVersFarenheit (double tCelcius) {
         double tFarenheit = 1.8*tCelcius + 32;
+        nbConversions = nbConversions + 1;
         return tFarenheit;
     }
     
     public double KelvinVersFarenheit (double tKelvin) {
+        int temp = nbConversions;
         double tCelcius = KelvinVersCelcius(tKelvin);
         double tFarenheit = CelciusVersFarenheit(tCelcius);
-        nbConversions = nbConversions + 1;
+        nbConversions = temp + 1;
         return tFarenheit; //Associer une valeur à une varibale en passant par une autre fonction
     }
     
     public double FarenheitVersKelvin (double tFarenheit) {
+        int temp = nbConversions;
         double tCelcius = FarenheitVersCelcius(tFarenheit);
         double tKelvin = CelciusVersKelvin(tCelcius);
-        nbConversions = nbConversions + 1;
+        nbConversions = temp + 1;
         return tKelvin;
     }
 

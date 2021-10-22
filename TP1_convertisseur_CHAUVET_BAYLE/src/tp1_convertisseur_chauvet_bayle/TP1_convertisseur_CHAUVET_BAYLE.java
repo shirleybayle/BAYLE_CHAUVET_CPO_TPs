@@ -50,6 +50,8 @@ public class TP1_convertisseur_CHAUVET_BAYLE {
     
     public static void main(String[] args) {
         Scanner sc = new Scanner (System.in);
+        int conversion = 1;
+        while (conversion == 1) {
         System.out.println("Bonjour, saisissez une valeur : ");
         double temp = sc.nextDouble(); //Demande à l'utilisateur une valeur
         System.out.println("Saisissez la conversion que vous souhaitez effectuer :");
@@ -84,7 +86,8 @@ public class TP1_convertisseur_CHAUVET_BAYLE {
             double newtemp = FarenheitVersKelvin(temp);
             System.out.println(temp+" degré Farenheit est égal à "+newtemp+" degré Kelvin");
         }
-
+        System.out.println("Voulez-vous effectuer une nouvelle conversion ? \n1) Oui \n2) Non");
+        conversion = sc.nextInt();
     }
-    
+    }
 }//fin
