@@ -11,9 +11,7 @@ package tp2_bieres_chauvet_bayle;
  */
 public class TP2_Bieres_CHAUVET_BAYLE {
 
-    /**
-     * @param args the command line arguments
-     */
+    // On réutilise la public class BouteilleBiere et tout ce qui suit dans l'autre .java
     public static void main(String[] args) {
         BouteilleBiere uneBiere = new BouteilleBiere("Cuvée des trolls", 7.0, "Dubuisson");
         uneBiere.lireEtiquette();
@@ -28,17 +26,17 @@ public class TP2_Bieres_CHAUVET_BAYLE {
         biereQuatre.lireEtiquette();
         
         BouteilleBiere biereCinq = new BouteilleBiere("La rince Cochon", 8.5, "Brasserie Haacht");
-        biereCinq.lireEtiquette();
+        biereCinq.lireEtiquette(); //On créé plusieurs objet dans la class BouteilleBiere avec les caractéristiques correspondantes
         
         biereDeux.Decapsuler();
         biereCinq.Decapsuler();
-        biereTrois.Decapsuler();
+        biereTrois.Decapsuler(); //On décapsule certaines bières
         
         System.out.println(uneBiere);
         System.out.println(biereDeux);
         System.out.println(biereTrois);
         System.out.println(biereQuatre);
-        System.out.println(biereCinq);
+        System.out.println(biereCinq); // effectue le retour de chaine et applique donc le @Override et nous dit donc si la bière est ou non décapsulé
 }
 
         
