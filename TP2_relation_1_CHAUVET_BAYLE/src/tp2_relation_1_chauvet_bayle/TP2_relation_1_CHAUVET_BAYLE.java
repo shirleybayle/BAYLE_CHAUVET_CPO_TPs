@@ -35,12 +35,12 @@ public class TP2_relation_1_CHAUVET_BAYLE {
         reno.nbVoitures = 1;
         uneAutreClio.proprietaire = reno;
         
-        reno.liste_voitures[1] = uneMicra;
-        reno.nbVoitures = 1;
-        uneMicra.proprietaire = reno;
+        reno.ajouter_voitures(uneMicra);
 
         System.out.println("Les voitures de bob sont "+bob.liste_voitures[0]+" et "+bob.liste_voitures[1]) ;
-        System.out.println("Les voitures de bob sont "+reno.liste_voitures[0]+" et "+reno.liste_voitures[1]) ;
+        System.out.println("Les voitures de reno sont "+reno.liste_voitures[0]+" et "+reno.liste_voitures[1]) ;
+        
+        
 
 
     }

@@ -24,4 +24,19 @@ public class Personne {
         liste_voitures = new Voiture[3];
         nbVoitures = 0;
     }
+    public boolean ajouter_voitures(Voiture voiture_a_ajouter) {
+        if (voiture_a_ajouter.proprietaire != null) {
+            return false;
+        }
+        else if (nbVoitures == 3) {
+            return false;
+        }
+        else{
+            liste_voitures[nbVoitures] = voiture_a_ajouter;
+            nbVoitures = nbVoitures +1;
+            voiture_a_ajouter.proprietaire = this;
+            return true;
+        }
+    }
+    
 }
