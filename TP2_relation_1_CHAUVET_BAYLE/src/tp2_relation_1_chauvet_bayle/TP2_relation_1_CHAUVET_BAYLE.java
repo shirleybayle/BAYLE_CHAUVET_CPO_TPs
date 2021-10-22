@@ -20,7 +20,7 @@ public class TP2_relation_1_CHAUVET_BAYLE {
         Voiture une2008 = new Voiture ("2008", "Peugeot", 6 ) ;
         Voiture uneMicra = new Voiture ("Micra", "Nissan", 4 ) ;
         Personne bob = new Personne("Bobby", "Sixkiller");
-        Personne reno = new Personne("Reno", "Raines");
+        Personne reno = new Personne("Reno", "Raines"); //affectation de différentes valeurs aux objets créé dans d'autres .java 
         System.out.println("liste des voitures disponibles \n"+ uneClio +"\n" + uneAutreClio + "\n" + une2008 + "\n" + uneMicra ) ;
         
         bob.liste_voitures[0] = uneClio ;
@@ -39,7 +39,7 @@ public class TP2_relation_1_CHAUVET_BAYLE {
 
         System.out.println("Les voitures de bob sont "+bob.liste_voitures[0]+" et "+bob.liste_voitures[1]) ;
         System.out.println("Les voitures de reno sont "+reno.liste_voitures[0]+" et "+reno.liste_voitures[1]) ;
-        
+        //affiche les valeurs selon le @Override des autres .java
         
 
 
