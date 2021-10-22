@@ -13,9 +13,7 @@ import java.util.Scanner;
  */
 public class TP2_convertisseurObjet_CHAUVET_BAYLE {
 
-    /**
-     * @param args the command line arguments
-     */
+   
     public static void main(String[] args) {
         Convertisseur convertisseur1 = new Convertisseur();
         Scanner sc = new Scanner (System.in);
@@ -56,7 +54,7 @@ public class TP2_convertisseurObjet_CHAUVET_BAYLE {
             System.out.println(temp+" degré Farenheit est égal à "+newtemp+" degré Kelvin");
         }
         System.out.println("Voulez-vous effectuer une nouvelle conversion ? \n1) Oui \n2) Non");
-        conversion = sc.nextInt();
+        conversion = sc.nextInt(); //recommence le processus si l'utilisateur le souhaite
     }
         System.out.println(convertisseur1);
     }
