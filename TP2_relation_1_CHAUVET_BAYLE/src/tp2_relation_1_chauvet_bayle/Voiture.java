@@ -11,14 +11,18 @@ public class Voiture {
     String Modele;
     String Marque;
     int PuissanceCV;
+    Personne proprietaire;
+    
     @Override
     public String toString(){
-        return "Modèle de la voiture : "+Modele+"\nMarque de la voiture : "+Marque+"\nPuissance : "+PuissanceCV;
+        return Marque+" "+Modele+" "+PuissanceCV+" chevaux";
     }
+    
     public Voiture(String mo, String ma, int cv) {
         Modele = mo;
         Marque = ma;
         PuissanceCV = cv;
+        proprietaire = null;
              
     }
     
