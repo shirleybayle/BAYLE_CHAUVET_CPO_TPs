@@ -13,7 +13,7 @@ import java.util.Random;
  */
 public class SP4_console_BAYLE {
 
-    /**
+    /** TEST A ENLEVER
      * @param args the command line arguments
      */
     public static void main(String[] args) {
