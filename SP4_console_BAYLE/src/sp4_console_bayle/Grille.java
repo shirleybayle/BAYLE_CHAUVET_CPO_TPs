@@ -105,9 +105,9 @@ public class Grille {
                    return true;
                }
            }
-       }
-       for (int i=0; i<3; i++) {
-           for (int j=0; j<7; j++) {
+       } 
+       for (int i=0; i<3; i++) {  // vérif colonne gagnante
+           for (int j=0; j<7; j++) { 
                String CJ1 = CellulesJeu[i][j].lireCouleurDuJeton();
                String CJ2 = CellulesJeu[i+1][j].lireCouleurDuJeton();
                String CJ3 = CellulesJeu[i+2][j].lireCouleurDuJeton();
@@ -117,7 +117,7 @@ public class Grille {
                }
            }
        }
-       for (int i=0; i<3; i++){
+       for (int i=0; i<3; i++){  //vérif diagonale haute gagnante
            for (int j=0; j<4; j++) {
                String CJ1 = CellulesJeu[i][j].lireCouleurDuJeton();
                String CJ2 = CellulesJeu[i+1][j+1].lireCouleurDuJeton();
@@ -128,18 +128,26 @@ public class Grille {
                }
            }
        }
-       for (int i=0; i<3; i++){
+       for (int i=3; i<6; i++){  // vérif diagonale basse gagnante
            for (int j=0; j<4; j++) {
                String CJ1 = CellulesJeu[i][j].lireCouleurDuJeton();
-               String CJ2 = CellulesJeu[i+1][j+1].lireCouleurDuJeton();
-               String CJ3 = CellulesJeu[i+2][j+2].lireCouleurDuJeton();
-               String CJ4 = CellulesJeu[i+3][j+3].lireCouleurDuJeton();
+               String CJ2 = CellulesJeu[i-1][j+1].lireCouleurDuJeton();
+               String CJ3 = CellulesJeu[i-2][j+2].lireCouleurDuJeton();
+               String CJ4 = CellulesJeu[i-3][j+3].lireCouleurDuJeton();
                if (CJ1 == couleur && CJ2 == couleur && CJ3 == couleur && CJ4 == couleur) {
                    return true;
                }
            }
        }
-        
-       
+       return false;
+   }
+   
+   public boolean colonneRemplie(int colonne) {
+       for (int i=0; i<6; i++) {
+           if (CellulesJeu[i][colonne-1] == null) {
+               return false;
+           }
+       }
+       return true;
    }
 }
