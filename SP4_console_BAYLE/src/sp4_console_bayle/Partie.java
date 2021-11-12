@@ -30,4 +30,22 @@ public class Partie {
         }
         
     }
+    
+    public void initialiserPartie() {
+        grilleJeu = new Grille();
+        String couleurjet0 = ListeJoueurs[0].Couleur;
+        Jeton jet0 = new Jeton(couleurjet0);
+        for (int i=0; i<22; i++) {
+            ListeJoueurs[0].ajouterJeton(jet0);
+        }
+        String couleurjet1 = ListeJoueurs[1].Couleur;
+        Jeton jet1 = new Jeton(couleurjet1);
+        for (int i=0; i<22; i++) {
+            ListeJoueurs[1].ajouterJeton(jet1);
+        }
+    }
+    
+    public void debuterPartie() {
+        
+    }
 }
