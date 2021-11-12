@@ -43,9 +43,26 @@ public class Partie {
         for (int i=0; i<22; i++) {
             ListeJoueurs[1].ajouterJeton(jet1);
         }
+        
     }
     
     public void debuterPartie() {
-        
+        Random generateurAleat = new Random();
+        int n = generateurAleat.nextInt(2); //on associe 0 à rouge et 1 à jaune
+        if (n==0 && ListeJoueurs[0].Couleur == "rouge") {  //on tire au sort pour savoir qui commence
+            joueurCourant = ListeJoueurs[0];
+        }
+        else if (n==0 && ListeJoueurs[0].Couleur == "jaune") {
+            joueurCourant = ListeJoueurs[1];
+        }
+        else if (n==1 && ListeJoueurs[0].Couleur == "jaune") {
+            joueurCourant = ListeJoueurs[0];
+        }
+        else {
+            joueurCourant = ListeJoueurs[1];
+        }
+        while (grilleJeu.etreRemplie() == false || grilleJeu.etreGagnantePourJoueur(joueurCourant)==false) {
+            
+        }
     }
 }
