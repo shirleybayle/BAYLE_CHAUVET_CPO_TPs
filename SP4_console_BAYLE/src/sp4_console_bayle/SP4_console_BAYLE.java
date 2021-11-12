@@ -17,10 +17,26 @@ public class SP4_console_BAYLE {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Random gealeat = new Random();
-        for (int i=0; i<100; i++){
-        int n = gealeat.nextInt(2);
-        System.out.println(n);}
+        Grille grillejeu = new Grille();
+        Jeton jet = new Jeton("rouge");
+        Jeton jet2 = new Jeton("jaune");
+        Jeton jet3 = new Jeton("rouge");
+        grillejeu.ajouterJetonDansColonne(jet, 2);
+        grillejeu.ajouterJetonDansColonne(jet2, 7);
+        grillejeu.ajouterJetonDansColonne(jet3, 2);
+        grillejeu.afficherGrilleSurConsole();
+        
+        boolean test;
+        boolean test2;
+        test = grillejeu.celluleOccupee(2, 2);
+        test2 = grillejeu.celluleOccupee(6, 7);
+        if (test2 == false) {
+            System.out.println("oui");
+        }
+        
+        String c = grillejeu.lireCouleurDuJeton(2,2);
+        String d = grillejeu.lireCouleurDuJeton(1,1);
+        System.out.println(c + d);
     }
     
 }

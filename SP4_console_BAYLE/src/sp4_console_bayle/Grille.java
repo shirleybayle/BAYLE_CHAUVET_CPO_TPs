@@ -73,13 +73,73 @@ public class Grille {
    }
    
    public boolean celluleOccupee(int ligne, int colonne) {
-       for (int i=0; i<6; i++) {
-           for (int j=0; j<7; j++) {
-               if (CellulesJeu[i][j].jetonCourant != null) {
+       if (CellulesJeu[ligne-1][colonne-1].jetonCourant != null){
+       return true;
+       }
+       else{
+       return false;
+       }
+   }
+   
+   public String lireCouleurDuJeton(int ligne, int colonne) {
+       Jeton jeton = CellulesJeu[ligne-1][colonne-1].jetonCourant;
+       String couleur;
+       if (jeton != null) {
+       couleur = jeton.Couleur;
+       }
+       else {
+           couleur = "pas de jeton";
+       }
+       return couleur;
+   }
+   
+   public boolean etreGagnantePourJoueur(Joueur j1) {
+       String couleur = j1.Couleur;
+       for (int i=0; i<6; i++){ // vérif ligne gagnante
+           for (int j=0; j<4; j++){
+               String CJ1 = CellulesJeu[i][j].lireCouleurDuJeton();
+               String CJ2 = CellulesJeu[i][j+1].lireCouleurDuJeton();
+               String CJ3 = CellulesJeu[i][j+2].lireCouleurDuJeton();
+               String CJ4 = CellulesJeu[i][j+3].lireCouleurDuJeton();
+               if (CJ1 == couleur && CJ2 == couleur && CJ3 == couleur && CJ4 == couleur) {
                    return true;
                }
            }
        }
-       return false;
+       for (int i=0; i<3; i++) {
+           for (int j=0; j<7; j++) {
+               String CJ1 = CellulesJeu[i][j].lireCouleurDuJeton();
+               String CJ2 = CellulesJeu[i+1][j].lireCouleurDuJeton();
+               String CJ3 = CellulesJeu[i+2][j].lireCouleurDuJeton();
+               String CJ4 = CellulesJeu[i+3][j].lireCouleurDuJeton();
+               if (CJ1 == couleur && CJ2 == couleur && CJ3 == couleur && CJ4 == couleur) {
+                   return true;
+               }
+           }
+       }
+       for (int i=0; i<3; i++){
+           for (int j=0; j<4; j++) {
+               String CJ1 = CellulesJeu[i][j].lireCouleurDuJeton();
+               String CJ2 = CellulesJeu[i+1][j+1].lireCouleurDuJeton();
+               String CJ3 = CellulesJeu[i+2][j+2].lireCouleurDuJeton();
+               String CJ4 = CellulesJeu[i+3][j+3].lireCouleurDuJeton();
+               if (CJ1 == couleur && CJ2 == couleur && CJ3 == couleur && CJ4 == couleur) {
+                   return true;
+               }
+           }
+       }
+       for (int i=0; i<3; i++){
+           for (int j=0; j<4; j++) {
+               String CJ1 = CellulesJeu[i][j].lireCouleurDuJeton();
+               String CJ2 = CellulesJeu[i+1][j+1].lireCouleurDuJeton();
+               String CJ3 = CellulesJeu[i+2][j+2].lireCouleurDuJeton();
+               String CJ4 = CellulesJeu[i+3][j+3].lireCouleurDuJeton();
+               if (CJ1 == couleur && CJ2 == couleur && CJ3 == couleur && CJ4 == couleur) {
+                   return true;
+               }
+           }
+       }
+        
+       
    }
 }
