@@ -51,22 +51,24 @@ public class Grille {
    public static final String ANSI_RESET = "\u001B[0m";
    public static final String ANSI_RED = "\u001B[31m";
    public static final String ANSI_YELLOW = "\u001B[33m";
+   //String ANSI_YELLOW2 = (char)27 + "[38;5;220m"; -> met en noir ?
    public static final String ANSI_BLACK = "\u001B[30m";
    public static final String ANSI_WHITE = "\u001B[37m";
+   public static final String ANSI_BLUE_BACKGROUND = "\u001B[44m";
    
    public void afficherGrilleSurConsole() {
        for (int i=5; i>=0; i--){
-           System.out.print(ANSI_WHITE + "\n|" + ANSI_RESET);
+           System.out.print(ANSI_BLUE_BACKGROUND + ANSI_WHITE + "\n|" + ANSI_RESET);
            for (int j=0; j<7; j++) {
                String couleur = CellulesJeu[i][j].lireCouleurDuJeton();
                if (couleur == "pas de jeton") {
-                   System.out.print(ANSI_WHITE + " \u2022 |" + ANSI_RESET);
+                   System.out.print(ANSI_BLUE_BACKGROUND + ANSI_WHITE + " \u2022 |" + ANSI_RESET);
                }
                else if (couleur == "rouge") {
-                   System.out.print(ANSI_RED + " \u2022 "+ ANSI_WHITE + "|"+ ANSI_RESET);
+                   System.out.print(ANSI_BLUE_BACKGROUND + ANSI_RED + " \u2022 "+ ANSI_WHITE + "|"+ ANSI_RESET);
                }
                else if (couleur == "jaune") {
-                   System.out.print(ANSI_YELLOW + " \u2022 " + ANSI_WHITE + "|" + ANSI_RESET);
+                   System.out.print(ANSI_BLUE_BACKGROUND + ANSI_YELLOW + " \u2022 " + ANSI_WHITE + "|" + ANSI_RESET);
                }
            }
        }
