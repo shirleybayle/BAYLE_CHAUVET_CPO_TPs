@@ -6,6 +6,7 @@
 package sp4_console_bayle;
 
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  *
@@ -18,8 +19,13 @@ public class SP4_console_BAYLE {
      */
     public static void main(String[] args) {
         Grille grillejeu = new Grille();
-        Joueur j1 = new Joueur("Shirley");
-        Joueur j2 = new Joueur("Valentin");
+        Scanner sc = new Scanner (System.in);
+        System.out.println("Veuillez entrer le nom du premier joueur.");
+        String nomj1 = sc.nextLine();
+        System.out.println("Veuillez entrer le nom du deuxième joueur.");
+        String nomj2 = sc.nextLine();
+        Joueur j1 = new Joueur(nomj1);
+        Joueur j2 = new Joueur(nomj2);
         Partie nouvellePartie = new Partie(j1, j2);
         nouvellePartie.initialiserPartie();
         nouvellePartie.debuterPartie();

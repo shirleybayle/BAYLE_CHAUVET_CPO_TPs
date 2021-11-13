@@ -84,7 +84,7 @@ public class Partie {
             boolean testColonne = false;
             while (testColonne == false){
                 Scanner sc = new Scanner (System.in);
-                System.out.println("Vous êtes le joueur de couleur "+joueurCourant.Couleur+".");
+                System.out.println("C'est à vous de jouer "+joueurCourant.Nom+" !"+" Vous êtes le joueur de couleur "+joueurCourant.Couleur+".");
                 System.out.println("Veuillez saisir le numéro de la colonne dans laquelle vous voulez placer un jeton (il y a 7 colonnes).");
                 grilleJeu.afficherGrilleSurConsole();
                 int colonne = sc.nextInt();
