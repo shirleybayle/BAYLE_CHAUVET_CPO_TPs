@@ -5,6 +5,7 @@
 package sp4_console_bayle;
 
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  *
@@ -61,8 +62,31 @@ public class Partie {
         else {
             joueurCourant = ListeJoueurs[1];
         }
+        int compteur = 0;
+        if (joueurCourant == ListeJoueurs[0]) {
+            int compteurJoueur = 0;
+        }
+        else {
+            int compteurJoueur = 1;
+        }
         while (grilleJeu.etreRemplie() == false || grilleJeu.etreGagnantePourJoueur(joueurCourant)==false) {
-            
+            Scanner sc = new Scanner (System.in);
+            grilleJeu.afficherGrilleSurConsole();
+            System.out.println("Veuillez saisir le numéro de la colonne dans laquelle vous voulez placer un jeton (il y a 7 colonnes).");
+            System.out.println("Vous êtes le joueur de couleur "+joueurCourant.Couleur);
+            int colonne = sc.nextInt();
+            while (colonne < 1 || colonne > 7) {
+                System.out.println("Il n'y a que 7 colonnes, veuillez saisir un entier entre 1 et 7 pour placer votre jeton.");
+                colonne = sc.nextInt();
+            }
+            boolean testColonne = grilleJeu.ajouterJetonDansColonne(joueurCourant.ListeJetons[compteur], colonne);
+            joueurCourant.nombreJetonsRestants = joueurCourant.nombreJetonsRestants - 1;
+            if (testColonne == true) {
+                grilleJeu.afficherGrilleSurConsole();
+                compteur = compteur+1;
+                int indiceJoueur = compteurJoueur%2
+                joueurCourant = ListeJoueurs[indiceJoueur];
+            }
         }
     }
 }
