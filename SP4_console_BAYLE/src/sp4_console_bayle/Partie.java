@@ -16,6 +16,11 @@ public class Partie {
     Joueur joueurCourant;
     Grille grilleJeu;
     
+    public Partie(Joueur joueur1, Joueur joueur2) {
+        ListeJoueurs[0] = joueur1;
+        ListeJoueurs[1] = joueur2;
+    }
+    
     public void attribuerCouleursAuxJoueurs() {
         Random generateurAleat = new Random();
         int n = generateurAleat.nextInt(2);
@@ -34,6 +39,7 @@ public class Partie {
     
     public void initialiserPartie() {
         grilleJeu = new Grille();
+        attribuerCouleursAuxJoueurs();
         String couleurjet0 = ListeJoueurs[0].Couleur;
         Jeton jet0 = new Jeton(couleurjet0);
         for (int i=0; i<22; i++) {
@@ -44,10 +50,6 @@ public class Partie {
         for (int i=0; i<22; i++) {
             ListeJoueurs[1].ajouterJeton(jet1);
         }
-        
-    }
-    
-    public void debuterPartie() {
         Random generateurAleat = new Random();
         int n = generateurAleat.nextInt(2); //on associe 0 à rouge et 1 à jaune
         if (n==0 && ListeJoueurs[0].Couleur == "rouge") {  //on tire au sort pour savoir qui commence
@@ -62,31 +64,51 @@ public class Partie {
         else {
             joueurCourant = ListeJoueurs[1];
         }
+        
+        
+    }
+    
+    public void debuterPartie() {
         int compteur = 0;
+        int compteurJoueur;
         if (joueurCourant == ListeJoueurs[0]) {
-            int compteurJoueur = 0;
+            compteurJoueur = 0;
         }
         else {
-            int compteurJoueur = 1;
+            compteurJoueur = 1;
         }
         while (grilleJeu.etreRemplie() == false || grilleJeu.etreGagnantePourJoueur(joueurCourant)==false) {
-            Scanner sc = new Scanner (System.in);
-            grilleJeu.afficherGrilleSurConsole();
-            System.out.println("Veuillez saisir le numéro de la colonne dans laquelle vous voulez placer un jeton (il y a 7 colonnes).");
-            System.out.println("Vous êtes le joueur de couleur "+joueurCourant.Couleur);
-            int colonne = sc.nextInt();
-            while (colonne < 1 || colonne > 7) {
-                System.out.println("Il n'y a que 7 colonnes, veuillez saisir un entier entre 1 et 7 pour placer votre jeton.");
-                colonne = sc.nextInt();
-            }
-            boolean testColonne = grilleJeu.ajouterJetonDansColonne(joueurCourant.ListeJetons[compteur], colonne);
-            joueurCourant.nombreJetonsRestants = joueurCourant.nombreJetonsRestants - 1;
-            if (testColonne == true) {
+            boolean testColonne = false;
+            while (testColonne == false){
+                Scanner sc = new Scanner (System.in);
                 grilleJeu.afficherGrilleSurConsole();
-                compteur = compteur+1;
-                int indiceJoueur = compteurJoueur%2
-                joueurCourant = ListeJoueurs[indiceJoueur];
-            }
+                System.out.println("Vous êtes le joueur de couleur "+joueurCourant.Couleur+".");
+                System.out.println("Veuillez saisir le numéro de la colonne dans laquelle vous voulez placer un jeton (il y a 7 colonnes).");
+                int colonne = sc.nextInt();
+                while (colonne < 1 || colonne > 7) {
+                    System.out.println("Il n'y a que 7 colonnes, veuillez saisir un entier entre 1 et 7 pour placer votre jeton.");
+                    colonne = sc.nextInt();
+                }
+                testColonne = grilleJeu.ajouterJetonDansColonne(joueurCourant.ListeJetons[compteur/2], colonne);
+                joueurCourant.nombreJetonsRestants = joueurCourant.nombreJetonsRestants - 1;
+                System.out.println(joueurCourant.Nom);
+                if (testColonne == true) {
+                    //grilleJeu.afficherGrilleSurConsole();
+                    compteur = compteur+1;
+                    compteurJoueur = compteurJoueur+1;
+                    int indiceJoueur = compteurJoueur%2;
+                    joueurCourant = ListeJoueurs[indiceJoueur];
+                    System.out.println("CHANGEMENT DE JOUEUR ," + joueurCourant.Nom);
+                    break;
+                }
+                System.out.println("La colonne que vous avez choisie est remplie, veuillez choisir une autre colonne.");
+               }
+        }
+        if (grilleJeu.etreGagnantePourJoueur(joueurCourant)){
+            System.out.println("Bravo "+joueurCourant.Nom+", vous avez gagné !");
+        }
+        else if (grilleJeu.etreRemplie()) {
+            System.out.println("La grille est remplie, c'est un match nul :/");
         }
     }
 }

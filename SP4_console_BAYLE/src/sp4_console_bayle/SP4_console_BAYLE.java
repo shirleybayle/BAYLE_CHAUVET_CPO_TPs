@@ -18,25 +18,11 @@ public class SP4_console_BAYLE {
      */
     public static void main(String[] args) {
         Grille grillejeu = new Grille();
-        Jeton jet = new Jeton("rouge");
-        Jeton jet2 = new Jeton("jaune");
-        Jeton jet3 = new Jeton("rouge");
-        grillejeu.ajouterJetonDansColonne(jet, 2);
-        grillejeu.ajouterJetonDansColonne(jet2, 7);
-        grillejeu.ajouterJetonDansColonne(jet3, 2);
-        grillejeu.afficherGrilleSurConsole();
-        
-        boolean test;
-        boolean test2;
-        test = grillejeu.celluleOccupee(2, 2);
-        test2 = grillejeu.celluleOccupee(6, 7);
-        if (test2 == false) {
-            System.out.println("oui");
-        }
-        
-        String c = grillejeu.lireCouleurDuJeton(2,2);
-        String d = grillejeu.lireCouleurDuJeton(1,1);
-        System.out.println(c + d);
+        Joueur j1 = new Joueur("Shirley");
+        Joueur j2 = new Joueur("Valentin");
+        Partie nouvellePartie = new Partie(j1, j2);
+        nouvellePartie.initialiserPartie();
+        nouvellePartie.debuterPartie();
     }
     
 }
