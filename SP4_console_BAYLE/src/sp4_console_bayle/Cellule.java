@@ -10,6 +10,37 @@ package sp4_console_bayle;
  */
 public class Cellule {
     Jeton jetonCourant;
+    boolean trouNoir;
+    
+    public boolean presenceTrouNoir() {
+        if (trouNoir == true) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    
+    public boolean placerTrouNoir() {
+        if (trouNoir != true) {
+            trouNoir = true;
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    
+    public boolean activerTrouNoir() {
+        if (trouNoir == true) {
+            jetonCourant = null;
+            trouNoir = false;
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
     
     public Cellule() {
         jetonCourant = null;
