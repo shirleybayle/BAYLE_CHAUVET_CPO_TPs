@@ -11,6 +11,16 @@ package sp4_console_bayle;
 public class Grille {
    Cellule [][] CellulesJeu = new Cellule [6][7];
    
+   public boolean placertrouNoir(int ligne, int colonne) {
+        if (CellulesJeu[ligne][colonne-1].trouNoir == false) {
+            CellulesJeu[ligne][colonne-1].trouNoir = true;
+            return true;
+        }
+        else {
+            return false;
+        }
+   }
+   
    public Grille() {
        for (int i=0; i<6; i++) {
            for (int j=0; j<7; j++) { 
