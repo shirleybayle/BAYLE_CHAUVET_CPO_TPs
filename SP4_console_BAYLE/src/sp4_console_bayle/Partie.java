@@ -66,7 +66,7 @@ public class Partie {
         }
         for (int i=0; i<6; i++) {
             int lignetn = generateurAleat.nextInt(6);
-            int colonnetn = generateurAleat.nextInt(8)+1;
+            int colonnetn = generateurAleat.nextInt(7)+1;
             grilleJeu.placertrouNoir(lignetn, colonnetn);
         }
     }

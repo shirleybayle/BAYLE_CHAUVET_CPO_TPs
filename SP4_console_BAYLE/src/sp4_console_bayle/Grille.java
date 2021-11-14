@@ -30,8 +30,8 @@ public class Grille {
    }
    
    public boolean ajouterJetonDansColonne(Jeton jet, int colonne) {
-       for (int i=0; i<6; i++) {
-           if (CellulesJeu[i][colonne-1].jetonCourant == null){
+       for (int i=0; i<6; i++) { 
+           if (CellulesJeu[i][colonne-1].jetonCourant == null){      // ajouter fontionnalité trou noir
                CellulesJeu[i][colonne-1].jetonCourant = jet;
                return true;
            }
@@ -70,8 +70,12 @@ public class Grille {
            System.out.print(ANSI_BLUE_BACKGROUND + ANSI_CYAN + "\n|" + ANSI_RESET);
            for (int j=0; j<7; j++) {
                String couleur = CellulesJeu[i][j].lireCouleurDuJeton();
-               if (couleur == "pas de jeton") {
+               boolean trouNoir = CellulesJeu[i][j].trouNoir;
+               if (couleur == "pas de jeton" && trouNoir == false) {
                    System.out.print(ANSI_BLUE_BACKGROUND + ANSI_CYAN + " \u2022 |" + ANSI_RESET);
+               }
+               else if (couleur == "pas de jeton" && trouNoir == true){
+                   System.out.print(ANSI_BLUE_BACKGROUND + ANSI_BLACK + " \u2022 " + ANSI_CYAN + "|" + ANSI_RESET);
                }
                else if (couleur == "rouge") {
                    System.out.print(ANSI_BLUE_BACKGROUND + ANSI_RED + " \u2022 "+ ANSI_CYAN + "|"+ ANSI_RESET);
