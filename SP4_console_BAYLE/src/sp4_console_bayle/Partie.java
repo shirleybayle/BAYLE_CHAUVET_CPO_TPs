@@ -64,8 +64,11 @@ public class Partie {
         else {
             joueurCourant = ListeJoueurs[1];
         }
-        
-        
+        for (int i=0; i<6; i++) {
+            int lignetn = generateurAleat.nextInt(6);
+            int colonnetn = generateurAleat.nextInt(8)+1;
+            grilleJeu.placertrouNoir(lignetn, colonnetn);
+        }
     }
     
     public void debuterPartie() {
