@@ -29,6 +29,26 @@ public class Grille {
        }
    }
    
+   public Jeton recupererJeton(int ligne, int colonne) {
+       Jeton jet = CellulesJeu[ligne-1][colonne-1].jetonCourant;
+       CellulesJeu[ligne-1][colonne-1].jetonCourant = null;
+       return jet;
+   }
+   
+   public void tasserGrille(int colonne) {
+       int ligne = 0;
+       for (int i=0; i<6; i++) {
+           if (CellulesJeu[i][colonne-1].jetonCourant == null) {
+               ligne = i;
+               break;
+           }
+       }
+       for (int j=5; j>ligne; j--){
+           CellulesJeu[j-1][colonne-1].jetonCourant = CellulesJeu[j][colonne-1].jetonCourant;
+       }
+       CellulesJeu[5][colonne-1].jetonCourant = null;
+   }
+   
    public boolean ajouterJetonDansColonne(Jeton jet, int colonne) {
        for (int i=0; i<6; i++) { 
            boolean testtrounoir = CellulesJeu[i][colonne-1].presenceTrouNoir();

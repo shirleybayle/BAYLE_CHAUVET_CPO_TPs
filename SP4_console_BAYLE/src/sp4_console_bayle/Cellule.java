@@ -42,6 +42,10 @@ public class Cellule {
         }
     }
     
+    //public Jeton recupererJeton() {
+        
+    //}
+    
     public Cellule() {
         jetonCourant = null;
     }
