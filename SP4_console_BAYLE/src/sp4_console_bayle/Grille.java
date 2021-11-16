@@ -31,8 +31,13 @@ public class Grille {
    
    public boolean ajouterJetonDansColonne(Jeton jet, int colonne) {
        for (int i=0; i<6; i++) { 
-           if (CellulesJeu[i][colonne-1].jetonCourant == null){      // ajouter fontionnalité trou noir
+           boolean testtrounoir = CellulesJeu[i][colonne-1].presenceTrouNoir();
+           if (CellulesJeu[i][colonne-1].jetonCourant == null && testtrounoir == false){      // ajouter fontionnalité trou noir
                CellulesJeu[i][colonne-1].jetonCourant = jet;
+               return true;
+           }
+           else if (CellulesJeu[i][colonne-1].jetonCourant == null && testtrounoir == true) {
+               CellulesJeu[i][colonne-1].trouNoir = false;
                return true;
            }
        }
