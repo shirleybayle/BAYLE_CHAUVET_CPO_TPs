@@ -113,7 +113,7 @@ public class Partie {
                     }
                 }
                 if (colonne != 8){
-                    testColonne = grilleJeu.ajouterJetonDansColonne(joueurCourant.ListeJetons[compteur/2], colonne);
+                    testColonne = grilleJeu.ajouterJetonDansColonne(joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants-1], colonne);
                     if (testColonne == true) {
                         joueurCourant.nombreJetonsRestants = joueurCourant.nombreJetonsRestants - 1;
                         compteur = compteur+1;
@@ -131,10 +131,46 @@ public class Partie {
                     }
                     System.out.println("La colonne que vous avez choisie est remplie, veuillez choisir une autre colonne.");
                 }
+                else {
+                    testColonne = true;
+                    boolean testrecupererjeton = false;
+                    while (testrecupererjeton == false) {
+                        System.out.println("Veuillez saisir le numéro de la ligne du jeton que vous voulez récupérer.");
+                        int ligneJetonARecuperer = sc.nextInt();
+                        while (ligneJetonARecuperer < 1 || ligneJetonARecuperer > 6) {
+                            System.out.println("Numéro invalide, il n'y a que 6 lignes. Veuillez en saisir un nouveau.");
+                            ligneJetonARecuperer = sc.nextInt();
+                        }
+                        System.out.println("Veuillez saisir le numéro de la colonne du jeton que vous voulez récupérer.");
+                        int colonneJetonARecuperer = sc.nextInt();
+                        while (colonneJetonARecuperer < 1 || colonneJetonARecuperer > 7) {
+                            System.out.println("Numéro invalide, il n'y a que 7 colonnes. Veuillez en saisir un nouveau.");
+                            colonneJetonARecuperer = sc.nextInt();
+                        }
+                        if (grilleJeu.CellulesJeu[ligneJetonARecuperer-1][colonneJetonARecuperer-1].lireCouleurDuJeton() == joueurCourant.Couleur) {
+                            Jeton jetonRecupere = grilleJeu.recupererJeton(ligneJetonARecuperer, colonneJetonARecuperer);
+                            joueurCourant.nombreJetonsRestants = joueurCourant.nombreJetonsRestants +1;
+                            joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants-1] = jetonRecupere;
+                            grilleJeu.tasserGrille(colonneJetonARecuperer);
+                            if (grilleJeu.etreGagnantePourJoueur(joueurCourant)) {
+                                if (grilleJeu.etreGagnantePourJoueur(ListeJoueurs[indiceJoueur])) {
+                                    System.out.println(joueurCourant.Nom + " vous avez provoqué un faute de jeu. Bravo "+ListeJoueurs[indiceJoueur].Nom+" vous avez gagné !");
+                                }
+                                else {
+                                    System.out.println("Bravo "+joueurCourant.Nom+ "vous avez gagné !");
+                                }
+                            }
+                            testrecupererjeton = true;
+                        }
+                        else {
+                            System.out.println("Opération impossible.");
+                        }
+                    }
+                }
             }
             if (grilleJeu.etreGagnantePourJoueur(joueurCourant)){
                 break;
-            }
+            }    
             else if (grilleJeu.etreRemplie()) {
                 break;
             }
