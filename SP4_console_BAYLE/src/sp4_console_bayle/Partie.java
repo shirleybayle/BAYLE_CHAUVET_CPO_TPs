@@ -90,14 +90,15 @@ public class Partie {
                 System.out.println("C'est à vous de jouer "+joueurCourant.Nom+" !"+" Vous êtes le joueur de couleur "+joueurCourant.Couleur+".");
                 System.out.println("Veuillez saisir le numéro de la colonne dans laquelle vous voulez placer un jeton (il y a 7 colonnes).");
                 grilleJeu.afficherGrilleSurConsole();
+                System.out.println(joueurCourant.nombreJetonsRestants + "NB JETONS RESTANTS");
                 int colonne = sc.nextInt();
                 while (colonne < 1 || colonne > 7) {
                     System.out.println("Il n'y a que 7 colonnes, veuillez saisir un entier entre 1 et 7 pour placer votre jeton.");
                     colonne = sc.nextInt();
                 }
                 testColonne = grilleJeu.ajouterJetonDansColonne(joueurCourant.ListeJetons[compteur/2], colonne);
-                joueurCourant.nombreJetonsRestants = joueurCourant.nombreJetonsRestants - 1;
                 if (testColonne == true) {
+                    joueurCourant.nombreJetonsRestants = joueurCourant.nombreJetonsRestants - 1;
                     compteur = compteur+1;
                     compteurJoueur = compteurJoueur+1;
                     if (grilleJeu.etreGagnantePourJoueur(joueurCourant)){
