@@ -43,8 +43,8 @@ public class Grille {
                break;
            }
        }
-       for (int j=0; j<=ligne; j++){
-           CellulesJeu[j+1][colonne-1].jetonCourant = CellulesJeu[j][colonne-1].jetonCourant;
+       for (int j=ligne; j<5; j++){
+           CellulesJeu[j][colonne-1].jetonCourant = CellulesJeu[j+1][colonne-1].jetonCourant;
        }
        CellulesJeu[5][colonne-1].jetonCourant = null;
    }
@@ -184,7 +184,7 @@ public class Grille {
    
    public boolean colonneRemplie(int colonne) {
        for (int i=0; i<6; i++) {
-           if (CellulesJeu[i][colonne-1] == null) {
+           if (CellulesJeu[i][colonne-1].jetonCourant == null) {
                return false;
            }
        }

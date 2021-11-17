@@ -94,8 +94,16 @@ public class Partie {
                 }
                 grilleJeu.afficherGrilleSurConsole();
                 System.out.println(joueurCourant.nombreJetonsRestants + "NB JETONS RESTANTS");
+                /*for (int s=0; s<21; s++) {
+                    if (joueurCourant.ListeJetons[s] == null){
+                    System.out.println("LISTE JETON PAS DE JETON "+s);
+                    }
+                    else {
+                    System.out.println("LISTE JETON "+s+" " +joueurCourant.ListeJetons[s].Couleur);
+                    }
+                }*/
                 int colonne = sc.nextInt();
-                while (colonne < 1 || colonne > 8) {
+                while (colonne < 1 || colonne > 8 || grilleJeu.colonneRemplie(colonne) == true) {
                     if (joueurCourant.nombreJetonsRestants == 21){
                         if (colonne < 1 || colonne > 7) {
                             System.out.println("Il n'y a que 7 colonnes, veuillez saisir un entier entre 1 et 7 pour placer votre jeton.");
@@ -106,8 +114,12 @@ public class Partie {
                         if (colonne == 8) {
                             break;
                         }
-                        else {
+                        else if (colonne < 1 || colonne > 7){
                             System.out.println("Il n'y a que 7 colonnes, veuillez saisir un entier entre 1 et 7 pour placer votre jeton. \n Tapez 8 pour récupérer un de vos jetons.");
+                            colonne = sc.nextInt();
+                        }
+                        else if (grilleJeu.colonneRemplie(colonne) == true) {
+                            System.out.println("Cette colonne est remplie, veuillez placer votre jeton dans une autre colonne.");
                             colonne = sc.nextInt();
                         }
                     }
@@ -116,6 +128,7 @@ public class Partie {
                     testColonne = grilleJeu.ajouterJetonDansColonne(joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants-1], colonne);
                     if (testColonne == true) {
                         joueurCourant.nombreJetonsRestants = joueurCourant.nombreJetonsRestants - 1;
+                        joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants] = null;
                         compteur = compteur+1;
                         compteurJoueur = compteurJoueur+1;
                         if (grilleJeu.etreGagnantePourJoueur(joueurCourant)){
@@ -147,6 +160,9 @@ public class Partie {
                             System.out.println("Numéro invalide, il n'y a que 7 colonnes. Veuillez en saisir un nouveau.");
                             colonneJetonARecuperer = sc.nextInt();
                         }
+                        compteur = compteur +1;
+                        compteurJoueur = compteurJoueur+1;
+                        indiceJoueur = compteurJoueur%2;
                         if (grilleJeu.CellulesJeu[ligneJetonARecuperer-1][colonneJetonARecuperer-1].lireCouleurDuJeton() == joueurCourant.Couleur) {
                             Jeton jetonRecupere = grilleJeu.recupererJeton(ligneJetonARecuperer, colonneJetonARecuperer);
                             joueurCourant.nombreJetonsRestants = joueurCourant.nombreJetonsRestants +1;
@@ -154,11 +170,17 @@ public class Partie {
                             grilleJeu.tasserGrille(colonneJetonARecuperer);
                             if (grilleJeu.etreGagnantePourJoueur(joueurCourant)) {
                                 if (grilleJeu.etreGagnantePourJoueur(ListeJoueurs[indiceJoueur])) {
+                                    grilleJeu.afficherGrilleSurConsole();
                                     System.out.println(joueurCourant.Nom + " vous avez provoqué un faute de jeu. Bravo "+ListeJoueurs[indiceJoueur].Nom+" vous avez gagné !");
                                 }
                                 else {
-                                    System.out.println("Bravo "+joueurCourant.Nom+ "vous avez gagné !");
+                                    grilleJeu.afficherGrilleSurConsole();
+                                    System.out.println("Bravo "+joueurCourant.Nom+ " vous avez gagné !");
                                 }
+                            }
+                            else if (grilleJeu.etreGagnantePourJoueur(ListeJoueurs[indiceJoueur])) {
+                                grilleJeu.afficherGrilleSurConsole();
+                                System.out.println("Bravo "+ListeJoueurs[indiceJoueur].Nom+" vous avez gagné !");
                             }
                             testrecupererjeton = true;
                         }
