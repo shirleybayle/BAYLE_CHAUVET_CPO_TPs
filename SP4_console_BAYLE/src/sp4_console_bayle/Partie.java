@@ -64,7 +64,7 @@ public class Partie {
         else {
             joueurCourant = ListeJoueurs[1];
         }
-        for (int i=0; i<6; i++) {
+        for (int i=0; i<5; i++) {
             int lignetn = generateurAleat.nextInt(6);
             int colonnetn = generateurAleat.nextInt(7)+1;
             grilleJeu.placertrouNoir(lignetn, colonnetn);
