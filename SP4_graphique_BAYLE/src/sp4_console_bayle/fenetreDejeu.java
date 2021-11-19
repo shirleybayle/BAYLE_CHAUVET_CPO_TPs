@@ -34,7 +34,30 @@ public class fenetreDejeu extends javax.swing.JFrame {
         nom_joueur2 = new javax.swing.JTextField();
         btn_debut = new javax.swing.JButton();
         panneau_info_joueur = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        nbjetonsj1 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        nomj1 = new javax.swing.JLabel();
+        couleurj1 = new javax.swing.JLabel();
+        nbdesintj2 = new javax.swing.JLabel();
+        couleurj2 = new javax.swing.JLabel();
+        nbjetonsj2 = new javax.swing.JLabel();
+        nbdesintj1 = new javax.swing.JLabel();
+        nomj2 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
         panneau_info_partie = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        nom_joueurCourant = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        message = new javax.swing.JTextArea();
         btn_col_1 = new javax.swing.JButton();
         btn_col_2 = new javax.swing.JButton();
         btn_col_3 = new javax.swing.JButton();
@@ -68,10 +91,102 @@ public class fenetreDejeu extends javax.swing.JFrame {
 
         panneau_info_joueur.setBackground(new java.awt.Color(204, 204, 255));
         panneau_info_joueur.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel3.setFont(new java.awt.Font("Georgia Pro", 0, 18)); // NOI18N
+        jLabel3.setText("Infos joueurs :");
+        panneau_info_joueur.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Georgia Pro", 0, 14)); // NOI18N
+        jLabel4.setText("Joueur 2 :");
+        panneau_info_joueur.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
+
+        nbjetonsj1.setFont(new java.awt.Font("Georgia Pro", 0, 14)); // NOI18N
+        nbjetonsj1.setText("nbjetonsj1");
+        panneau_info_joueur.add(nbjetonsj1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Georgia Pro", 0, 14)); // NOI18N
+        jLabel6.setText("Joueur 1 :");
+        panneau_info_joueur.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Georgia Pro", 0, 14)); // NOI18N
+        jLabel7.setText("Couleur :");
+        panneau_info_joueur.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("Georgia Pro", 0, 14)); // NOI18N
+        jLabel8.setText("Désintégrateurs :");
+        panneau_info_joueur.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
+
+        jLabel9.setFont(new java.awt.Font("Georgia Pro", 0, 14)); // NOI18N
+        jLabel9.setText("Nombre de jetons restants :");
+        panneau_info_joueur.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
+
+        jLabel10.setFont(new java.awt.Font("Georgia Pro", 0, 14)); // NOI18N
+        jLabel10.setText("Couleur :");
+        panneau_info_joueur.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, -1, -1));
+
+        jLabel11.setFont(new java.awt.Font("Georgia Pro", 0, 14)); // NOI18N
+        jLabel11.setText("Désintégrateurs :");
+        panneau_info_joueur.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
+
+        jLabel12.setFont(new java.awt.Font("Georgia Pro", 0, 14)); // NOI18N
+        jLabel12.setText("Nombre de jetons restants :");
+        panneau_info_joueur.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, -1));
+
+        nomj1.setFont(new java.awt.Font("Georgia Pro", 0, 14)); // NOI18N
+        nomj1.setText("nomj1");
+        panneau_info_joueur.add(nomj1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, -1, -1));
+
+        couleurj1.setFont(new java.awt.Font("Georgia Pro", 0, 14)); // NOI18N
+        couleurj1.setText("couleurj1");
+        panneau_info_joueur.add(couleurj1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, -1, -1));
+
+        nbdesintj2.setFont(new java.awt.Font("Georgia Pro", 0, 14)); // NOI18N
+        nbdesintj2.setText("nbdesintj2");
+        panneau_info_joueur.add(nbdesintj2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, -1, -1));
+
+        couleurj2.setFont(new java.awt.Font("Georgia Pro", 0, 14)); // NOI18N
+        couleurj2.setText("couleurj2");
+        panneau_info_joueur.add(couleurj2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, -1, -1));
+
+        nbjetonsj2.setFont(new java.awt.Font("Georgia Pro", 0, 14)); // NOI18N
+        nbjetonsj2.setText("nbjetonsj2");
+        panneau_info_joueur.add(nbjetonsj2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, -1, -1));
+
+        nbdesintj1.setFont(new java.awt.Font("Georgia Pro", 0, 14)); // NOI18N
+        nbdesintj1.setText("nbdesintj1");
+        panneau_info_joueur.add(nbdesintj1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, -1, -1));
+
+        nomj2.setFont(new java.awt.Font("Georgia Pro", 0, 14)); // NOI18N
+        nomj2.setText("nomj2");
+        panneau_info_joueur.add(nomj2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, -1, -1));
+
+        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
+        jSeparator1.setToolTipText("");
+        panneau_info_joueur.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 122, 310, -1));
+
         getContentPane().add(panneau_info_joueur, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 310, 230));
 
         panneau_info_partie.setBackground(new java.awt.Color(204, 204, 255));
         panneau_info_partie.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel5.setFont(new java.awt.Font("Georgia Pro", 0, 18)); // NOI18N
+        jLabel5.setText("Infos partie :");
+        panneau_info_partie.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, -1, -1));
+
+        jLabel13.setFont(new java.awt.Font("Georgia Pro", 0, 14)); // NOI18N
+        jLabel13.setText("C'est au tour de ");
+        panneau_info_partie.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
+
+        nom_joueurCourant.setFont(new java.awt.Font("Georgia Pro", 0, 14)); // NOI18N
+        nom_joueurCourant.setText("nomJoueurCourant");
+        panneau_info_partie.add(nom_joueurCourant, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, -1, -1));
+
+        message.setColumns(20);
+        message.setRows(5);
+        jScrollPane1.setViewportView(message);
+
+        panneau_info_partie.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 280, -1));
+
         getContentPane().add(panneau_info_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 310, 140));
 
         btn_col_1.setText("1");
@@ -142,10 +257,33 @@ public class fenetreDejeu extends javax.swing.JFrame {
     private javax.swing.JButton btn_col_6;
     private javax.swing.JButton btn_col_7;
     private javax.swing.JButton btn_debut;
+    private javax.swing.JLabel couleurj1;
+    private javax.swing.JLabel couleurj2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTextArea message;
+    private javax.swing.JLabel nbdesintj1;
+    private javax.swing.JLabel nbdesintj2;
+    private javax.swing.JLabel nbjetonsj1;
+    private javax.swing.JLabel nbjetonsj2;
     private javax.swing.JTextField nom_joueur1;
     private javax.swing.JTextField nom_joueur2;
+    private javax.swing.JLabel nom_joueurCourant;
+    private javax.swing.JLabel nomj1;
+    private javax.swing.JLabel nomj2;
     private javax.swing.JPanel panneau_creation_partie;
     private javax.swing.JPanel panneau_grille;
     private javax.swing.JPanel panneau_info_joueur;
