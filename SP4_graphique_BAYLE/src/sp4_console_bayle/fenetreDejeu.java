@@ -9,12 +9,26 @@ package sp4_console_bayle;
  * @author shirl
  */
 public class fenetreDejeu extends javax.swing.JFrame {
+    
+    Joueur ListeJoueurs []= new Joueur[2];
+    Joueur joueurCourant;
+    Grille grilleJeu;
 
     /**
      * Creates new form fenetreDejeu
      */
     public fenetreDejeu() {
         initComponents();
+        panneau_info_joueur.setVisible(false);
+        panneau_info_partie.setVisible(false);
+        
+        for (int i=5; i>=0; i--) {
+            for (int j=0; j<7; j++) {
+                CelluleGraphique cellGraph = new CelluleGraphique();
+                panneau_grille.add(cellGraph);
+            }
+        }
+        
     }
 
     /**
@@ -85,6 +99,11 @@ public class fenetreDejeu extends javax.swing.JFrame {
         panneau_creation_partie.add(nom_joueur2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 180, -1));
 
         btn_debut.setText("Démarrer la partie !");
+        btn_debut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_debutActionPerformed(evt);
+            }
+        });
         panneau_creation_partie.add(btn_debut, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, 170, 30));
 
         getContentPane().add(panneau_creation_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 310, 130));
@@ -190,28 +209,33 @@ public class fenetreDejeu extends javax.swing.JFrame {
         getContentPane().add(panneau_info_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 310, 150));
 
         btn_col_1.setText("1");
-        getContentPane().add(btn_col_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, -1, -1));
+        getContentPane().add(btn_col_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, -1, -1));
 
         btn_col_2.setText("2");
-        getContentPane().add(btn_col_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(466, 20, -1, -1));
+        getContentPane().add(btn_col_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(476, 20, -1, -1));
 
         btn_col_3.setText("3");
-        getContentPane().add(btn_col_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(562, 20, -1, -1));
+        getContentPane().add(btn_col_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(572, 20, -1, -1));
 
         btn_col_4.setText("4");
-        getContentPane().add(btn_col_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(658, 20, -1, -1));
+        getContentPane().add(btn_col_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(668, 20, -1, -1));
 
         btn_col_5.setText("5");
-        getContentPane().add(btn_col_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(754, 20, -1, -1));
+        getContentPane().add(btn_col_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(764, 20, -1, -1));
 
         btn_col_6.setText("6");
-        getContentPane().add(btn_col_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 20, -1, -1));
+        getContentPane().add(btn_col_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 20, -1, -1));
 
         btn_col_7.setText("7");
-        getContentPane().add(btn_col_7, new org.netbeans.lib.awtextra.AbsoluteConstraints(946, 20, -1, -1));
+        getContentPane().add(btn_col_7, new org.netbeans.lib.awtextra.AbsoluteConstraints(956, 20, -1, -1));
 
         setBounds(0, 0, 1055, 692);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_debutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_debutActionPerformed
+        panneau_info_joueur.setVisible(true);
+        panneau_info_partie.setVisible(true);
+    }//GEN-LAST:event_btn_debutActionPerformed
 
     /**
      * @param args the command line arguments
