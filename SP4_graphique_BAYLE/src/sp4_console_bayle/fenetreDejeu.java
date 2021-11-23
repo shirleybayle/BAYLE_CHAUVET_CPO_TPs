@@ -12,7 +12,7 @@ public class fenetreDejeu extends javax.swing.JFrame {
     
     Joueur ListeJoueurs []= new Joueur[2];
     Joueur joueurCourant;
-    Grille grilleJeu;
+    Grille grilleJeu = new Grille();
 
     /**
      * Creates new form fenetreDejeu
@@ -24,7 +24,7 @@ public class fenetreDejeu extends javax.swing.JFrame {
         
         for (int i=5; i>=0; i--) {
             for (int j=0; j<7; j++) {
-                CelluleGraphique cellGraph = new CelluleGraphique();
+                CelluleGraphique cellGraph = new CelluleGraphique(grilleJeu.CellulesJeu[i][j]);
                 panneau_grille.add(cellGraph);
             }
         }
