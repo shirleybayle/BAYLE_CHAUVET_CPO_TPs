@@ -4,6 +4,8 @@
  */
 package sp4_console_bayle;
 
+import java.util.Random;
+
 /**
  *
  * @author shirl
@@ -235,6 +237,8 @@ public class fenetreDejeu extends javax.swing.JFrame {
     private void btn_debutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_debutActionPerformed
         panneau_info_joueur.setVisible(true);
         panneau_info_partie.setVisible(true);
+        initialiserPartie();
+        panneau_grille.repaint();
     }//GEN-LAST:event_btn_debutActionPerformed
 
     /**
@@ -272,6 +276,70 @@ public class fenetreDejeu extends javax.swing.JFrame {
         });
     }
 
+    public void initialiserPartie() {
+        grilleJeu.viderGrille();
+        
+        String nomJoueur1  = nom_joueur1.getText();
+        Joueur j1 = new Joueur(nomJoueur1);
+        String nomJoueur2  = nom_joueur2.getText();
+        Joueur j2 = new Joueur(nomJoueur2);
+        
+        ListeJoueurs[0] = j1;
+        ListeJoueurs[1] = j2;
+        
+        attribuerCouleursAuxJoueurs();
+        
+        System.out.println(nomJoueur1 + "est de couleur" + j1.Couleur);
+        System.out.println(nomJoueur2 + "est de couleur" + j2.Couleur);
+        
+        String couleurjet0 = ListeJoueurs[0].Couleur;
+        Jeton jet0 = new Jeton(couleurjet0);
+        for (int i=0; i<22; i++) {
+            ListeJoueurs[0].ajouterJeton(jet0);
+        }
+        String couleurjet1 = ListeJoueurs[1].Couleur;
+        Jeton jet1 = new Jeton(couleurjet1);
+        for (int i=0; i<22; i++) {
+            ListeJoueurs[1].ajouterJeton(jet1);
+        }
+        Random generateurAleat = new Random();
+        int n = generateurAleat.nextInt(2); //on associe 0 à rouge et 1 à jaune
+        if (n==0 && ListeJoueurs[0].Couleur == "rouge") {  //on tire au sort pour savoir qui commence
+            joueurCourant = ListeJoueurs[0];
+        }
+        else if (n==0 && ListeJoueurs[0].Couleur == "jaune") {
+            joueurCourant = ListeJoueurs[1];
+        }
+        else if (n==1 && ListeJoueurs[0].Couleur == "jaune") {
+            joueurCourant = ListeJoueurs[0];
+        }
+        else {
+            joueurCourant = ListeJoueurs[1];
+        }
+        for (int i=0; i<5; i++) {
+            int lignetn = generateurAleat.nextInt(6);
+            int colonnetn = generateurAleat.nextInt(7)+1;
+            grilleJeu.placertrouNoir(lignetn, colonnetn);
+        }
+    }
+    
+    public void attribuerCouleursAuxJoueurs() {
+        Random generateurAleat = new Random();
+        int n = generateurAleat.nextInt(2);
+        Joueur joueur1 = ListeJoueurs[0];
+        Joueur joueur2 = ListeJoueurs[1];
+        if (n==0) {
+            joueur1.Couleur = "jaune";
+            joueur2.Couleur = "rouge";
+        }
+        else {
+            joueur1.Couleur = "rouge";
+            joueur2.Couleur = "jaune";
+        }
+        
+    }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_col_1;
     private javax.swing.JButton btn_col_2;

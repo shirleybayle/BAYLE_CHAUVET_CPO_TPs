@@ -38,7 +38,7 @@ public class Partie {
     }
     
     public void initialiserPartie() {
-        grilleJeu = new Grille();
+        grilleJeu.viderGrille();
         attribuerCouleursAuxJoueurs();
         String couleurjet0 = ListeJoueurs[0].Couleur;
         Jeton jet0 = new Jeton(couleurjet0);
