@@ -33,6 +33,7 @@ public class fenetreDejeu extends javax.swing.JFrame {
                         if (c.jetonCourant == null) return ;
                         else if (c.jetonCourant.Couleur.equals(joueurCourant.Couleur)){
                             message.setText(joueurCourant.Nom+" récupère son jeton.");
+                            //Jeton jrecup = c.
                         }
                         else {
                             message.setText(joueurCourant.Nom+" veut désintégrer un jeton.");
@@ -295,6 +296,8 @@ public class fenetreDejeu extends javax.swing.JFrame {
         if (grilleJeu.colonneRemplie(1)) {
             btn_col_1.setEnabled(false);
         }
+        nbjetonsj2.setText(ListeJoueurs[1].nombreJetonsRestants+"");
+        nbjetonsj1.setText(ListeJoueurs[0].nombreJetonsRestants+"");
         joueurSuivant();
     }//GEN-LAST:event_btn_col_1ActionPerformed
 
@@ -303,6 +306,8 @@ public class fenetreDejeu extends javax.swing.JFrame {
         if (grilleJeu.colonneRemplie(2)) {
             btn_col_2.setEnabled(false);
         }
+        nbjetonsj2.setText(ListeJoueurs[1].nombreJetonsRestants+"");
+        nbjetonsj1.setText(ListeJoueurs[0].nombreJetonsRestants+"");
         joueurSuivant();
     }//GEN-LAST:event_btn_col_2ActionPerformed
 
@@ -311,6 +316,8 @@ public class fenetreDejeu extends javax.swing.JFrame {
         if (grilleJeu.colonneRemplie(3)) {
             btn_col_3.setEnabled(false);
         }
+        nbjetonsj2.setText(ListeJoueurs[1].nombreJetonsRestants+"");
+        nbjetonsj1.setText(ListeJoueurs[0].nombreJetonsRestants+"");
         joueurSuivant();
     }//GEN-LAST:event_btn_col_3ActionPerformed
 
@@ -319,6 +326,8 @@ public class fenetreDejeu extends javax.swing.JFrame {
         if (grilleJeu.colonneRemplie(4)) {
             btn_col_4.setEnabled(false);
         }
+        nbjetonsj2.setText(ListeJoueurs[1].nombreJetonsRestants+"");
+        nbjetonsj1.setText(ListeJoueurs[0].nombreJetonsRestants+"");
         joueurSuivant();
     }//GEN-LAST:event_btn_col_4ActionPerformed
 
@@ -335,6 +344,8 @@ public class fenetreDejeu extends javax.swing.JFrame {
         if (grilleJeu.colonneRemplie(6)) {
             btn_col_6.setEnabled(false);
         }
+        nbjetonsj2.setText(ListeJoueurs[1].nombreJetonsRestants+"");
+        nbjetonsj1.setText(ListeJoueurs[0].nombreJetonsRestants+"");
         joueurSuivant();
     }//GEN-LAST:event_btn_col_6ActionPerformed
 
@@ -343,6 +354,8 @@ public class fenetreDejeu extends javax.swing.JFrame {
         if (grilleJeu.colonneRemplie(7)) {
             btn_col_7.setEnabled(false);
         }
+        nbjetonsj2.setText(ListeJoueurs[1].nombreJetonsRestants+"");
+        nbjetonsj1.setText(ListeJoueurs[0].nombreJetonsRestants+"");
         joueurSuivant();
     }//GEN-LAST:event_btn_col_7ActionPerformed
 
