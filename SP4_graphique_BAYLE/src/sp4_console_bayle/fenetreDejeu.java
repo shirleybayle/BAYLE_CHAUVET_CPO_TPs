@@ -239,6 +239,7 @@ public class fenetreDejeu extends javax.swing.JFrame {
         panneau_info_partie.setVisible(true);
         initialiserPartie();
         panneau_grille.repaint();
+        btn_debut.setEnabled(false);
     }//GEN-LAST:event_btn_debutActionPerformed
 
     /**
@@ -292,6 +293,15 @@ public class fenetreDejeu extends javax.swing.JFrame {
         System.out.println(nomJoueur1 + "est de couleur" + j1.Couleur);
         System.out.println(nomJoueur2 + "est de couleur" + j2.Couleur);
         
+        nomj1.setText(nomJoueur1);
+        nomj2.setText(nomJoueur2);
+        couleurj1.setText(j1.Couleur);
+        couleurj2.setText(j2.Couleur);
+        /*
+        nbdesintj1.setText(j1.nombreDesintegrateurs+"");
+        nbdesintj2.setText(j2.nombreDesintegrateurs+""
+        */
+        
         String couleurjet0 = ListeJoueurs[0].Couleur;
         Jeton jet0 = new Jeton(couleurjet0);
         for (int i=0; i<22; i++) {
@@ -302,6 +312,10 @@ public class fenetreDejeu extends javax.swing.JFrame {
         for (int i=0; i<22; i++) {
             ListeJoueurs[1].ajouterJeton(jet1);
         }
+        
+        nbjetonsj1.setText(j1.nombreJetonsRestants+"");
+        nbjetonsj2.setText(j2.nombreJetonsRestants+"");
+        
         Random generateurAleat = new Random();
         int n = generateurAleat.nextInt(2); //on associe 0 à rouge et 1 à jaune
         if (n==0 && ListeJoueurs[0].Couleur == "rouge") {  //on tire au sort pour savoir qui commence
@@ -316,10 +330,16 @@ public class fenetreDejeu extends javax.swing.JFrame {
         else {
             joueurCourant = ListeJoueurs[1];
         }
+        
+        nom_joueurCourant.setText(joueurCourant.Nom);
+        
         for (int i=0; i<5; i++) {
             int lignetn = generateurAleat.nextInt(6);
             int colonnetn = generateurAleat.nextInt(7)+1;
-            grilleJeu.placertrouNoir(lignetn, colonnetn);
+            boolean tnplace = grilleJeu.placertrouNoir(lignetn, colonnetn);
+            if (tnplace == false) {
+                i=i-1;
+            }
         }
     }
     
