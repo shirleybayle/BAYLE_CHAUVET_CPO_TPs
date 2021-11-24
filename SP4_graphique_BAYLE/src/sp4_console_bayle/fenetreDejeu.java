@@ -279,41 +279,93 @@ public class fenetreDejeu extends javax.swing.JFrame {
 
     private void btn_col_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_1ActionPerformed
         jouerDansColonne(0);
+        if (grilleJeu.colonneRemplie(1)) {
+            btn_col_1.setEnabled(false);
+        }
         joueurSuivant();
     }//GEN-LAST:event_btn_col_1ActionPerformed
 
     private void btn_col_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_2ActionPerformed
         jouerDansColonne(1);
+        if (grilleJeu.colonneRemplie(2)) {
+            btn_col_2.setEnabled(false);
+        }
         joueurSuivant();
     }//GEN-LAST:event_btn_col_2ActionPerformed
 
     private void btn_col_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_3ActionPerformed
         jouerDansColonne(2);
+        if (grilleJeu.colonneRemplie(3)) {
+            btn_col_3.setEnabled(false);
+        }
         joueurSuivant();
     }//GEN-LAST:event_btn_col_3ActionPerformed
 
     private void btn_col_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_4ActionPerformed
         jouerDansColonne(3);
+        if (grilleJeu.colonneRemplie(4)) {
+            btn_col_4.setEnabled(false);
+        }
         joueurSuivant();
     }//GEN-LAST:event_btn_col_4ActionPerformed
 
     private void btn_col_5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_5ActionPerformed
         jouerDansColonne(4);
+        if (grilleJeu.colonneRemplie(5)) {
+            btn_col_5.setEnabled(false);
+        }
         joueurSuivant();
     }//GEN-LAST:event_btn_col_5ActionPerformed
 
     private void btn_col_6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_6ActionPerformed
         jouerDansColonne(5);
+        if (grilleJeu.colonneRemplie(6)) {
+            btn_col_6.setEnabled(false);
+        }
         joueurSuivant();
     }//GEN-LAST:event_btn_col_6ActionPerformed
 
     private void btn_col_7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_7ActionPerformed
         jouerDansColonne(6);
+        if (grilleJeu.colonneRemplie(7)) {
+            btn_col_7.setEnabled(false);
+        }
         joueurSuivant();
     }//GEN-LAST:event_btn_col_7ActionPerformed
 
     public boolean jouerDansColonne(int colonne) {
-        return true;
+        boolean testColonne;
+        testColonne = grilleJeu.ajouterJetonDansColonne(joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants-1], colonne+1);
+        panneau_grille.repaint();
+        
+        /*nbdesintj1.setText(ListeJoueurs[0].nombreDesintegrateurs+"");
+        nbdesintj2.setText(ListeJoueurs[1].nombreDesintegrateurs+"");
+        */
+        
+        boolean victoire_j1 = grilleJeu.etreGagnantePourJoueur(ListeJoueurs[0]);
+        boolean victoire_j2 = grilleJeu.etreGagnantePourJoueur(ListeJoueurs[1]);
+        if (victoire_j1 == true && victoire_j2 == false) {
+            message.setText("Bravo " +ListeJoueurs[0].Nom + " vous avez gagné !");
+        }
+        if (victoire_j2 == true && victoire_j1 == false) {
+            message.setText("Bravo " +ListeJoueurs[1].Nom + " vous avez gagné !");
+        }
+        if (victoire_j1 == true && victoire_j2 == true) {
+            if (joueurCourant == ListeJoueurs[0]) {
+                message.setText(ListeJoueurs[0].Nom + "vous avez commis une faute de jeu. Grâce à vous, "+ListeJoueurs[1].Nom+" a gagné !");
+            }
+            else {
+                message.setText(ListeJoueurs[1].Nom + "vous avez commis une faute de jeu. Grâce à vous, "+ListeJoueurs[0].Nom+" a gagné !");
+            }
+        }
+        
+        if (testColonne = true) {
+            return true;
+        }
+        else {
+            return false;
+        }
+        
     }
     
     public void joueurSuivant() {
