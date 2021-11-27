@@ -250,7 +250,10 @@ public class fenetreDejeu extends javax.swing.JFrame {
         nom_joueurCourant.setText("nomJoueurCourant");
         panneau_info_partie.add(nom_joueurCourant, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, -1, -1));
 
-        message.setColumns(20);
+        message.setBackground(new java.awt.Color(204, 204, 255));
+        message.setColumns(16);
+        message.setFont(new java.awt.Font("Georgia Pro", 1, 14)); // NOI18N
+        message.setForeground(new java.awt.Color(255, 0, 51));
         message.setRows(5);
         jScrollPane1.setViewportView(message);
 
@@ -410,15 +413,43 @@ public class fenetreDejeu extends javax.swing.JFrame {
         boolean victoire_j2 = grilleJeu.etreGagnantePourJoueur(ListeJoueurs[1]);
         if (victoire_j1 == true && victoire_j2 == false) {
             message.setText("Bravo " + ListeJoueurs[0].Nom + " vous avez gagné !");
+            btn_col_1.setEnabled(false);
+            btn_col_2.setEnabled(false);
+            btn_col_3.setEnabled(false);
+            btn_col_4.setEnabled(false);
+            btn_col_5.setEnabled(false);
+            btn_col_6.setEnabled(false);
+            btn_col_7.setEnabled(false);
         }
         if (victoire_j2 == true && victoire_j1 == false) {
             message.setText("Bravo " + ListeJoueurs[1].Nom + " vous avez gagné !");
+            btn_col_1.setEnabled(false);
+            btn_col_2.setEnabled(false);
+            btn_col_3.setEnabled(false);
+            btn_col_4.setEnabled(false);
+            btn_col_5.setEnabled(false);
+            btn_col_6.setEnabled(false);
+            btn_col_7.setEnabled(false);
         }
         if (victoire_j1 == true && victoire_j2 == true) {
             if (joueurCourant == ListeJoueurs[0]) {
-                message.setText(ListeJoueurs[0].Nom + "vous avez commis une faute de jeu. Grâce à vous, " + ListeJoueurs[1].Nom + " a gagné !");
+                message.setText(ListeJoueurs[0].Nom + ", vous avez commis une faute de jeu. Grâce à vous, " + ListeJoueurs[1].Nom + " a gagné !");
+                btn_col_1.setEnabled(false);
+                btn_col_2.setEnabled(false);
+                btn_col_3.setEnabled(false);
+                btn_col_4.setEnabled(false);
+                btn_col_5.setEnabled(false);
+                btn_col_6.setEnabled(false);
+                btn_col_7.setEnabled(false);
             } else {
-                message.setText(ListeJoueurs[1].Nom + "vous avez commis une faute de jeu. Grâce à vous, " + ListeJoueurs[0].Nom + " a gagné !");
+                message.setText(ListeJoueurs[1].Nom + ", vous avez commis une faute de jeu. Grâce à vous, " + ListeJoueurs[0].Nom + " a gagné !");            
+                btn_col_1.setEnabled(false);
+                btn_col_2.setEnabled(false);
+                btn_col_3.setEnabled(false);
+                btn_col_4.setEnabled(false);
+                btn_col_5.setEnabled(false);
+                btn_col_6.setEnabled(false);
+                btn_col_7.setEnabled(false);
             }
         }
 
