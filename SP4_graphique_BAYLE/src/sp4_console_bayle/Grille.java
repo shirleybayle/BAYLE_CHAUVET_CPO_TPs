@@ -74,7 +74,7 @@ public class Grille {
        for (int i=0; i<6; i++) { 
            boolean testtrounoir = CellulesJeu[i][colonne-1].presenceTrouNoir();
            boolean testdesintegrateur = CellulesJeu[i][colonne-1].presenceDesintegrateur();
-           Jeton jet = joueur.ListeJetons[joueur.nombreJetonsRestants];
+           Jeton jet = joueur.ListeJetons[joueur.nombreJetonsRestants-1];
            joueur.ListeJetons[joueur.nombreJetonsRestants] = null;
            if (CellulesJeu[i][colonne-1].jetonCourant == null && testtrounoir == false && testdesintegrateur == false){      // ajouter fontionnalité trou noir
                CellulesJeu[i][colonne-1].jetonCourant = jet;
