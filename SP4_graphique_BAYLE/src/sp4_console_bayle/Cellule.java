@@ -11,6 +11,46 @@ package sp4_console_bayle;
 public class Cellule {
     Jeton jetonCourant;
     boolean trouNoir;
+        boolean desintegrateur;
+    
+    public boolean supprimerJeton() {
+        if (jetonCourant!=null) {
+            jetonCourant = null;
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    
+    public boolean placerDesintegrateur() {
+        if (desintegrateur == false) {
+            desintegrateur = true;
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    
+    public boolean recupererDesintegrateur() {
+        if (desintegrateur == true) {
+            desintegrateur = false;
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    
+    public boolean presenceDesintegrateur() {
+        if (desintegrateur == true) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
     
     public Jeton recupererJeton() {
         Jeton jeton = jetonCourant;
