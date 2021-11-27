@@ -12,6 +12,12 @@ public class Cellule {
     Jeton jetonCourant;
     boolean trouNoir;
     
+    public Jeton recupererJeton() {
+        Jeton jeton = jetonCourant;
+        jetonCourant = null;
+        return jeton;
+    }
+    
     public boolean presenceTrouNoir() {
         if (trouNoir == true) {
             return true;

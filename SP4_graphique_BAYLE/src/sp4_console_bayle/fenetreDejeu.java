@@ -33,7 +33,8 @@ public class fenetreDejeu extends javax.swing.JFrame {
                         if (c.jetonCourant == null) return ;
                         else if (c.jetonCourant.Couleur.equals(joueurCourant.Couleur)){
                             message.setText(joueurCourant.Nom+" récupère son jeton.");
-                            //Jeton jrecup = c.
+                            Jeton jrecup = c.recupererJeton();
+                            joueurCourant.ajouterJeton(jrecup);
                         }
                         else {
                             message.setText(joueurCourant.Nom+" veut désintégrer un jeton.");
