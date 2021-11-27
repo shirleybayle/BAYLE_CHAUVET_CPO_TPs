@@ -549,10 +549,10 @@ public class fenetreDejeu extends javax.swing.JFrame {
         for (int i=0; i<2; i++) {
             int lignedesint = generateurAleat.nextInt(6);
             int colonnedesint = generateurAleat.nextInt(7)+1;
-            if (grilleJeu.CellulesJeu[lignedesint][colonnedesint].desintegrateur == true) {
+            if (grilleJeu.CellulesJeu[lignedesint][colonnedesint-1].desintegrateur == true) {
                 i = i-1;
             }
-            else if (grilleJeu.CellulesJeu[lignedesint][colonnedesint].trouNoir == false) {
+            else if (grilleJeu.CellulesJeu[lignedesint][colonnedesint-1].trouNoir == false) {
                 i = i-1;
             }
             else {

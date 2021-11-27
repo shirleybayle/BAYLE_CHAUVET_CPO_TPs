@@ -71,11 +71,11 @@ public class Grille {
    }
    
    public boolean ajouterJetonDansColonne(Joueur joueur, int colonne) {
+       Jeton jet = joueur.ListeJetons[joueur.nombreJetonsRestants-1];
+       joueur.ListeJetons[joueur.nombreJetonsRestants-1] = null;
        for (int i=0; i<6; i++) { 
            boolean testtrounoir = CellulesJeu[i][colonne-1].presenceTrouNoir();
            boolean testdesintegrateur = CellulesJeu[i][colonne-1].presenceDesintegrateur();
-           Jeton jet = joueur.ListeJetons[joueur.nombreJetonsRestants-1];
-           joueur.ListeJetons[joueur.nombreJetonsRestants] = null;
            if (CellulesJeu[i][colonne-1].jetonCourant == null && testtrounoir == false && testdesintegrateur == false){      // ajouter fontionnalité trou noir
                CellulesJeu[i][colonne-1].jetonCourant = jet;
                return true;

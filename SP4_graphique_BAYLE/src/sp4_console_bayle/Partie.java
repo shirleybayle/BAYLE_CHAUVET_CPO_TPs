@@ -69,6 +69,32 @@ public class Partie {
             int colonnetn = generateurAleat.nextInt(7)+1;
             grilleJeu.placertrouNoir(lignetn, colonnetn);
         }
+        for (int i = 0; i<3; i++) {
+            int lignedesint = generateurAleat.nextInt(6);
+            int colonnedesint = generateurAleat.nextInt(7)+1;
+            if (grilleJeu.CellulesJeu[lignedesint][colonnedesint-1].desintegrateur == true) {
+                i = i-1;
+            }
+            else if (grilleJeu.CellulesJeu[lignedesint][colonnedesint-1].trouNoir == true) {
+                i = i-1;
+            }
+            else {
+                grilleJeu.placerDesintegrateur(lignedesint, colonnedesint);
+            }
+        }
+        for (int i=0; i<2; i++) {
+            int lignedesint = generateurAleat.nextInt(6);
+            int colonnedesint = generateurAleat.nextInt(7)+1;
+            if (grilleJeu.CellulesJeu[lignedesint][colonnedesint].desintegrateur == true) {
+                i = i-1;
+            }
+            else if (grilleJeu.CellulesJeu[lignedesint][colonnedesint].trouNoir == false) {
+                i = i-1;
+            }
+            else {
+                grilleJeu.placerDesintegrateur(lignedesint, colonnedesint);
+            }
+        }
     }
     
     public void debuterPartie() {
