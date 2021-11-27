@@ -11,8 +11,8 @@ import java.util.Random;
  * @author shirl
  */
 public class fenetreDejeu extends javax.swing.JFrame {
-    
-    Joueur ListeJoueurs []= new Joueur[2];
+
+    Joueur ListeJoueurs[] = new Joueur[2];
     Joueur joueurCourant;
     Grille grilleJeu = new Grille();
 
@@ -23,29 +23,55 @@ public class fenetreDejeu extends javax.swing.JFrame {
         initComponents();
         panneau_info_joueur.setVisible(false);
         panneau_info_partie.setVisible(false);
-        
-        for (int i=5; i>=0; i--) {
-            for (int j=0; j<7; j++) {
+
+        for (int i = 5; i >= 0; i--) {
+            for (int j = 0; j < 7; j++) {
                 CelluleGraphique cellGraph = new CelluleGraphique(grilleJeu.CellulesJeu[i][j]);
                 cellGraph.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
                         Cellule c = cellGraph.celluleAssociee;
-                        if (c.jetonCourant == null) return ;
-                        else if (c.jetonCourant.Couleur.equals(joueurCourant.Couleur)){
-                            message.setText(joueurCourant.Nom+" récupère son jeton.");
+                        if (c.jetonCourant == null) {
+                            return;
+                        } else if (c.jetonCourant.Couleur.equals(joueurCourant.Couleur)) {
+                            message.setText(joueurCourant.Nom + " récupère son jeton.");
                             Jeton jrecup = c.recupererJeton();
                             joueurCourant.ajouterJeton(jrecup);
+                            joueurSuivant();
+                        } else {
+                            message.setText(joueurCourant.Nom + " veut désintégrer un jeton.");
                         }
-                        else {
-                            message.setText(joueurCourant.Nom+" veut désintégrer un jeton.");
-                        }
+                        grilleJeu.tasserGrille();
+                        panneau_grille.repaint();
                         
+                        joueurCourant.nombreJetonsRestants = joueurCourant.nombreJetonsRestants-1;
+
+                        nbjetonsj2.setText(ListeJoueurs[1].nombreJetonsRestants + "");
+                        nbjetonsj1.setText(ListeJoueurs[0].nombreJetonsRestants + "");
+
+                        /*nbdesintj1.setText(ListeJoueurs[0].nombreDesintegrateurs+"");
+        nbdesintj2.setText(ListeJoueurs[1].nombreDesintegrateurs+"");
+                         */
+                        boolean victoire_j1 = grilleJeu.etreGagnantePourJoueur(ListeJoueurs[0]);
+                        boolean victoire_j2 = grilleJeu.etreGagnantePourJoueur(ListeJoueurs[1]);
+                        if (victoire_j1 == true && victoire_j2 == false) {
+                            message.setText("Bravo " + ListeJoueurs[0].Nom + " vous avez gagné !");
+                        }
+                        if (victoire_j2 == true && victoire_j1 == false) {
+                            message.setText("Bravo " + ListeJoueurs[1].Nom + " vous avez gagné !");
+                        }
+                        if (victoire_j1 == true && victoire_j2 == true) {
+                            if (joueurCourant == ListeJoueurs[0]) {
+                                message.setText(ListeJoueurs[0].Nom + "vous avez commis une faute de jeu. Grâce à vous, " + ListeJoueurs[1].Nom + " a gagné !");
+                            } else {
+                                message.setText(ListeJoueurs[1].Nom + "vous avez commis une faute de jeu. Grâce à vous, " + ListeJoueurs[0].Nom + " a gagné !");
+                            }
+                        }
                     }
-                }); 
+                });
                 panneau_grille.add(cellGraph);
             }
         }
-        
+
     }
 
     /**
@@ -297,8 +323,8 @@ public class fenetreDejeu extends javax.swing.JFrame {
         if (grilleJeu.colonneRemplie(1)) {
             btn_col_1.setEnabled(false);
         }
-        nbjetonsj2.setText(ListeJoueurs[1].nombreJetonsRestants+"");
-        nbjetonsj1.setText(ListeJoueurs[0].nombreJetonsRestants+"");
+        nbjetonsj2.setText(ListeJoueurs[1].nombreJetonsRestants + "");
+        nbjetonsj1.setText(ListeJoueurs[0].nombreJetonsRestants + "");
         joueurSuivant();
     }//GEN-LAST:event_btn_col_1ActionPerformed
 
@@ -307,8 +333,8 @@ public class fenetreDejeu extends javax.swing.JFrame {
         if (grilleJeu.colonneRemplie(2)) {
             btn_col_2.setEnabled(false);
         }
-        nbjetonsj2.setText(ListeJoueurs[1].nombreJetonsRestants+"");
-        nbjetonsj1.setText(ListeJoueurs[0].nombreJetonsRestants+"");
+        nbjetonsj2.setText(ListeJoueurs[1].nombreJetonsRestants + "");
+        nbjetonsj1.setText(ListeJoueurs[0].nombreJetonsRestants + "");
         joueurSuivant();
     }//GEN-LAST:event_btn_col_2ActionPerformed
 
@@ -317,8 +343,8 @@ public class fenetreDejeu extends javax.swing.JFrame {
         if (grilleJeu.colonneRemplie(3)) {
             btn_col_3.setEnabled(false);
         }
-        nbjetonsj2.setText(ListeJoueurs[1].nombreJetonsRestants+"");
-        nbjetonsj1.setText(ListeJoueurs[0].nombreJetonsRestants+"");
+        nbjetonsj2.setText(ListeJoueurs[1].nombreJetonsRestants + "");
+        nbjetonsj1.setText(ListeJoueurs[0].nombreJetonsRestants + "");
         joueurSuivant();
     }//GEN-LAST:event_btn_col_3ActionPerformed
 
@@ -327,8 +353,8 @@ public class fenetreDejeu extends javax.swing.JFrame {
         if (grilleJeu.colonneRemplie(4)) {
             btn_col_4.setEnabled(false);
         }
-        nbjetonsj2.setText(ListeJoueurs[1].nombreJetonsRestants+"");
-        nbjetonsj1.setText(ListeJoueurs[0].nombreJetonsRestants+"");
+        nbjetonsj2.setText(ListeJoueurs[1].nombreJetonsRestants + "");
+        nbjetonsj1.setText(ListeJoueurs[0].nombreJetonsRestants + "");
         joueurSuivant();
     }//GEN-LAST:event_btn_col_4ActionPerformed
 
@@ -345,8 +371,8 @@ public class fenetreDejeu extends javax.swing.JFrame {
         if (grilleJeu.colonneRemplie(6)) {
             btn_col_6.setEnabled(false);
         }
-        nbjetonsj2.setText(ListeJoueurs[1].nombreJetonsRestants+"");
-        nbjetonsj1.setText(ListeJoueurs[0].nombreJetonsRestants+"");
+        nbjetonsj2.setText(ListeJoueurs[1].nombreJetonsRestants + "");
+        nbjetonsj1.setText(ListeJoueurs[0].nombreJetonsRestants + "");
         joueurSuivant();
     }//GEN-LAST:event_btn_col_6ActionPerformed
 
@@ -355,56 +381,57 @@ public class fenetreDejeu extends javax.swing.JFrame {
         if (grilleJeu.colonneRemplie(7)) {
             btn_col_7.setEnabled(false);
         }
-        nbjetonsj2.setText(ListeJoueurs[1].nombreJetonsRestants+"");
-        nbjetonsj1.setText(ListeJoueurs[0].nombreJetonsRestants+"");
+        nbjetonsj2.setText(ListeJoueurs[1].nombreJetonsRestants + "");
+        nbjetonsj1.setText(ListeJoueurs[0].nombreJetonsRestants + "");
         joueurSuivant();
     }//GEN-LAST:event_btn_col_7ActionPerformed
 
     public boolean jouerDansColonne(int colonne) {
         boolean testColonne;
-        testColonne = grilleJeu.ajouterJetonDansColonne(joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants-1], colonne+1);
+        testColonne = grilleJeu.ajouterJetonDansColonne(joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants - 1], colonne + 1);
         panneau_grille.repaint();
         
+        joueurCourant.nombreJetonsRestants = joueurCourant.nombreJetonsRestants-1;
+
+        nbjetonsj2.setText(ListeJoueurs[1].nombreJetonsRestants + "");
+        nbjetonsj1.setText(ListeJoueurs[0].nombreJetonsRestants + "");
+
         /*nbdesintj1.setText(ListeJoueurs[0].nombreDesintegrateurs+"");
         nbdesintj2.setText(ListeJoueurs[1].nombreDesintegrateurs+"");
-        */
-        
+         */
         boolean victoire_j1 = grilleJeu.etreGagnantePourJoueur(ListeJoueurs[0]);
         boolean victoire_j2 = grilleJeu.etreGagnantePourJoueur(ListeJoueurs[1]);
         if (victoire_j1 == true && victoire_j2 == false) {
-            message.setText("Bravo " +ListeJoueurs[0].Nom + " vous avez gagné !");
+            message.setText("Bravo " + ListeJoueurs[0].Nom + " vous avez gagné !");
         }
         if (victoire_j2 == true && victoire_j1 == false) {
-            message.setText("Bravo " +ListeJoueurs[1].Nom + " vous avez gagné !");
+            message.setText("Bravo " + ListeJoueurs[1].Nom + " vous avez gagné !");
         }
         if (victoire_j1 == true && victoire_j2 == true) {
             if (joueurCourant == ListeJoueurs[0]) {
-                message.setText(ListeJoueurs[0].Nom + "vous avez commis une faute de jeu. Grâce à vous, "+ListeJoueurs[1].Nom+" a gagné !");
-            }
-            else {
-                message.setText(ListeJoueurs[1].Nom + "vous avez commis une faute de jeu. Grâce à vous, "+ListeJoueurs[0].Nom+" a gagné !");
+                message.setText(ListeJoueurs[0].Nom + "vous avez commis une faute de jeu. Grâce à vous, " + ListeJoueurs[1].Nom + " a gagné !");
+            } else {
+                message.setText(ListeJoueurs[1].Nom + "vous avez commis une faute de jeu. Grâce à vous, " + ListeJoueurs[0].Nom + " a gagné !");
             }
         }
-        
+
         if (testColonne = true) {
             return true;
-        }
-        else {
+        } else {
             return false;
         }
-        
+
     }
-    
+
     public void joueurSuivant() {
         if (joueurCourant == ListeJoueurs[0]) {
             joueurCourant = ListeJoueurs[1];
-        }
-        else {
+        } else {
             joueurCourant = ListeJoueurs[0];
         }
         nom_joueurCourant.setText(joueurCourant.Nom);
     }
-    
+
     /**
      * @param args the command line arguments
      */
@@ -442,20 +469,20 @@ public class fenetreDejeu extends javax.swing.JFrame {
 
     public void initialiserPartie() {
         grilleJeu.viderGrille();
-        
-        String nomJoueur1  = nom_joueur1.getText();
+
+        String nomJoueur1 = nom_joueur1.getText();
         Joueur j1 = new Joueur(nomJoueur1);
-        String nomJoueur2  = nom_joueur2.getText();
+        String nomJoueur2 = nom_joueur2.getText();
         Joueur j2 = new Joueur(nomJoueur2);
-        
+
         ListeJoueurs[0] = j1;
         ListeJoueurs[1] = j2;
-        
+
         attribuerCouleursAuxJoueurs();
-        
+
         System.out.println(nomJoueur1 + "est de couleur" + j1.Couleur);
         System.out.println(nomJoueur2 + "est de couleur" + j2.Couleur);
-        
+
         nomj1.setText(nomJoueur1);
         nomj2.setText(nomJoueur2);
         couleurj1.setText(j1.Couleur);
@@ -463,66 +490,62 @@ public class fenetreDejeu extends javax.swing.JFrame {
         /*
         nbdesintj1.setText(j1.nombreDesintegrateurs+"");
         nbdesintj2.setText(j2.nombreDesintegrateurs+""
-        */
-        
+         */
+
         String couleurjet0 = ListeJoueurs[0].Couleur;
         Jeton jet0 = new Jeton(couleurjet0);
-        for (int i=0; i<22; i++) {
+        for (int i = 0; i < 22; i++) {
             ListeJoueurs[0].ajouterJeton(jet0);
         }
         String couleurjet1 = ListeJoueurs[1].Couleur;
         Jeton jet1 = new Jeton(couleurjet1);
-        for (int i=0; i<22; i++) {
+        for (int i = 0; i < 22; i++) {
             ListeJoueurs[1].ajouterJeton(jet1);
         }
-        
-        nbjetonsj1.setText(j1.nombreJetonsRestants+"");
-        nbjetonsj2.setText(j2.nombreJetonsRestants+"");
-        
+
+        nbjetonsj1.setText(j1.nombreJetonsRestants + "");
+        nbjetonsj2.setText(j2.nombreJetonsRestants + "");
+
         Random generateurAleat = new Random();
         int n = generateurAleat.nextInt(2); //on associe 0 à rouge et 1 à jaune
-        if (n==0 && ListeJoueurs[0].Couleur == "rouge") {  //on tire au sort pour savoir qui commence
+        if (n == 0 && ListeJoueurs[0].Couleur == "rouge") {  //on tire au sort pour savoir qui commence
             joueurCourant = ListeJoueurs[0];
-        }
-        else if (n==0 && ListeJoueurs[0].Couleur == "jaune") {
+        } else if (n == 0 && ListeJoueurs[0].Couleur == "jaune") {
+            joueurCourant = ListeJoueurs[1];
+        } else if (n == 1 && ListeJoueurs[0].Couleur == "jaune") {
+            joueurCourant = ListeJoueurs[0];
+        } else {
             joueurCourant = ListeJoueurs[1];
         }
-        else if (n==1 && ListeJoueurs[0].Couleur == "jaune") {
-            joueurCourant = ListeJoueurs[0];
-        }
-        else {
-            joueurCourant = ListeJoueurs[1];
-        }
-        
+
         nom_joueurCourant.setText(joueurCourant.Nom);
-        
-        for (int i=0; i<5; i++) {
+
+        for (int i = 0; i < 5; i++) {
             int lignetn = generateurAleat.nextInt(6);
-            int colonnetn = generateurAleat.nextInt(7)+1;
+            int colonnetn = generateurAleat.nextInt(7) + 1;
             boolean tnplace = grilleJeu.placertrouNoir(lignetn, colonnetn);
             if (tnplace == false) {
-                i=i-1;
+                i = i - 1;
             }
         }
     }
-    
+
     public void attribuerCouleursAuxJoueurs() {
         Random generateurAleat = new Random();
         int n = generateurAleat.nextInt(2);
         Joueur joueur1 = ListeJoueurs[0];
         Joueur joueur2 = ListeJoueurs[1];
-        if (n==0) {
+        if (n == 0) {
             joueur1.Couleur = "jaune";
             joueur2.Couleur = "rouge";
-        }
-        else {
+        } else {
             joueur1.Couleur = "rouge";
             joueur2.Couleur = "jaune";
         }
-        
+
     }
-    
-    
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_col_1;
     private javax.swing.JButton btn_col_2;

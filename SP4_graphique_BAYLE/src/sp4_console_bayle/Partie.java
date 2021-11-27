@@ -167,7 +167,7 @@ public class Partie {
                             Jeton jetonRecupere = grilleJeu.recupererJeton(ligneJetonARecuperer, colonneJetonARecuperer);
                             joueurCourant.nombreJetonsRestants = joueurCourant.nombreJetonsRestants +1;
                             joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants-1] = jetonRecupere;
-                            grilleJeu.tasserGrille(colonneJetonARecuperer);
+                            grilleJeu.tasserColonne(colonneJetonARecuperer);
                             if (grilleJeu.etreGagnantePourJoueur(joueurCourant)) {
                                 if (grilleJeu.etreGagnantePourJoueur(ListeJoueurs[indiceJoueur])) {
                                     grilleJeu.afficherGrilleSurConsole();

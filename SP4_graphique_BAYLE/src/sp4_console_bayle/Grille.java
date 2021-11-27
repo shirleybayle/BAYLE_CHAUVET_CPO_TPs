@@ -35,7 +35,7 @@ public class Grille {
        return jet;
    }
    
-   public void tasserGrille(int colonne) { // fonctionne lal
+   public void tasserColonne(int colonne) { // fonctionne lal
        int ligne = 0;
        for (int i=0; i<6; i++) {
            if (CellulesJeu[i][colonne-1].jetonCourant == null) {
@@ -47,6 +47,12 @@ public class Grille {
            CellulesJeu[j][colonne-1].jetonCourant = CellulesJeu[j+1][colonne-1].jetonCourant;
        }
        CellulesJeu[5][colonne-1].jetonCourant = null;
+   }
+   
+   public void tasserGrille() {
+       for (int i=1; i<8; i++) {
+           tasserColonne(i);
+       }
    }
    
    public boolean ajouterJetonDansColonne(Jeton jet, int colonne) {
