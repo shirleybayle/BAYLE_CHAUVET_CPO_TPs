@@ -11,6 +11,21 @@ package sp4_console_bayle;
 public class Grille {
    Cellule [][] CellulesJeu = new Cellule [6][7];
    
+   public boolean placerDesintegrateur(int ligne, int colonne) {
+       if (CellulesJeu[ligne][colonne-1].desintegrateur == false) {
+           CellulesJeu[ligne][colonne-1].desintegrateur = true;
+           return true;
+       }
+       else {
+           return false;
+       }
+   }
+   
+   public boolean supprimerJeton(int ligne, int colonne) {
+       boolean suppression = CellulesJeu[ligne][colonne-1].supprimerJeton();
+       return suppression;
+   }
+   
    public boolean placertrouNoir(int ligne, int colonne) {
         if (CellulesJeu[ligne][colonne-1].trouNoir == false) {
             CellulesJeu[ligne][colonne-1].trouNoir = true;
