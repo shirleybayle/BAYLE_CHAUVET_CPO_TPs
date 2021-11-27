@@ -398,7 +398,20 @@ public class fenetreDejeu extends javax.swing.JFrame {
 
     public boolean jouerDansColonne(int colonne) {
         boolean testColonne;
-        testColonne = grilleJeu.ajouterJetonDansColonne(joueurCourant, colonne + 1);
+        if (joueurCourant.nombreJetonsRestants !=0) {
+            testColonne = grilleJeu.ajouterJetonDansColonne(joueurCourant, colonne + 1);
+        }
+        else {
+            btn_col_1.setEnabled(false);
+            btn_col_2.setEnabled(false);
+            btn_col_3.setEnabled(false);
+            btn_col_4.setEnabled(false);
+            btn_col_5.setEnabled(false);
+            btn_col_6.setEnabled(false);
+            btn_col_7.setEnabled(false);
+            message.setText("VOUS N'AVEZ PLUS DE JETONS !!!! Pour continuer le jeu, veuillez désintégrer un jeton si vous avez un désintégrateur ou bien récupérer un de vos jetons.");
+            joueurSuivant();
+        }
         panneau_grille.repaint();
         
         joueurCourant.nombreJetonsRestants = joueurCourant.nombreJetonsRestants-1;
