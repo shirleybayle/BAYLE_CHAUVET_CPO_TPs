@@ -38,19 +38,26 @@ public class fenetreDejeu extends javax.swing.JFrame {
                             joueurCourant.ajouterJeton(jrecup);
                             joueurSuivant();
                         } else {
-                            message.setText(joueurCourant.Nom + " veut désintégrer un jeton.");
+                            if (joueurCourant.nombreDesintegrateurs>0) {
+                            message.setText(joueurCourant.Nom + " désintègre un jeton.");
+                            c.supprimerJeton();
+                            joueurCourant.utiliserDesintegrateur();
+                            joueurSuivant();
+                            }
+                            else {
+                                return;
+                            }
                         }
+                        
                         grilleJeu.tasserGrille();
                         panneau_grille.repaint();
-                        
-                        joueurCourant.nombreJetonsRestants = joueurCourant.nombreJetonsRestants-1;
 
                         nbjetonsj2.setText(ListeJoueurs[1].nombreJetonsRestants + "");
                         nbjetonsj1.setText(ListeJoueurs[0].nombreJetonsRestants + "");
 
-                        /*nbdesintj1.setText(ListeJoueurs[0].nombreDesintegrateurs+"");
-        nbdesintj2.setText(ListeJoueurs[1].nombreDesintegrateurs+"");
-                         */
+                        nbdesintj1.setText(ListeJoueurs[0].nombreDesintegrateurs+"");
+                        nbdesintj2.setText(ListeJoueurs[1].nombreDesintegrateurs+"");
+                         
                         boolean victoire_j1 = grilleJeu.etreGagnantePourJoueur(ListeJoueurs[0]);
                         boolean victoire_j2 = grilleJeu.etreGagnantePourJoueur(ListeJoueurs[1]);
                         if (victoire_j1 == true && victoire_j2 == false) {
@@ -396,9 +403,9 @@ public class fenetreDejeu extends javax.swing.JFrame {
         nbjetonsj2.setText(ListeJoueurs[1].nombreJetonsRestants + "");
         nbjetonsj1.setText(ListeJoueurs[0].nombreJetonsRestants + "");
 
-        /*nbdesintj1.setText(ListeJoueurs[0].nombreDesintegrateurs+"");
+        nbdesintj1.setText(ListeJoueurs[0].nombreDesintegrateurs+"");
         nbdesintj2.setText(ListeJoueurs[1].nombreDesintegrateurs+"");
-         */
+         
         boolean victoire_j1 = grilleJeu.etreGagnantePourJoueur(ListeJoueurs[0]);
         boolean victoire_j2 = grilleJeu.etreGagnantePourJoueur(ListeJoueurs[1]);
         if (victoire_j1 == true && victoire_j2 == false) {
@@ -487,10 +494,8 @@ public class fenetreDejeu extends javax.swing.JFrame {
         nomj2.setText(nomJoueur2);
         couleurj1.setText(j1.Couleur);
         couleurj2.setText(j2.Couleur);
-        /*
         nbdesintj1.setText(j1.nombreDesintegrateurs+"");
-        nbdesintj2.setText(j2.nombreDesintegrateurs+""
-         */
+        nbdesintj2.setText(j2.nombreDesintegrateurs+"");
 
         String couleurjet0 = ListeJoueurs[0].Couleur;
         Jeton jet0 = new Jeton(couleurjet0);

@@ -18,6 +18,7 @@ public class Joueur {
     public Joueur(String name) {
         Nom = name;
         nombreJetonsRestants = 0;
+        nombreDesintegrateurs = 0;
     }
     
     public void obtenirDesintegrateur() {
