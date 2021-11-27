@@ -321,8 +321,8 @@ public class fenetreDejeu extends javax.swing.JFrame {
         panneau_info_joueur.setVisible(true);
         panneau_info_partie.setVisible(true);
         initialiserPartie();
-        panneau_grille.repaint();
         btn_debut.setEnabled(false);
+        panneau_grille.repaint();
     }//GEN-LAST:event_btn_debutActionPerformed
 
     private void btn_col_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_1ActionPerformed
@@ -395,7 +395,7 @@ public class fenetreDejeu extends javax.swing.JFrame {
 
     public boolean jouerDansColonne(int colonne) {
         boolean testColonne;
-        testColonne = grilleJeu.ajouterJetonDansColonne(joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants - 1], colonne + 1);
+        testColonne = grilleJeu.ajouterJetonDansColonne(joueurCourant, colonne + 1);
         panneau_grille.repaint();
         
         joueurCourant.nombreJetonsRestants = joueurCourant.nombreJetonsRestants-1;

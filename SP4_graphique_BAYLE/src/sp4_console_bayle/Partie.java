@@ -125,7 +125,7 @@ public class Partie {
                     }
                 }
                 if (colonne != 8){
-                    testColonne = grilleJeu.ajouterJetonDansColonne(joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants-1], colonne);
+                    testColonne = grilleJeu.ajouterJetonDansColonne(joueurCourant, colonne);
                     if (testColonne == true) {
                         joueurCourant.nombreJetonsRestants = joueurCourant.nombreJetonsRestants - 1;
                         joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants] = null;

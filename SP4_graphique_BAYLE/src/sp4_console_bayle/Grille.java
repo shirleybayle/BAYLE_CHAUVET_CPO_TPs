@@ -70,17 +70,33 @@ public class Grille {
        }
    }
    
-   public boolean ajouterJetonDansColonne(Jeton jet, int colonne) {
+   public boolean ajouterJetonDansColonne(Joueur joueur, int colonne) {
        for (int i=0; i<6; i++) { 
            boolean testtrounoir = CellulesJeu[i][colonne-1].presenceTrouNoir();
-           if (CellulesJeu[i][colonne-1].jetonCourant == null && testtrounoir == false){      // ajouter fontionnalité trou noir
+           boolean testdesintegrateur = CellulesJeu[i][colonne-1].presenceDesintegrateur();
+           Jeton jet = joueur.ListeJetons[joueur.nombreJetonsRestants];
+           joueur.ListeJetons[joueur.nombreJetonsRestants] = null;
+           if (CellulesJeu[i][colonne-1].jetonCourant == null && testtrounoir == false && testdesintegrateur == false){      // ajouter fontionnalité trou noir
                CellulesJeu[i][colonne-1].jetonCourant = jet;
                return true;
            }
-           else if (CellulesJeu[i][colonne-1].jetonCourant == null && testtrounoir == true) {
+           else if (CellulesJeu[i][colonne-1].jetonCourant == null && testtrounoir == true  && testdesintegrateur == false) {
                CellulesJeu[i][colonne-1].trouNoir = false;
                return true;
            }
+           else if (CellulesJeu[i][colonne-1].jetonCourant == null && testtrounoir == false && testdesintegrateur == true) {
+               CellulesJeu[i][colonne-1].desintegrateur = false;
+               CellulesJeu[i][colonne-1].jetonCourant = jet;
+               joueur.nombreDesintegrateurs = joueur.nombreDesintegrateurs+1;
+               return true;
+           }
+           else if (CellulesJeu[i][colonne-1].jetonCourant == null && testtrounoir == true && testdesintegrateur == true) {
+               CellulesJeu[i][colonne-1].desintegrateur = false;
+               CellulesJeu[i][colonne-1].trouNoir = false;
+               joueur.nombreDesintegrateurs = joueur.nombreDesintegrateurs+1;
+               return true;
+           }
+           
        }
        return false;
    }
