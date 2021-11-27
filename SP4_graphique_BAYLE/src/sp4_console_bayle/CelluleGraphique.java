@@ -31,6 +31,9 @@ public class CelluleGraphique extends JButton {
         if (celluleAssociee.presenceTrouNoir()) {
             setIcon(img_trouNoir);
         }
+        else if(celluleAssociee.presenceDesintegrateur()) {
+            setIcon(img_desint);
+        }
         else {
             String couleur_jeton = celluleAssociee.lireCouleurDuJeton();
             switch (couleur_jeton) {
