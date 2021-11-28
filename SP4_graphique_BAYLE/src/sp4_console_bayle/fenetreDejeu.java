@@ -146,6 +146,7 @@ public class fenetreDejeu extends javax.swing.JFrame {
         btn_col_6 = new javax.swing.JButton();
         btn_col_7 = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -334,9 +335,14 @@ public class fenetreDejeu extends javax.swing.JFrame {
         });
         getContentPane().add(btn_col_7, new org.netbeans.lib.awtextra.AbsoluteConstraints(956, 20, -1, -1));
 
-        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("8-bit Arcade In", 0, 45)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 0, 51));
         jLabel14.setText("SUPER PUISSANCE 4");
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 360, 40));
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, -10, 370, 70));
+
+        jLabel15.setFont(new java.awt.Font("8-bit Arcade Out", 0, 44)); // NOI18N
+        jLabel15.setText("SUPER PUISSANCE 4");
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 380, -1));
 
         setBounds(0, 0, 1055, 692);
     }// </editor-fold>//GEN-END:initComponents
@@ -645,6 +651,7 @@ public class fenetreDejeu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
