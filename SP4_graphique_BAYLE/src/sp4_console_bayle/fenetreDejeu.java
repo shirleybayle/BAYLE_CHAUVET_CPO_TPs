@@ -50,6 +50,22 @@ public class fenetreDejeu extends javax.swing.JFrame {
                         }
                         
                         grilleJeu.tasserGrille();
+                        
+                        if (grilleJeu.colonneRemplie(1)) btn_col_1.setEnabled(false);
+                        else btn_col_1.setEnabled(true);
+                        if (grilleJeu.colonneRemplie(2)) btn_col_2.setEnabled(false);
+                        else btn_col_2.setEnabled(true);
+                        if (grilleJeu.colonneRemplie(3)) btn_col_3.setEnabled(false);
+                        else btn_col_3.setEnabled(true);
+                        if (grilleJeu.colonneRemplie(4)) btn_col_4.setEnabled(false);
+                        else btn_col_4.setEnabled(true);
+                        if (grilleJeu.colonneRemplie(5)) btn_col_5.setEnabled(false);
+                        else btn_col_5.setEnabled(true);
+                        if (grilleJeu.colonneRemplie(6)) btn_col_6.setEnabled(false);
+                        else btn_col_6.setEnabled(true);
+                        if (grilleJeu.colonneRemplie(7)) btn_col_7.setEnabled(false);
+                        else btn_col_7.setEnabled(true);
+                        
                         panneau_grille.repaint();
 
                         nbjetonsj2.setText(ListeJoueurs[1].nombreJetonsRestants + "");
