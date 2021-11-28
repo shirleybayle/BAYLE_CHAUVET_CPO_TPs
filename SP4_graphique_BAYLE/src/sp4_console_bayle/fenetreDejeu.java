@@ -84,9 +84,9 @@ public class fenetreDejeu extends javax.swing.JFrame {
                         }
                         if (victoire_j1 == true && victoire_j2 == true) {
                             if (joueurCourant == ListeJoueurs[0]) {
-                                message.setText(ListeJoueurs[0].Nom + "vous avez commis une faute de jeu. Grâce à vous, " + ListeJoueurs[1].Nom + " a gagné !");
+                                message.setText(ListeJoueurs[1].Nom + ", vous avez commis une faute de jeu.\nGrâce à vous, " + ListeJoueurs[0].Nom + " a gagné !");
                             } else {
-                                message.setText(ListeJoueurs[1].Nom + "vous avez commis une faute de jeu. Grâce à vous, " + ListeJoueurs[0].Nom + " a gagné !");
+                                message.setText(ListeJoueurs[0].Nom + ", vous avez commis une faute de jeu.\nGrâce à vous, " + ListeJoueurs[1].Nom + " a gagné !");
                             }
                         }
                     }
