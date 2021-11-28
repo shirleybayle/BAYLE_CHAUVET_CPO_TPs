@@ -4,7 +4,10 @@
  */
 package sp4_console_bayle;
 
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.util.Random;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -21,6 +24,9 @@ public class fenetreDejeu extends javax.swing.JFrame {
      */
     public fenetreDejeu() {
         initComponents();
+        setTitle("Super puissance 4");
+        Image icone = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/logo.png"));
+        this.setIconImage(icone);
         panneau_info_joueur.setVisible(false);
         panneau_info_partie.setVisible(false);
 
