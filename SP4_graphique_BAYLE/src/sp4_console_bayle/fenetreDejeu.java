@@ -252,12 +252,12 @@ public class fenetreDejeu extends javax.swing.JFrame {
 
         message.setBackground(new java.awt.Color(204, 204, 255));
         message.setColumns(16);
-        message.setFont(new java.awt.Font("Georgia Pro", 1, 14)); // NOI18N
+        message.setFont(new java.awt.Font("Georgia Pro", 1, 13)); // NOI18N
         message.setForeground(new java.awt.Color(255, 0, 51));
         message.setRows(5);
         jScrollPane1.setViewportView(message);
 
-        panneau_info_partie.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 280, 80));
+        panneau_info_partie.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 310, 90));
 
         getContentPane().add(panneau_info_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 310, 150));
 
@@ -333,8 +333,6 @@ public class fenetreDejeu extends javax.swing.JFrame {
         if (grilleJeu.colonneRemplie(1)) {
             btn_col_1.setEnabled(false);
         }
-        nbjetonsj2.setText(ListeJoueurs[1].nombreJetonsRestants + "");
-        nbjetonsj1.setText(ListeJoueurs[0].nombreJetonsRestants + "");
         joueurSuivant();
     }//GEN-LAST:event_btn_col_1ActionPerformed
 
@@ -343,8 +341,6 @@ public class fenetreDejeu extends javax.swing.JFrame {
         if (grilleJeu.colonneRemplie(2)) {
             btn_col_2.setEnabled(false);
         }
-        nbjetonsj2.setText(ListeJoueurs[1].nombreJetonsRestants + "");
-        nbjetonsj1.setText(ListeJoueurs[0].nombreJetonsRestants + "");
         joueurSuivant();
     }//GEN-LAST:event_btn_col_2ActionPerformed
 
@@ -353,8 +349,6 @@ public class fenetreDejeu extends javax.swing.JFrame {
         if (grilleJeu.colonneRemplie(3)) {
             btn_col_3.setEnabled(false);
         }
-        nbjetonsj2.setText(ListeJoueurs[1].nombreJetonsRestants + "");
-        nbjetonsj1.setText(ListeJoueurs[0].nombreJetonsRestants + "");
         joueurSuivant();
     }//GEN-LAST:event_btn_col_3ActionPerformed
 
@@ -363,8 +357,6 @@ public class fenetreDejeu extends javax.swing.JFrame {
         if (grilleJeu.colonneRemplie(4)) {
             btn_col_4.setEnabled(false);
         }
-        nbjetonsj2.setText(ListeJoueurs[1].nombreJetonsRestants + "");
-        nbjetonsj1.setText(ListeJoueurs[0].nombreJetonsRestants + "");
         joueurSuivant();
     }//GEN-LAST:event_btn_col_4ActionPerformed
 
@@ -381,8 +373,6 @@ public class fenetreDejeu extends javax.swing.JFrame {
         if (grilleJeu.colonneRemplie(6)) {
             btn_col_6.setEnabled(false);
         }
-        nbjetonsj2.setText(ListeJoueurs[1].nombreJetonsRestants + "");
-        nbjetonsj1.setText(ListeJoueurs[0].nombreJetonsRestants + "");
         joueurSuivant();
     }//GEN-LAST:event_btn_col_6ActionPerformed
 
@@ -391,14 +381,12 @@ public class fenetreDejeu extends javax.swing.JFrame {
         if (grilleJeu.colonneRemplie(7)) {
             btn_col_7.setEnabled(false);
         }
-        nbjetonsj2.setText(ListeJoueurs[1].nombreJetonsRestants + "");
-        nbjetonsj1.setText(ListeJoueurs[0].nombreJetonsRestants + "");
         joueurSuivant();
     }//GEN-LAST:event_btn_col_7ActionPerformed
 
     public boolean jouerDansColonne(int colonne) {
         boolean testColonne;
-        if (joueurCourant.nombreJetonsRestants !=0) {
+        if (joueurCourant.nombreJetonsRestants>0) {
             testColonne = grilleJeu.ajouterJetonDansColonne(joueurCourant, colonne + 1);
         }
         else {
@@ -409,12 +397,10 @@ public class fenetreDejeu extends javax.swing.JFrame {
             btn_col_5.setEnabled(false);
             btn_col_6.setEnabled(false);
             btn_col_7.setEnabled(false);
-            message.setText("VOUS N'AVEZ PLUS DE JETONS !!!! Pour continuer le jeu, veuillez désintégrer un jeton si vous avez un désintégrateur ou bien récupérer un de vos jetons.");
+            message.setText("VOUS N'AVEZ PLUS DE JETONS !!!!\nPour continuer le jeu, veuillez désintégrer\nun jeton si vous avez un désintégrateur\nou bien récupérer un de vos jetons.");
             joueurSuivant();
         }
         panneau_grille.repaint();
-        
-        joueurCourant.nombreJetonsRestants = joueurCourant.nombreJetonsRestants-1;
 
         nbjetonsj2.setText(ListeJoueurs[1].nombreJetonsRestants + "");
         nbjetonsj1.setText(ListeJoueurs[0].nombreJetonsRestants + "");

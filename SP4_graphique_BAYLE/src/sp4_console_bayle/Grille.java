@@ -73,6 +73,7 @@ public class Grille {
    public boolean ajouterJetonDansColonne(Joueur joueur, int colonne) {
        Jeton jet = joueur.ListeJetons[joueur.nombreJetonsRestants-1];
        joueur.ListeJetons[joueur.nombreJetonsRestants-1] = null;
+       joueur.nombreJetonsRestants = joueur.nombreJetonsRestants -1;
        for (int i=0; i<6; i++) { 
            boolean testtrounoir = CellulesJeu[i][colonne-1].presenceTrouNoir();
            boolean testdesintegrateur = CellulesJeu[i][colonne-1].presenceDesintegrateur();
