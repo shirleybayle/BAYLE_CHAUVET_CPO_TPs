@@ -16,7 +16,7 @@ public class Partie {
     Joueur joueurCourant;
     Grille grilleJeu;
     
-    public Partie(Joueur joueur1, Joueur joueur2) {
+    public Partie(Joueur joueur1, Joueur joueur2) { //constructeur
         ListeJoueurs[0] = joueur1;
         ListeJoueurs[1] = joueur2;
     }
