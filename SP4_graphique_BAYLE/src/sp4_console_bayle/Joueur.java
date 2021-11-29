@@ -15,17 +15,17 @@ public class Joueur {
     int nombreJetonsRestants;
     int nombreDesintegrateurs;
     
-    public Joueur(String name) {
+    public Joueur(String name) { //constructeur
         Nom = name;
         nombreJetonsRestants = 0;
         nombreDesintegrateurs = 0;
     }
     
-    public void obtenirDesintegrateur() {
+    public void obtenirDesintegrateur() { //le joueur obtient un désintégrateur
         nombreDesintegrateurs = nombreDesintegrateurs+1;
     }
     
-    public boolean utiliserDesintegrateur() {
+    public boolean utiliserDesintegrateur() { //le joueur utilise un désintégrateur
         if (nombreDesintegrateurs>0) {
             nombreDesintegrateurs = nombreDesintegrateurs-1;
             return true;
@@ -35,11 +35,11 @@ public class Joueur {
         }
     }
     
-    public void affecterCouleur(String couleur) {
-        Couleur = couleur;
+    public void affecterCouleur(String couleur) { //une couleur est affectée au joueur
+        Couleur = couleur; 
     }
     
-    public boolean ajouterJeton(Jeton jet) {
+    public boolean ajouterJeton(Jeton jet) { //ajoute un jeton à la liste des jetons d'un joueur
         if (nombreJetonsRestants<21) {
             ListeJetons[nombreJetonsRestants] = jet;
             nombreJetonsRestants = nombreJetonsRestants + 1;
