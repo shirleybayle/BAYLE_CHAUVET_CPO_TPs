@@ -11,9 +11,9 @@ package sp4_console_bayle;
 public class Cellule {
     Jeton jetonCourant;
     boolean trouNoir;
-        boolean desintegrateur;
-    
-    public boolean supprimerJeton() {
+    boolean desintegrateur;
+     
+    public boolean supprimerJeton() { //supprime le jeton de la cellule
         if (jetonCourant!=null) {
             jetonCourant = null;
             return true;
@@ -23,7 +23,7 @@ public class Cellule {
         }
     }
     
-    public boolean placerDesintegrateur() {
+    public boolean placerDesintegrateur() { //place un désintégrateur sur la cellulle
         if (desintegrateur == false) {
             desintegrateur = true;
             return true;
@@ -33,7 +33,7 @@ public class Cellule {
         }
     }
     
-    public boolean recupererDesintegrateur() {
+    public boolean recupererDesintegrateur() { //enlève un désintegrateur d'une cellule
         if (desintegrateur == true) {
             desintegrateur = false;
             return true;
@@ -43,7 +43,7 @@ public class Cellule {
         }
     }
     
-    public boolean presenceDesintegrateur() {
+    public boolean presenceDesintegrateur() { //regarde s'il y a un désintégrateur sur la cellule
         if (desintegrateur == true) {
             return true;
         }
@@ -52,13 +52,13 @@ public class Cellule {
         }
     }
     
-    public Jeton recupererJeton() {
+    public Jeton recupererJeton() { //renvoie le jeton présent dans la cellule et le supprime de celle ci
         Jeton jeton = jetonCourant;
         jetonCourant = null;
         return jeton;
     }
     
-    public boolean presenceTrouNoir() {
+    public boolean presenceTrouNoir() { //regzrde s'il y a un trou noir sur la cellule
         if (trouNoir == true) {
             return true;
         }
@@ -67,7 +67,7 @@ public class Cellule {
         }
     }
     
-    public boolean placerTrouNoir() {
+    public boolean placerTrouNoir() { //place un trou noir sur la cellule
         if (trouNoir != true) {
             trouNoir = true;
             return true;
@@ -77,7 +77,7 @@ public class Cellule {
         }
     }
     
-    public boolean activerTrouNoir() {
+    public boolean activerTrouNoir() { //supprime le jeton et le trou noir de la cellule
         if (trouNoir == true) {
             jetonCourant = null;
             trouNoir = false;
@@ -88,15 +88,11 @@ public class Cellule {
         }
     }
     
-    //public Jeton recupererJeton() {
-        
-    //}
-    
-    public Cellule() {
+    public Cellule() { //constructeur
         jetonCourant = null;
     }
     
-    public boolean affecterJeton(Jeton jet) {
+    public boolean affecterJeton(Jeton jet) { //ajoute le jeton en paramètre dans la cellule
         if (jetonCourant != null) {
             jetonCourant = jet;
             return true;
@@ -105,8 +101,8 @@ public class Cellule {
             return false;
         }
     }
-    
-    public String lireCouleurDuJeton() {
+     
+    public String lireCouleurDuJeton() { //renvoie la couleur du jeton présent dans la cellule
         if (jetonCourant != null) {
             String couleur = jetonCourant.lireCouleur();
             return couleur;

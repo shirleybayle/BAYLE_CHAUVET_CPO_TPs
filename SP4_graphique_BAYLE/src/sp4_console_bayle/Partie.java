@@ -21,7 +21,7 @@ public class Partie {
         ListeJoueurs[1] = joueur2;
     }
     
-    public void attribuerCouleursAuxJoueurs() {
+    public void attribuerCouleursAuxJoueurs() { //atribue les couleurs aux joueurs
         Random generateurAleat = new Random();
         int n = generateurAleat.nextInt(2);
         Joueur joueur1 = ListeJoueurs[0];
@@ -37,7 +37,7 @@ public class Partie {
         
     }
     
-    public void initialiserPartie() {
+    public void initialiserPartie() { //initialise la partie ; attribue les couelurs aux joueurs, définit le joueur qui commence, place les éléments sur la grille
         grilleJeu.viderGrille();
         attribuerCouleursAuxJoueurs();
         String couleurjet0 = ListeJoueurs[0].Couleur;
@@ -97,11 +97,11 @@ public class Partie {
         }
     }
     
-    public void debuterPartie() {
+    public void debuterPartie() { //coeur de la partie
         int compteur = 0;
         int compteurJoueur;
         int indiceJoueur;
-        if (joueurCourant == ListeJoueurs[0]) {
+        if (joueurCourant == ListeJoueurs[0]) { //initialise les compteurs
             compteurJoueur = 0;
             indiceJoueur = 0;
         }
@@ -109,7 +109,7 @@ public class Partie {
             compteurJoueur = 1;
             indiceJoueur = 1;
         }
-        while (grilleJeu.etreRemplie() == false || grilleJeu.etreGagnantePourJoueur(joueurCourant)==false) {
+        while (grilleJeu.etreRemplie() == false || grilleJeu.etreGagnantePourJoueur(joueurCourant)==false) { //boucle tant que
             boolean testColonne = false;
             while (testColonne == false){
                 Scanner sc = new Scanner (System.in);
