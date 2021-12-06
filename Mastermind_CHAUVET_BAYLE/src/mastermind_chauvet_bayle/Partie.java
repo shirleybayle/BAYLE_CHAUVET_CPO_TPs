@@ -19,10 +19,10 @@ public class Partie {
     
     public void initialiserPartie() {
         Random generateurAleat = new Random();
-        int n1 = generateurAleat.nextInt(7);
-        int n2 = generateurAleat.nextInt(7);
-        int n3 = generateurAleat.nextInt(7);
-        int n4 = generateurAleat.nextInt(7);
+        int n1 = generateurAleat.nextInt(8);
+        int n2 = generateurAleat.nextInt(8);
+        int n3 = generateurAleat.nextInt(8);
+        int n4 = generateurAleat.nextInt(8);
         System.out.println(n1+""+n2+""+n3+""+n4);
         String tabCouleurs[] = {"rouge","jaune","vert","bleu","orange","blanc","violet","rose"};
         Pion pion1 = new Pion(tabCouleurs[n1]);
