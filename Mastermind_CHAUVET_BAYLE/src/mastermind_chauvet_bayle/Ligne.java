@@ -31,9 +31,25 @@ public class Ligne {
         for (int i=0; i<4; i++) {
             System.out.print(" ");
             switch (LigneAssociee[i].Couleur){
-                    case "r" :
+                    case "rouge" :
                         System.out.print(ANSI_RED + "\u2022 " + ANSI_RESET);
-        }
+                        break;
+                    case "jaune" :
+                        System.out.print(ANSI_YELLOW + "\u2022 " + ANSI_RESET);
+                        break;
+                    case "vert" :
+                        System.out.print(ANSI_GREEN + "\u2022 " + ANSI_RESET);
+                        break;
+                    case "bleu" :
+                        System.out.print(ANSI_BLUE + "\u2022 " + ANSI_RESET);
+                        break;
+                    case "blanc" :
+                        System.out.print(ANSI_WHITE + "\u2022 " + ANSI_RESET);
+                        break;
+                    case "violet" :
+                        System.out.print(ANSI_PURPLE + "\u2022 " + ANSI_RESET);
+                        break;
     }
+        }
 }
 }
