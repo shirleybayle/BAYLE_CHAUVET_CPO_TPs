@@ -26,6 +26,7 @@ public class Ligne {
     public static final String ANSI_PURPLE = "\u001B[35m";
     public static final String ANSI_CYAN = "\u001B[36m";
     public static final String ANSI_WHITE = "\u001B[37m";
+    public static final String ANSI_PINK = "\u001B[35;1m";
     
     public void afficherLigne() {
         for (int i=0; i<4; i++) {
@@ -49,6 +50,8 @@ public class Ligne {
                     case "violet" :
                         System.out.print(ANSI_PURPLE + "\u2022 " + ANSI_RESET);
                         break;
+                    case "rose" :
+                        System.out.print(ANSI_PINK + "\u2022 " + ANSI_RESET);
     }
         }
 }

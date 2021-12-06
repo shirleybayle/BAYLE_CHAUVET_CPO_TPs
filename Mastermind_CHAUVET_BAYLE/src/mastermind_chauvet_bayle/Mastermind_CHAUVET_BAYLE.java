@@ -16,9 +16,9 @@ public class Mastermind_CHAUVET_BAYLE {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Pion p = new Pion("bleu");
+        Pion p = new Pion("rose");
         Pion p1 = new Pion("violet");
-        Pion p2 = new Pion("vert");
+        Pion p2 = new Pion("rose");
         Pion p3 = new Pion("blanc");
         Ligne test = new Ligne();
         //test.afficherLigne();
