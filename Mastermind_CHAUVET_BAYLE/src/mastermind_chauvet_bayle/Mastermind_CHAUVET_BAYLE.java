@@ -4,6 +4,8 @@
  */
 package mastermind_chauvet_bayle;
 
+import java.util.Random;
+
 /**
  *
  * @author shirl
@@ -22,6 +24,13 @@ public class Mastermind_CHAUVET_BAYLE {
         //test.afficherLigne();
         test.placerPion(p,p1,p2,p3);
         test.afficherLigne();
+        
+        Partie testpartie = new Partie();
+        testpartie.initialiserPartie();
+        System.out.println("NOUVELLE LIGNE : ");
+        testpartie.ligneGagnante.afficherLigne();
+        
+        
     }
     
 }
