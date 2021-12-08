@@ -16,6 +16,8 @@ public class Mastermind_CHAUVET_BAYLE {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        // NOIR CORRESPOND A ORANGE, VIOLET A ROSE FONCE
+        
         Pion p = new Pion("rose");
         Pion p1 = new Pion("violet");
         Pion p2 = new Pion("rose");
