@@ -32,6 +32,11 @@ public class Mastermind_CHAUVET_BAYLE {
         System.out.println("NOUVELLE LIGNE : ");
         testpartie.ligneGagnante.afficherLigne();
         
+        test = testpartie.ligneTest;
+        int tab[] = new int[2];
+        tab = testpartie.nbJuste();
+        System.out.println(tab[0] + "" + tab[1]);
+        
         
     }
     
