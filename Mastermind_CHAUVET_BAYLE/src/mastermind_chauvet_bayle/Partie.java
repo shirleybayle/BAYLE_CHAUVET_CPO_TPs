@@ -89,17 +89,18 @@ public class Partie {
         int compteurJuste = 0;
         int compteurMoyensJuste = 0;
         for (int i=0; i<4; i++) {
-            tableauTest.add(ligneTest.LigneAssociee[i]);
-            System.out.println();
+            tableauTest.add(ligneGagnante.LigneAssociee[i]);
            if (ligneTest.LigneAssociee[i].Couleur.equals(ligneGagnante.LigneAssociee[i].Couleur)) {
                compteurJuste = compteurJuste + 1;
                tableauTest.remove(i);
            }
         }
         for (int j=0; j<tableauTest.size(); j++) {
-            if (tableauTest.contains(ligneTest.LigneAssociee[j]) == true) {
-                compteurMoyensJuste = compteurMoyensJuste + 1;
-                tableauTest.remove(ligneTest.LigneAssociee[j]);
+            for (int k=0; k<4; k++) {
+                if (tableauTest.get(j).Couleur.equals(ligneTest.LigneAssociee[k].Couleur)) {
+                    compteurMoyensJuste = compteurMoyensJuste + 1;
+                    tableauTest.remove(ligneTest.LigneAssociee[k]);
+                }
             }
         }
         tableau[0] = compteurJuste;

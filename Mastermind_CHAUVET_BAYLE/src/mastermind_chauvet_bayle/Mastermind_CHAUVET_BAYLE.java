@@ -19,15 +19,11 @@ public class Mastermind_CHAUVET_BAYLE {
         // NOIR CORRESPOND A ORANGE, VIOLET A ROSE FONCE
         
         Partie testpartie = new Partie();
-        testpartie.nouveauTest();
-        testpartie.ligneTest.afficherLigne();
         testpartie.initialiserPartie();
         System.out.println("LIGNE GAGNANTE : ");
         testpartie.ligneGagnante.afficherLigne();
+        testpartie.debuterPartie();
         
-        int tab[] = new int[2];
-        tab = testpartie.nbJuste();
-        System.out.println("NB JUSTES BIEN PLACES : "+tab[0]+"\nNB JUSTE MAL PLACES : "+tab[1]);
         
         
     }
