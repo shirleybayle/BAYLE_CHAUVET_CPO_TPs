@@ -44,6 +44,9 @@ public class Partie {
             nouveauTest();
             nbEssais = nbEssais + 1;
             ligneTest.afficherLigne();
+            int tab [] = nbJuste();
+            System.out.println("Vous avez placé "+tab[0]+" pions correctement.");
+            System.out.println("Vous avez mal placé "+tab[1]+" pions.");
         }
         if (nbEssais < 12) {
             System.out.println("BRAVO ! Vous avez gagné en moins de 12 coups !!");
@@ -92,14 +95,16 @@ public class Partie {
             tableauTest.add(ligneGagnante.LigneAssociee[i]);
            if (ligneTest.LigneAssociee[i].Couleur.equals(ligneGagnante.LigneAssociee[i].Couleur)) {
                compteurJuste = compteurJuste + 1;
-               tableauTest.remove(i);
+               tableauTest.remove(ligneTest.LigneAssociee[i]);
            }
         }
         for (int j=0; j<tableauTest.size(); j++) {
             for (int k=0; k<4; k++) {
-                if (tableauTest.get(j).Couleur.equals(ligneTest.LigneAssociee[k].Couleur)) {
+                if (tableauTest.contains(ligneTest.LigneAssociee[k])) {
+                //if (tableauTest.get(j).Couleur.equals(ligneTest.LigneAssociee[k].Couleur)) {
                     compteurMoyensJuste = compteurMoyensJuste + 1;
                     tableauTest.remove(ligneTest.LigneAssociee[k]);
+                    
                 }
             }
         }
