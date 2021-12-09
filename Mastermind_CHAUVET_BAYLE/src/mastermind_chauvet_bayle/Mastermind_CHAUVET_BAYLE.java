@@ -4,6 +4,7 @@
  */
 package mastermind_chauvet_bayle;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -23,8 +24,6 @@ public class Mastermind_CHAUVET_BAYLE {
         System.out.println("LIGNE GAGNANTE : ");
         testpartie.ligneGagnante.afficherLigne();
         testpartie.debuterPartie();
-        
-        
         
     }
     

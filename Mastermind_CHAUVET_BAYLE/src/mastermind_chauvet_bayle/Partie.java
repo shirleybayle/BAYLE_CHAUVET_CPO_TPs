@@ -40,14 +40,17 @@ public class Partie {
     }
     
     public void debuterPartie() {
-        while (etreGagnante() == false || nbEssais < 12) {
+        boolean testGagnant = false;
+        do {
             nouveauTest();
             nbEssais = nbEssais + 1;
             ligneTest.afficherLigne();
             int tab [] = nbJuste();
             System.out.println("Vous avez placé "+tab[0]+" pions correctement.");
             System.out.println("Vous avez mal placé "+tab[1]+" pions.");
-        }
+            testGagnant = etreGagnante();
+            if (nbEssais == 12) break;
+        } while (testGagnant == false);
         if (nbEssais < 12) {
             System.out.println("BRAVO ! Vous avez gagné en moins de 12 coups !!");
         }
@@ -55,18 +58,15 @@ public class Partie {
             System.out.println("Vous avez eu chaud... Vous avez gagné lors de votre dernier coup possible !");
         }
         else {
-            System.out.println("Malgré vos efforts vous n'êtes pas parvenus à trouver la combinaison cachée en moins de 12 coups...");
+            System.out.println("Malgré vos efforts vous n'êtes pas parvenus à trouver la combinaison cachée en moins de 12 coups...\n");
+            ligneGagnante.afficherLigne();
         }
     }
     
     public boolean etreGagnante() {
-        int compteur = 0;
-        for (int i=0; i<4; i++) {
-            if (ligneGagnante.LigneAssociee[i] == ligneTest.LigneAssociee[i]) {
-                compteur = compteur + 1;
-            }
-        }
-        if (compteur == 4) {
+        int tab [] = new int[2];
+        tab = nbJuste();
+        if (tab[0] == 4) {
             return true;
         }
         else {
@@ -88,22 +88,25 @@ public class Partie {
     public int[] nbJuste() {
         //renvoie le nombre de pions bien placés et le nombre de pions présents mais mal placés
         int tableau [] = new int[2];
-        ArrayList<Pion> tableauTest = new ArrayList<>();
+        ArrayList<String> tableauTest = new ArrayList<>();
+        ArrayList<String> tableauGagnant = new ArrayList<>();
         int compteurJuste = 0;
         int compteurMoyensJuste = 0;
         for (int i=0; i<4; i++) {
-            tableauTest.add(ligneGagnante.LigneAssociee[i]);
+            tableauTest.add(ligneGagnante.LigneAssociee[i].Couleur);
            if (ligneTest.LigneAssociee[i].Couleur.equals(ligneGagnante.LigneAssociee[i].Couleur)) {
                compteurJuste = compteurJuste + 1;
-               tableauTest.remove(ligneTest.LigneAssociee[i]);
+               tableauTest.remove(ligneTest.LigneAssociee[i].Couleur);
+               tableauGagnant.remove(ligneGagnante.LigneAssociee[i].Couleur);
            }
         }
         for (int j=0; j<tableauTest.size(); j++) {
             for (int k=0; k<4; k++) {
-                if (tableauTest.contains(ligneTest.LigneAssociee[k])) {
+                if (tableauTest.contains(ligneTest.LigneAssociee[k].Couleur)) {
                 //if (tableauTest.get(j).Couleur.equals(ligneTest.LigneAssociee[k].Couleur)) {
                     compteurMoyensJuste = compteurMoyensJuste + 1;
-                    tableauTest.remove(ligneTest.LigneAssociee[k]);
+                    tableauTest.remove(ligneTest.LigneAssociee[k].Couleur);
+                    tableauGagnant.remove(ligneGagnante.LigneAssociee[k].Couleur);
                     
                 }
             }
