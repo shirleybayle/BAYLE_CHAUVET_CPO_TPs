@@ -5,6 +5,7 @@ package mastermind_chauvet_bayle;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  *
@@ -17,6 +18,7 @@ public class Partie {
     
     public Partie() {
         ligneGagnante = new Ligne();
+        ligneTest = new Ligne();
         nbEssais = 0;
     }
     
@@ -41,6 +43,7 @@ public class Partie {
         while (etreGagnante() == false || nbEssais < 12) {
             nouveauTest();
             nbEssais = nbEssais + 1;
+            ligneTest.afficherLigne();
         }
         if (nbEssais < 12) {
             System.out.println("BRAVO ! Vous avez gagné en moins de 12 coups !!");
@@ -54,11 +57,29 @@ public class Partie {
     }
     
     public boolean etreGagnante() {
-        //vérifie si ligne gagnante  = ligne test
+        int compteur = 0;
+        for (int i=0; i<4; i++) {
+            if (ligneGagnante.LigneAssociee[i] == ligneTest.LigneAssociee[i]) {
+                compteur = compteur + 1;
+            }
+        }
+        if (compteur == 4) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
     
     public void nouveauTest() {
-        //change la ligne de test
+        Scanner sc = new Scanner(System.in);
+        for (int i=0; i<4; i++) {
+            System.out.println("Veuillez saisir la couelur du pion que vous voulez placer (de gauche à droite)");
+            String couleur = sc.nextLine();
+            Pion nouveauPion = new Pion(couleur);
+            ligneTest.LigneAssociee[i] = nouveauPion;
+        }
+        
     }
     
     public int[] nbJuste() {
@@ -69,7 +90,8 @@ public class Partie {
         int compteurMoyensJuste = 0;
         for (int i=0; i<4; i++) {
             tableauTest.add(ligneTest.LigneAssociee[i]);
-           if (ligneTest.LigneAssociee[i] == ligneGagnante.LigneAssociee[i]) {
+            System.out.println();
+           if (ligneTest.LigneAssociee[i].Couleur.equals(ligneGagnante.LigneAssociee[i].Couleur)) {
                compteurJuste = compteurJuste + 1;
                tableauTest.remove(i);
            }

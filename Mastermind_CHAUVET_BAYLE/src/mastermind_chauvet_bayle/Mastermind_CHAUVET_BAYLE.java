@@ -18,24 +18,16 @@ public class Mastermind_CHAUVET_BAYLE {
     public static void main(String[] args) {
         // NOIR CORRESPOND A ORANGE, VIOLET A ROSE FONCE
         
-        Pion p = new Pion("rose");
-        Pion p1 = new Pion("violet");
-        Pion p2 = new Pion("rose");
-        Pion p3 = new Pion("blanc");
-        Ligne test = new Ligne();
-        //test.afficherLigne();
-        test.placerPion(p,p1,p2,p3);
-        test.afficherLigne();
-        
         Partie testpartie = new Partie();
+        testpartie.nouveauTest();
+        testpartie.ligneTest.afficherLigne();
         testpartie.initialiserPartie();
-        System.out.println("NOUVELLE LIGNE : ");
+        System.out.println("LIGNE GAGNANTE : ");
         testpartie.ligneGagnante.afficherLigne();
         
-        test = testpartie.ligneTest;
         int tab[] = new int[2];
         tab = testpartie.nbJuste();
-        System.out.println(tab[0] + "" + tab[1]);
+        System.out.println("NB JUSTES BIEN PLACES : "+tab[0]+"\nNB JUSTE MAL PLACES : "+tab[1]);
         
         
     }

@@ -52,8 +52,10 @@ public class Ligne {
                         break;
                     case "rose" :
                         System.out.print(ANSI_PINK + "\u2022 " + ANSI_RESET);
+                        break;
                     case "orange" :
                         System.out.print(ANSI_BLACK + "\u2022 " + ANSI_RESET);
+                        break;
     }
         }
 }
