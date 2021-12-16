@@ -21,8 +21,8 @@ public class Mastermind_CHAUVET_BAYLE {
         
         Partie testpartie = new Partie();
         testpartie.initialiserPartie();
-        System.out.println("LIGNE GAGNANTE : ");
-        testpartie.ligneGagnante.afficherLigne();
+        //System.out.println("LIGNE GAGNANTE : ");
+        //testpartie.ligneGagnante.afficherLigne();
         testpartie.debuterPartie();
         
     }
