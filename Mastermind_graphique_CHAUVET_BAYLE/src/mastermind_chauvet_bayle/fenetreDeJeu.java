@@ -36,12 +36,27 @@ public class fenetreDeJeu extends JFrame{
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        int [] xValues = {210,410,610,10};
-        int [] yValues = {200,200,800,800};
+        int [] xValues = {10,610,456,165};
+        int [] yValues = {800,800,183,183};
         Polygon p = new Polygon(xValues, yValues, 4);
-        g.drawPolygon(p);
         g.setColor(Color.BLUE);
-        g.fillPolygon(p);
+        g.drawPolygon(p);
+        //g.fillPolygon(p);
+        g.setColor(Color.BLACK);
+        g.drawLine(158,211,453,211);
+        g.drawLine(149,243,470,243);
+        g.drawLine(140,278,480,278);
+        g.drawLine(131,318,489, 318);
+        g.drawLine(120,362,500,362);
+        g.drawLine(107,412,513,412);
+        g.drawLine(93,469,527,469);
+        g.drawLine(77,534,544,534);
+        g.drawLine(57,610,562,610);
+        g.drawLine(35,700,585,700);
+        g.drawLine(310,800,310,183); //milieu
+        g.drawLine(160,800,237,183); //un quart
+        g.drawLine(460,800,383,183); //trois quarts
+        
     }
 }
     
