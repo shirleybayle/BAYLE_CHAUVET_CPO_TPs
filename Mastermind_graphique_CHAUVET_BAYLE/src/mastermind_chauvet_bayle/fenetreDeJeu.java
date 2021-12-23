@@ -26,7 +26,7 @@ public class fenetreDeJeu extends JFrame{
          }
         };
         addWindowListener(test);
-        setSize(600,700);
+        setSize(900,900);
         setVisible(true);
         add(new PolygonPanel());
         
@@ -36,8 +36,8 @@ public class fenetreDeJeu extends JFrame{
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        int [] xValues = {-5,5,10,-10};
-        int [] yValues = {100,100,20,20};
+        int [] xValues = {210,410,610,10};
+        int [] yValues = {200,200,800,800};
         Polygon p = new Polygon(xValues, yValues, 4);
         g.drawPolygon(p);
         g.setColor(Color.BLUE);
