@@ -10,6 +10,8 @@ import java.awt.Polygon;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.util.Random;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -18,6 +20,11 @@ import javax.swing.JPanel;
  * @author shirl
  */
 public class fenetreDeJeu extends JFrame{
+    
+    int nbEssais;
+    Ligne ligneTest;
+    Ligne ligneGagnante;
+    
     public fenetreDeJeu() {
         super("Mastermind");
         WindowListener test = new WindowAdapter() {
@@ -26,10 +33,79 @@ public class fenetreDeJeu extends JFrame{
          }
         };
         addWindowListener(test);
-        setSize(900,900);
+        setSize(1200,900);
         setVisible(true);
         add(new PolygonPanel());
         
+        nbEssais = 0;
+        
+        JButton rouge = new JButton();
+        rouge.setBounds(650,200,60,60);
+        add(rouge);
+        rouge.setBackground(Color.red);
+        
+        JButton jaune = new JButton();
+        jaune.setBounds(750,200,60,60);
+        add(jaune);
+        jaune.setBackground(Color.yellow);
+        
+        JButton vert = new JButton();
+        vert.setBounds(850,200,60,60);
+        add(vert);
+        vert.setBackground(Color.green);
+        
+        JButton bleu = new JButton();
+        bleu.setBounds(950,200,60,60);
+        add(bleu);
+        bleu.setBackground(Color.blue);
+        
+        JButton blanc = new JButton();
+        blanc.setBounds(650,300,60,60);
+        add(blanc);
+        blanc.setBackground(Color.white);
+        
+        JButton violet = new JButton();
+        violet.setBounds(750,300,60,60);
+        add(violet);
+        violet.setBackground(Color.black);
+        
+        JButton rose = new JButton();
+        rose.setBounds(850,300,60,60);
+        add(rose);
+        rose.setBackground(Color.pink);
+        
+        JButton orange = new JButton();
+        orange.setBounds(950,300,60,60);
+        add(orange);
+        orange.setBackground(Color.orange);
+        
+        
+        
+        
+        initialiserPartie();
+        Pion [] tabGagnant = ligneGagnante.LigneAssociee;
+        
+        
+    }
+    
+    
+    
+    public void nouveauTest() {
+        
+    }
+    
+    public void initialiserPartie() {
+        Random generateurAleat = new Random();
+        int n1 = generateurAleat.nextInt(8);
+        int n2 = generateurAleat.nextInt(8);
+        int n3 = generateurAleat.nextInt(8);
+        int n4 = generateurAleat.nextInt(8);
+        String tabCouleurs[] = {"rouge","jaune","vert","bleu","orange","blanc","violet","rose"};
+        Pion pion1 = new Pion(tabCouleurs[n1]);
+        Pion pion2 = new Pion(tabCouleurs[n2]);
+        Pion pion3 = new Pion(tabCouleurs[n3]);
+        Pion pion4 = new Pion(tabCouleurs[n4]);
+        ligneGagnante.placerPion(pion1, pion2, pion3, pion4);
     }
     
     public class PolygonPanel extends JPanel {
