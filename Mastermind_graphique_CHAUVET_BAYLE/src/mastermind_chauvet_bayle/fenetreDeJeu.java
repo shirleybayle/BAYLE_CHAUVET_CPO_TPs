@@ -5,6 +5,7 @@
 package mastermind_chauvet_bayle;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Polygon;
 import java.awt.event.WindowAdapter;
@@ -13,6 +14,7 @@ import java.awt.event.WindowListener;
 import java.util.Random;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
@@ -34,10 +36,17 @@ public class fenetreDeJeu extends JFrame{
         };
         addWindowListener(test);
         setSize(1200,900);
-        setVisible(true);
         add(new PolygonPanel());
+        setVisible(true);
         
         nbEssais = 0;
+        ligneGagnante = new Ligne();
+        
+        JLabel texte = new JLabel("Bonjour");
+        Dimension size = texte.getPreferredSize();
+        texte.setBounds(620, 20, size.width, size.height);
+        add(texte);
+        setVisible(true);
         
         JButton rouge = new JButton();
         rouge.setBounds(650,200,60,60);
@@ -79,9 +88,7 @@ public class fenetreDeJeu extends JFrame{
         add(orange);
         orange.setBackground(Color.orange);
         
-        
-        
-        
+        this.setVisible(true);
         initialiserPartie();
         Pion [] tabGagnant = ligneGagnante.LigneAssociee;
         
