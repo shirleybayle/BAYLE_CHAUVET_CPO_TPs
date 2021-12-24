@@ -6,6 +6,7 @@ package mastermind_chauvet_bayle;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Polygon;
 import java.awt.event.WindowAdapter;
@@ -16,6 +17,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 /**
  *
@@ -36,56 +38,67 @@ public class fenetreDeJeu extends JFrame{
         };
         addWindowListener(test);
         setSize(1200,900);
-        add(new PolygonPanel());
+        
+        this.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        
+        PolygonPanel panneauJeu = new PolygonPanel();
+        add(panneauJeu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20,50,-1,-1));
+        panneauJeu.setSize(200,200);
+        //panneauJeu.setBackground(Color.red);
+        panneauJeu.setPreferredSize(new Dimension(680,880));
         setVisible(true);
         
         nbEssais = 0;
         ligneGagnante = new Ligne();
         
-        JLabel texte = new JLabel("Bonjour");
+        JLabel texte = new JLabel("<html>Veuillez choisir la couleur de vos pions<br>(de gauche à droite)</html>");
         Dimension size = texte.getPreferredSize();
-        texte.setBounds(620, 20, size.width, size.height);
-        add(texte);
+        texte.setFont(new Font("Serif",Font.BOLD, 20));
+        texte.setHorizontalAlignment(SwingConstants.CENTER);
+        //texte.setBounds(620, 20, size.width, size.height);
+        add(texte, new org.netbeans.lib.awtextra.AbsoluteConstraints(750,50,360,100));
+        //texte.setOpaque(true);
+        //texte.setBackground(Color.red);
         setVisible(true);
         
         JButton rouge = new JButton();
         rouge.setBounds(650,200,60,60);
-        add(rouge);
+        add(rouge,new org.netbeans.lib.awtextra.AbsoluteConstraints(750,200,60,60));
         rouge.setBackground(Color.red);
         
         JButton jaune = new JButton();
         jaune.setBounds(750,200,60,60);
-        add(jaune);
+        add(jaune, new org.netbeans.lib.awtextra.AbsoluteConstraints(850,200,60,60));
         jaune.setBackground(Color.yellow);
         
         JButton vert = new JButton();
         vert.setBounds(850,200,60,60);
-        add(vert);
+        add(vert, new org.netbeans.lib.awtextra.AbsoluteConstraints(950,200,60,60));
         vert.setBackground(Color.green);
         
         JButton bleu = new JButton();
         bleu.setBounds(950,200,60,60);
-        add(bleu);
+        add(bleu, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050,200,60,60));
         bleu.setBackground(Color.blue);
         
         JButton blanc = new JButton();
         blanc.setBounds(650,300,60,60);
-        add(blanc);
+        add(blanc, new org.netbeans.lib.awtextra.AbsoluteConstraints(750,300,60,60));
         blanc.setBackground(Color.white);
         
         JButton violet = new JButton();
         violet.setBounds(750,300,60,60);
-        add(violet);
+        add(violet, new org.netbeans.lib.awtextra.AbsoluteConstraints(850,300,60,60));
         violet.setBackground(Color.black);
         
         JButton rose = new JButton();
         rose.setBounds(850,300,60,60);
-        add(rose);
+        add(rose, new org.netbeans.lib.awtextra.AbsoluteConstraints(950,300,60,60));
         rose.setBackground(Color.pink);
         
         JButton orange = new JButton();
         orange.setBounds(950,300,60,60);
-        add(orange);
+        add(orange, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050,300,60,60));
         orange.setBackground(Color.orange);
         
         this.setVisible(true);
