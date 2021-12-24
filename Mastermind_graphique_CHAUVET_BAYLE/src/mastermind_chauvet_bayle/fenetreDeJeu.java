@@ -9,6 +9,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Polygon;
+import java.awt.event.ActionEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
@@ -28,6 +29,8 @@ public class fenetreDeJeu extends JFrame{
     int nbEssais;
     Ligne ligneTest;
     Ligne ligneGagnante;
+    boolean newTest;
+    int compteurPion;
     
     public fenetreDeJeu() {
         super("Mastermind");
@@ -38,7 +41,17 @@ public class fenetreDeJeu extends JFrame{
         };
         addWindowListener(test);
         setSize(1200,900);
+        initComponent();
         
+        this.setVisible(true);
+        initialiserPartie();
+        Pion [] tabGagnant = ligneGagnante.LigneAssociee;
+        nouveauTest();
+        
+        
+    }
+    
+    private void initComponent() {
         this.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         
         PolygonPanel panneauJeu = new PolygonPanel();
@@ -48,8 +61,6 @@ public class fenetreDeJeu extends JFrame{
         panneauJeu.setPreferredSize(new Dimension(680,880));
         setVisible(true);
         
-        nbEssais = 0;
-        ligneGagnante = new Ligne();
         
         JLabel texte = new JLabel("<html>Veuillez choisir la couleur de vos pions<br>(de gauche à droite)</html>");
         Dimension size = texte.getPreferredSize();
@@ -65,52 +76,102 @@ public class fenetreDeJeu extends JFrame{
         rouge.setBounds(650,200,60,60);
         add(rouge,new org.netbeans.lib.awtextra.AbsoluteConstraints(750,200,60,60));
         rouge.setBackground(Color.red);
+        rouge.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rougeActionPerformed(evt);
+            }
+        });
         
         JButton jaune = new JButton();
         jaune.setBounds(750,200,60,60);
         add(jaune, new org.netbeans.lib.awtextra.AbsoluteConstraints(850,200,60,60));
         jaune.setBackground(Color.yellow);
+        jaune.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jauneActionPerformed(evt);
+            }
+        });
         
         JButton vert = new JButton();
         vert.setBounds(850,200,60,60);
         add(vert, new org.netbeans.lib.awtextra.AbsoluteConstraints(950,200,60,60));
         vert.setBackground(Color.green);
+        vert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vertActionPerformed(evt);
+            }
+        });
         
         JButton bleu = new JButton();
         bleu.setBounds(950,200,60,60);
         add(bleu, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050,200,60,60));
         bleu.setBackground(Color.blue);
+        bleu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bleuActionPerformed(evt);
+            }
+        });
         
         JButton blanc = new JButton();
         blanc.setBounds(650,300,60,60);
         add(blanc, new org.netbeans.lib.awtextra.AbsoluteConstraints(750,300,60,60));
         blanc.setBackground(Color.white);
+        blanc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                blancActionPerformed(evt);
+            }
+        });
         
         JButton violet = new JButton();
         violet.setBounds(750,300,60,60);
         add(violet, new org.netbeans.lib.awtextra.AbsoluteConstraints(850,300,60,60));
         violet.setBackground(Color.black);
+        violet.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                violetActionPerformed(evt);
+            }
+        });
         
         JButton rose = new JButton();
         rose.setBounds(850,300,60,60);
         add(rose, new org.netbeans.lib.awtextra.AbsoluteConstraints(950,300,60,60));
         rose.setBackground(Color.pink);
+        rose.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                roseActionPerformed(evt);
+            }
+        });
         
         JButton orange = new JButton();
         orange.setBounds(950,300,60,60);
         add(orange, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050,300,60,60));
         orange.setBackground(Color.orange);
-        
-        this.setVisible(true);
-        initialiserPartie();
-        Pion [] tabGagnant = ligneGagnante.LigneAssociee;
-        
+        orange.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                orangeActionPerformed(evt);
+            }
+        });
+    }
+    
+    private void rougeActionPerformed(java.awt.event.ActionEvent evt) {
+        if (newTest) {
+            ligneTest.LigneAssociee[compteurPion-1] = new Pion("rouge");
+            System.out.println("ca rentre dans if new test dans le bouton rouge");
+        }
         
     }
     
-    
-    
     public void nouveauTest() {
+        nbEssais = nbEssais+1;
+        newTest = true;
+        for (int i=1; i<5; i++) {
+            compteurPion = i;
+            System.out.println("ca rentre dans nouveau test + for");
+            while (ligneTest.LigneAssociee[compteurPion-1] == null) ;
+        }
+        compteurPion = 0;
+        newTest = false;
+        ligneTest.afficherLigne();
         
     }
     
@@ -126,6 +187,10 @@ public class fenetreDeJeu extends JFrame{
         Pion pion3 = new Pion(tabCouleurs[n3]);
         Pion pion4 = new Pion(tabCouleurs[n4]);
         ligneGagnante.placerPion(pion1, pion2, pion3, pion4);
+        newTest = false;
+        nbEssais = 0;
+        ligneGagnante = new Ligne();
+        ligneTest = new Ligne();
     }
     
     public class PolygonPanel extends JPanel {
