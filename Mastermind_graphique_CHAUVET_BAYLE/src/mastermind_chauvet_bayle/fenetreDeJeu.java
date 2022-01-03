@@ -32,6 +32,7 @@ public class fenetreDeJeu extends JFrame{
     Ligne ligneGagnante = new Ligne();
     boolean newTest;
     int compteurPion = 0;
+    boolean partie = false;
     
     public fenetreDeJeu() {
         super("Mastermind");
@@ -46,17 +47,24 @@ public class fenetreDeJeu extends JFrame{
         
         this.setVisible(true);
         while (nbEssais != 12 || etreGagnante() == false) {
+            if (partie) {
             initTest();
             boolean fintest = finTest();
-            while (fintest = false) {
+            while (fintest == false) {
                 fintest = finTest();
+                panneauJeu.repaint();
             }
             int tableau[] = new int[2];
             tableau = nbJuste();
+            for (int i=0; i<2; i++) {
+                System.out.println(tableau[i]);
+                ligneGagnante.afficherLigne();
+            }
             messageJuste.setText("Vous avez placé "+tableau[0]+" pions de la bonne couleur au bon endroit.");
             messageJuste.setVisible(true);
+            nbEssais = 12;
             this.repaint();
-            
+            }
             
         }
         
@@ -400,6 +408,7 @@ public class fenetreDeJeu extends JFrame{
      
     private void demarrerPartieActionPerformed(java.awt.event.ActionEvent evt) {
         initialiserPartie();
+        partie = true;
         initTest();
         demarrerPartie.setVisible(false);
     }
