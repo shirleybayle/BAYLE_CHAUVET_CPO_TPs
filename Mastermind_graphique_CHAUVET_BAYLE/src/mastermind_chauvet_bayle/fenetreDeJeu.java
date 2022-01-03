@@ -63,6 +63,7 @@ public class fenetreDeJeu extends JFrame{
             messageJuste.setText("Vous avez placé "+tableau[0]+" pions de la bonne couleur au bon endroit.");
             messageJuste.setVisible(true);
             nbEssais = 12;
+            viderLigne();
             this.repaint();
             }
             
@@ -470,22 +471,15 @@ public class fenetreDeJeu extends JFrame{
         panneauJeu.pion4 = true;
         panneauJeu.repaint();
         newTest = false;
-        blanc.setEnabled(false);
-        bleu.setEnabled(false);
-        jaune.setEnabled(false);
-        orange.setEnabled(false);
-        rose.setEnabled(false);
-        rouge.setEnabled(false);
-        vert.setEnabled(false);
-        violet.setEnabled(false);
+        
                 
     }
     
     public void viderLigne() {
         
-        /*for (int i=0; i<4; i++) {
+        for (int i=0; i<4; i++) {
             ligneTest.LigneAssociee[i] = null;
-        }*/
+        }
         compteurPion = 0;
         newTest = true;
     }

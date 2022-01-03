@@ -51,11 +51,22 @@ public class PolygonPanel extends JPanel {
             switch (nbEssais) {
                 case 1 :
                     g.setColor(c1);
-                    Color C11 = c1;
+                    Color C1 = c1;
                     g.fillOval(174, 160, 40, 40);
                     g.setColor(Color.BLACK);
                     g.drawOval(174,160,40,40);
                     break;
+                case 2 :
+                    g.fillOval(174, 160, 40, 40);
+                    g.setColor(Color.BLACK);
+                    g.drawOval(174,160,40,40);
+                    Color C2 = c1;
+                    g.setColor(c1);
+                    g.fillOval(174,180,45,45);
+                    g.setColor(Color.BLACK);
+                    g.drawOval(174, 180, 45, 45);
+                    break;
+                
             }
             
         }
@@ -63,7 +74,7 @@ public class PolygonPanel extends JPanel {
             switch (nbEssais) {
                 case 1 :
                     g.setColor(c2);
-                    Color C12 = c2;
+                    Color C1 = c2;
                     g.fillOval(250,160,40,40);
                     g.setColor(Color.BLACK);
                     g.drawOval(250,160,40,40);
@@ -75,7 +86,7 @@ public class PolygonPanel extends JPanel {
             switch (nbEssais) {
                 case 1 :
                     g.setColor(c3);
-                    Color C13 = c3;
+                    Color C1 = c3;
                     g.fillOval(330,160,40,40);
                     g.setColor(Color.BLACK);
                     g.drawOval(330,160,40,40);
@@ -86,7 +97,7 @@ public class PolygonPanel extends JPanel {
             switch (nbEssais) {
                 case 1 :
                     g.setColor(c4);
-                    Color C14 = c4;
+                    Color C1 = c4;
                     g.fillOval(410, 160, 40, 40);
                     g.setColor(Color.BLACK);
                     g.drawOval(410, 160, 40, 40);
