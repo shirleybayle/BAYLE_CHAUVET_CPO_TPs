@@ -318,7 +318,7 @@ public class fenetreDeJeu extends JFrame{
         jaune = new JButton();
         jaune.setBounds(750,200,60,60);
         add(jaune, new org.netbeans.lib.awtextra.AbsoluteConstraints(850,200,60,60));
-        jaune.setBackground(Color.yellow);
+        jaune.setBackground(new Color (255,228,54));
         jaune.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jauneActionPerformed(evt);
@@ -328,7 +328,7 @@ public class fenetreDeJeu extends JFrame{
         vert = new JButton();
         vert.setBounds(850,200,60,60);
         add(vert, new org.netbeans.lib.awtextra.AbsoluteConstraints(950,200,60,60));
-        vert.setBackground(Color.green);
+        vert.setBackground(new Color(159,232,85));
         vert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 vertActionPerformed(evt);
@@ -338,7 +338,7 @@ public class fenetreDeJeu extends JFrame{
         bleu = new JButton();
         bleu.setBounds(950,200,60,60);
         add(bleu, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050,200,60,60));
-        bleu.setBackground(Color.blue);
+        bleu.setBackground(new Color(0,166,214));
         bleu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bleuActionPerformed(evt);
@@ -358,7 +358,7 @@ public class fenetreDeJeu extends JFrame{
         violet = new JButton();
         violet.setBounds(750,300,60,60);
         add(violet, new org.netbeans.lib.awtextra.AbsoluteConstraints(850,300,60,60));
-        violet.setBackground(Color.black);
+        violet.setBackground(new Color(128,0,128));
         violet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 violetActionPerformed(evt);
@@ -368,7 +368,7 @@ public class fenetreDeJeu extends JFrame{
         rose = new JButton();
         rose.setBounds(850,300,60,60);
         add(rose, new org.netbeans.lib.awtextra.AbsoluteConstraints(950,300,60,60));
-        rose.setBackground(Color.pink);
+        rose.setBackground(new Color(253,108,158));
         rose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 roseActionPerformed(evt);
@@ -378,7 +378,7 @@ public class fenetreDeJeu extends JFrame{
         orange = new JButton();
         orange.setBounds(950,300,60,60);
         add(orange, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050,300,60,60));
-        orange.setBackground(Color.orange);
+        orange.setBackground(new Color(255,127,0));
         orange.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 orangeActionPerformed(evt);

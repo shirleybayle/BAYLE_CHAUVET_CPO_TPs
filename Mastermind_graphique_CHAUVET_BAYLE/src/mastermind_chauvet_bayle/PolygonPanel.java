@@ -85,25 +85,25 @@ public class PolygonPanel extends JPanel {
                 c = Color.red;
                 break;
             case "jaune":
-                c = Color.yellow;
+                c = new Color (255,228,54);
                 break;
             case "vert":
-                c = Color.green;
+                c = new Color(159,232,85);
                 break;
             case "violet":
-                c = Color.black;
+                c = new Color(128,0,128);
                 break;
             case "blanc":
                 c = Color.white;
                 break;
             case "bleu":
-                c = Color.blue;
+                new Color(0,166,214);
                 break;
             case "orange":
-                c = Color.orange;
+                c = new Color(255,127,0);
                 break;
             case "rose":
-                c = Color.pink;
+                c = new Color(253,108,158);
                 break;
             }
         g.setColor(c);
@@ -119,25 +119,25 @@ public class PolygonPanel extends JPanel {
                 c = Color.red;
                 break;
             case "jaune":
-                c = Color.yellow;
+                c = new Color (255,228,54);
                 break;
             case "vert":
-                c = Color.green;
+                c = new Color(159,232,85);
                 break;
             case "violet":
-                c = Color.black;
+                c = new Color(128,0,128);
                 break;
             case "blanc":
                 c = Color.white;
                 break;
             case "bleu":
-                c = Color.blue;
+                c = new Color(0,166,214);
                 break;
             case "orange":
                 c = Color.orange;
                 break;
             case "rose":
-                c = Color.pink;
+                c = new Color(253,108,158);
                 break;
             }
         g.setColor(c);
