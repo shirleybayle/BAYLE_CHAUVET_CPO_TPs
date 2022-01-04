@@ -351,20 +351,12 @@ public class fenetreDeJeu extends JFrame{
             switch (compteurPion) {
                 case 0 :
                     nouveauTest1("rouge");
-                    panneauJeu.c1 = Color.RED;
-                    break;
                 case 1 :
                     nouveauTest2("rouge");
-                    panneauJeu.c2 = Color.RED;
-                    break;
                 case 2 :
                     nouveauTest3("rouge");
-                    panneauJeu.c3 = Color.RED;
-                    break;
                 case 3 : 
                     nouveauTest4("rouge");
-                    panneauJeu.c4 = Color.RED;
-                    break;
             }
         
     }
@@ -373,20 +365,12 @@ public class fenetreDeJeu extends JFrame{
             switch (compteurPion) {
                 case 0 :
                     nouveauTest1("jaune");
-                    panneauJeu.c1 = Color.YELLOW;
-                    break;
                 case 1 :
                     nouveauTest2("jaune");
-                    panneauJeu.c2 = Color.YELLOW;
-                    break;
                 case 2 :
                     nouveauTest3("jaune");
-                    panneauJeu.c3 = Color.YELLOW;
-                    break;
                 case 3 : 
                     nouveauTest4("jaune");
-                    panneauJeu.c4 = Color.YELLOW;
-                    break;
             }
         }
     
@@ -394,20 +378,12 @@ public class fenetreDeJeu extends JFrame{
             switch (compteurPion) {
                 case 0 :
                     nouveauTest1("vert");
-                    panneauJeu.c1 = Color.GREEN;
-                    break;
                 case 1 :
                     nouveauTest2("vert");
-                    panneauJeu.c2 = Color.GREEN;
-                    break;
                 case 2 :
                     nouveauTest3("vert");
-                    panneauJeu.c3 = Color.GREEN;
-                    break;
                 case 3 : 
                     nouveauTest4("vert");
-                    panneauJeu.c4 = Color.GREEN;
-                    break;
             }
     }
      
@@ -415,20 +391,12 @@ public class fenetreDeJeu extends JFrame{
             switch (compteurPion) {
                 case 0 :
                     nouveauTest1("bleu");
-                    panneauJeu.c1 = Color.BLUE;
-                    break;
                 case 1 :
                     nouveauTest2("bleu");
-                    panneauJeu.c2 = Color.BLUE;
-                    break;
                 case 2 :
                     nouveauTest3("bleu");
-                    panneauJeu.c3 = Color.BLUE;
-                    break;
                 case 3 : 
                     nouveauTest4("bleu");
-                    panneauJeu.c4 = Color.BLUE;
-                    break;
             }
         
     }
@@ -437,20 +405,12 @@ public class fenetreDeJeu extends JFrame{
             switch (compteurPion) {
                 case 0 :
                     nouveauTest1("blanc");
-                    panneauJeu.c1 = Color.WHITE;
-                    break;
                 case 1 :
                     nouveauTest2("blanc");
-                    panneauJeu.c2 = Color.WHITE;
-                    break;
                 case 2 :
                     nouveauTest3("blanc");
-                    panneauJeu.c3 = Color.WHITE;
-                    break;
                 case 3 : 
                     nouveauTest4("blanc");
-                    panneauJeu.c4 = Color.WHITE;
-                    break;
             }
         
     }
@@ -459,20 +419,12 @@ public class fenetreDeJeu extends JFrame{
             switch (compteurPion) {
                 case 0 :
                     nouveauTest1("violet");
-                    panneauJeu.c1 = Color.BLACK;
-                    break;
                 case 1 :
                     nouveauTest2("violet");
-                    panneauJeu.c2 = Color.BLACK;
-                    break;
                 case 2 :
                     nouveauTest3("violet");
-                    panneauJeu.c3 = Color.BLACK;
-                    break;
                 case 3 : 
                     nouveauTest4("violet");
-                    panneauJeu.c4 = Color.BLACK;
-                    break;
             }
         
     }
@@ -481,20 +433,12 @@ public class fenetreDeJeu extends JFrame{
             switch (compteurPion) {
                 case 0 :
                     nouveauTest1("rose");
-                    panneauJeu.c1 = Color.PINK;
-                    break;
                 case 1 :
                     nouveauTest2("rose");
-                    panneauJeu.c2 = Color.PINK;
-                    break;
                 case 2 :
                     nouveauTest3("rose");
-                    panneauJeu.c3 = Color.PINK;
-                    break;
                 case 3 : 
                     nouveauTest4("rose");
-                    panneauJeu.c4 = Color.PINK;
-                    break;
             }
         
     }
@@ -503,20 +447,12 @@ public class fenetreDeJeu extends JFrame{
             switch (compteurPion) {
                 case 0 :
                     nouveauTest1("orange");
-                    panneauJeu.c1 = Color.ORANGE;
-                    break;
                 case 1 :
                     nouveauTest2("orange");
-                    panneauJeu.c2 = Color.ORANGE;
-                    break;
                 case 2 :
                     nouveauTest3("orange");
-                    panneauJeu.c3 = Color.ORANGE;
-                    break;
                 case 3 : 
                     nouveauTest4("orange");
-                    panneauJeu.c4 = Color.ORANGE;
-                    break;
             }
         
     }
@@ -530,7 +466,6 @@ public class fenetreDeJeu extends JFrame{
     
     public void initTest() {
         nbEssais = nbEssais+1;
-        panneauJeu.nbEssais = nbEssais;
         blanc.setEnabled(true);
         bleu.setEnabled(true);
         orange.setEnabled(true);
@@ -557,7 +492,6 @@ public class fenetreDeJeu extends JFrame{
         Pion p1 = new Pion(couleur);
         ligneTest.LigneAssociee[0] = p1;
         compteurPion = 1;
-        panneauJeu.pion1 = true;
         panneauJeu.repaint();
         
     }
@@ -566,7 +500,6 @@ public class fenetreDeJeu extends JFrame{
         Pion p2 = new Pion(couleur);
         ligneTest.LigneAssociee[1] = p2;
         compteurPion = 2;
-        panneauJeu.pion2 = true;
         panneauJeu.repaint();
     }
     
@@ -574,7 +507,6 @@ public class fenetreDeJeu extends JFrame{
         Pion p3 = new Pion(couleur);
         ligneTest.LigneAssociee[2] = p3;
         compteurPion = 3;
-        panneauJeu.pion3 = true;
         panneauJeu.repaint();
     }
     
@@ -582,7 +514,6 @@ public class fenetreDeJeu extends JFrame{
         Pion p4 = new Pion(couleur);
         ligneTest.LigneAssociee[3] = p4;
         compteurPion = 4;
-        panneauJeu.pion4 = true;
         panneauJeu.repaint();
         newTest = false;
         boolean finTest = true;
