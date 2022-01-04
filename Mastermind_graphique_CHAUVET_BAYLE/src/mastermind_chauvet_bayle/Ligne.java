@@ -8,7 +8,7 @@ package mastermind_chauvet_bayle;
  * @author shirl
  */
 public class Ligne {
-    Pion LigneAssociee[] = new Pion[4];
+    Pion LigneAssociee[] = new Pion[4]; //tableau de pions
     
     public void placerPion(Pion p1, Pion p2, Pion p3, Pion p4) {
         LigneAssociee[0] = p1;
@@ -28,7 +28,7 @@ public class Ligne {
     public static final String ANSI_WHITE = "\u001B[37m";
     public static final String ANSI_PINK = "\u001B[35;1m";
     
-    public void afficherLigne() {
+    public void afficherLigne() { //affiche une ligne sur console
         for (int i=0; i<4; i++) {
             System.out.print(" ");
             switch (LigneAssociee[i].Couleur){

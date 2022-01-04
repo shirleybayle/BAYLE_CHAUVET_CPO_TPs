@@ -27,16 +27,16 @@ import javax.swing.SwingConstants;
  */
 public class fenetreDeJeu extends JFrame{
     
-    int nbEssais;
-    Ligne ligneTest = new Ligne();
-    Ligne ligneGagnante = new Ligne();
-    boolean initTest;
-    int compteurPion = 0;
-    boolean partie = false;
+    int nbEssais; //nombre d'essais du joueur
+    Ligne ligneTest = new Ligne(); //ligne que le joueur teste
+    Ligne ligneGagnante = new Ligne(); //ligne qu'il faut que le joueur trouve
+    boolean initTest; //true si un test est en train d'etre effectue
+    int compteurPion = 0; //nombre de pions placés sur la ligne test
+    boolean partie = false; //le joueur a t il cliqué sur demarrer partie ?
     
     public fenetreDeJeu() {
-        super("Mastermind");
-        WindowListener test = new WindowAdapter() {
+        super("Mastermind"); //titre de la fenetre
+        WindowListener test = new WindowAdapter() { //création de la fenetre
          public void windowClosing(WindowEvent e){
             System.exit(0);
          }
@@ -48,7 +48,7 @@ public class fenetreDeJeu extends JFrame{
         this.setVisible(true);
         while (nbEssais != 11 || etreGagnante() == false) {
             if (partie) {
-            initTest();
+            initTest(); //on joue tant quil a pas fait 11 essais ou quil a pas gagné
             }
             
         }
@@ -57,7 +57,7 @@ public class fenetreDeJeu extends JFrame{
         
     }
     
-    public boolean etreGagnante() {
+    public boolean etreGagnante() { //verifie si une ligne est gagnante
         int tab [] = new int[2];
         tab = nbJuste();
         if (tab[0] == 4) {
@@ -76,23 +76,23 @@ public class fenetreDeJeu extends JFrame{
         int compteurJuste = 0;
         int compteurMoyensJuste = 0;
         for (int i=0; i<4; i++) {
-            tableauTest.add(ligneGagnante.LigneAssociee[i].Couleur);
+            tableauGagnant.add(ligneGagnante.LigneAssociee[i].Couleur);
+            tableauTest.add(ligneTest.LigneAssociee[i].Couleur);
            if (ligneTest.LigneAssociee[i].Couleur.equals(ligneGagnante.LigneAssociee[i].Couleur)) {
                compteurJuste = compteurJuste + 1;
                tableauTest.remove(ligneTest.LigneAssociee[i].Couleur);
                tableauGagnant.remove(ligneGagnante.LigneAssociee[i].Couleur);
            }
         }
-        for (int j=0; j<tableauTest.size(); j++) {
-            for (int k=0; k<4; k++) {
-                if (tableauTest.contains(ligneTest.LigneAssociee[k].Couleur)) {
+        //for (int j=0; j<tableauTest.size(); j++) {
+            for (int k=0; k<tableauTest.size(); k++) {
+                if (tableauGagnant.contains(tableauTest.get(k))) {
                 //if (tableauTest.get(j).Couleur.equals(ligneTest.LigneAssociee[k].Couleur)) {
                     compteurMoyensJuste = compteurMoyensJuste + 1;
-                    tableauTest.remove(ligneTest.LigneAssociee[k].Couleur);
-                    tableauGagnant.remove(ligneGagnante.LigneAssociee[k].Couleur);
+                    tableauGagnant.remove(tableauTest.get(k));
                     
                 }
-            }
+            //}
         }
         tableau[0] = compteurJuste;
         tableau[1] = compteurMoyensJuste;
@@ -100,7 +100,7 @@ public class fenetreDeJeu extends JFrame{
         
     }
     
-    private void initComponent() {
+    private void initComponent() { //initialisation de tous les composants
         this.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         
         panneauJeu = new PolygonPanel();
@@ -400,11 +400,11 @@ public class fenetreDeJeu extends JFrame{
         violet.setEnabled(false);
     }
     
-    private void rougeActionPerformed(java.awt.event.ActionEvent evt) {
+    private void rougeActionPerformed(java.awt.event.ActionEvent evt) { //ce qu'il se passe quand on appuie sur le bouton rouge
             switch (compteurPion) {
-                case 0 :
-                    nouveauTest1("rouge");
-                    break;
+                case 0 : //aucun pion de placé
+                    nouveauTest1("rouge"); //on place le premier pion
+                    break; //et ainsi de suite...
                 case 1 :
                     nouveauTest2("rouge");
                     break;
@@ -545,7 +545,7 @@ public class fenetreDeJeu extends JFrame{
      
     private void demarrerPartieActionPerformed(java.awt.event.ActionEvent evt) {
         initialiserPartie();
-        blanc.setEnabled(true);
+        blanc.setEnabled(true); //on active tous les boutons de couleur pour jouer
         bleu.setEnabled(true);
         orange.setEnabled(true);
         rose.setEnabled(true);
@@ -554,18 +554,18 @@ public class fenetreDeJeu extends JFrame{
         vert.setEnabled(true);
         violet.setEnabled(true);
         partie = true;
-        initTest();
-        demarrerPartie.setVisible(false);
+        initTest(); //on lance un test
+        demarrerPartie.setVisible(false); //on enlève le bouton demarrer partie
     }
     
     public void initTest() {
-        nbEssais = nbEssais+1;
-        initTest = true;
-        viderLigne();
+        nbEssais = nbEssais+1; //on ncrémente le nombre d'essais
+        initTest = true; //le test est en train d'être effectue
+        viderLigne(); // on vide la ligne
         texte.setText("<html>Veuillez choisir la couleur de vos pions<br>(de gauche à droite)</html>");
     }
     
-    public boolean finTest() {
+    public boolean finTest() { //renvoie true si un test est fini
         if (compteurPion == 4) {
             return true;
         }
@@ -575,7 +575,7 @@ public class fenetreDeJeu extends JFrame{
     }
         
     
-    public void nouveauTest1(String couleur) {
+    public void nouveauTest1(String couleur) { //place un pion a la premiere place du nouveau test
         Pion p1 = new Pion(couleur);
         ligneTest.LigneAssociee[0] = p1;
         compteurPion = 1;
@@ -584,7 +584,7 @@ public class fenetreDeJeu extends JFrame{
         
     }
     
-    public void nouveauTest2(String couleur) {
+    public void nouveauTest2(String couleur) { //place un pion a la deuxieme place du nouveau test
         Pion p2 = new Pion(couleur);
         ligneTest.LigneAssociee[1] = p2;
         compteurPion = 2;
@@ -592,7 +592,7 @@ public class fenetreDeJeu extends JFrame{
         panneauJeu.repaint();
     }
     
-    public void nouveauTest3(String couleur) {
+    public void nouveauTest3(String couleur) { //place un pion a la troisieme place du nouveau test
         Pion p3 = new Pion(couleur);
         ligneTest.LigneAssociee[2] = p3;
         compteurPion = 3;
@@ -600,7 +600,7 @@ public class fenetreDeJeu extends JFrame{
         panneauJeu.repaint();
     }
     
-    public void nouveauTest4(String couleur) {
+    public void nouveauTest4(String couleur) { //place un pion a la quatrieme^place du nouveau test
         Pion p4 = new Pion(couleur);
         ligneTest.LigneAssociee[3] = p4;
         compteurPion = 4;
@@ -610,7 +610,7 @@ public class fenetreDeJeu extends JFrame{
         boolean finTest = true;
         int tableau [] = new int[2];
         tableau = nbJuste();
-        switch (nbEssais) {
+        switch (nbEssais) { //actualise le message pour savoir le nombre de pions bien placés et mal placés
             case 1:
                 messageJuste1.setText(tableau[0]+"");
                 messageJuste1.setVisible(true);
@@ -678,9 +678,9 @@ public class fenetreDeJeu extends JFrame{
                 messagePasJuste11.setVisible(true);
                 break;
         }
-        if (etreGagnante() || nbEssais == 11) {
-            panneauJeu.gagnant = true;
-            ligneGag.setVisible(true);
+        if (etreGagnante() || nbEssais == 11) { //si la ligne est gagnante ou si le nombre d'essais max est atteint
+            panneauJeu.gagnant = true; //on affiche la ligne gagnante
+            ligneGag.setVisible(true); //on desactive les boutons
             blanc.setEnabled(false);
             bleu.setEnabled(false);
             orange.setEnabled(false);
@@ -689,21 +689,21 @@ public class fenetreDeJeu extends JFrame{
             jaune.setEnabled(false);
             vert.setEnabled(false);
             violet.setEnabled(false);
-            if (etreGagnante()) {
-                finDuJeu.setVisible(true);
+            if (etreGagnante()) { 
+                finDuJeu.setVisible(true); //on affiche un message
             }
             else if (nbEssais == 11) {
                 finDuJeu.setText("Vous avez perdu...");
                 finDuJeu.setVisible(true);
             }
         }
-        nbEssais = nbEssais+1;
-        viderLigne();
+        nbEssais = nbEssais+1;//on incrémente
+        viderLigne(); //on vide la ligne
         
                 
     }
     
-    public void viderLigne() {
+    public void viderLigne() { //vide la ligne test
         
         for (int i=0; i<4; i++) {
             ligneTest.LigneAssociee[i] = null;
@@ -711,7 +711,7 @@ public class fenetreDeJeu extends JFrame{
         compteurPion = 0;
     }
     
-    public void initialiserPartie() {
+    public void initialiserPartie() { // initialise la partie, et la ligne gagnante
         Random generateurAleat = new Random();
         int n1 = generateurAleat.nextInt(8);
         int n2 = generateurAleat.nextInt(8);

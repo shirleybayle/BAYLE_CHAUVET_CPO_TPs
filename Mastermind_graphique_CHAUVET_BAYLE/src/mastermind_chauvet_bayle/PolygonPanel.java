@@ -16,17 +16,17 @@ import javax.swing.JPanel;
 /**
  *
  * @author shirl
- */
-public class PolygonPanel extends JPanel {
-    ArrayList<Pion> tableauPions= new ArrayList<>();
-    Ligne ligneGag = new Ligne();
+ */ 
+public class PolygonPanel extends JPanel { //panneau de jeu
+    ArrayList<Pion> tableauPions= new ArrayList<>(); //matrice de pions
+    Ligne ligneGag = new Ligne(); //ligne gagnante
     boolean partie = false;
     boolean gagnant = false;
     
     
     @Override
     public void paintComponent(Graphics g) {
-        super.paintComponent(g);
+        super.paintComponent(g); //dessine le plateau
         int [] xValues = {10,610,456,165};
         int [] yValues = {800,800,183,183};
         Polygon p = new Polygon(xValues, yValues, 4);
@@ -52,8 +52,7 @@ public class PolygonPanel extends JPanel {
         int coordX [] = {174,250,330,410, 165,245,330,415, 155,240,335,420, 150,235,335,425, 135,230,330,430, 120,225,335,435, 110,220,325,440, 105,215,335,445, 95,210,330,450, 80,205,325,460, 60,200,325,470};
         int coordY[] = {160,185,220,250,290,340,390,450,520,600,690};
         int taille = tableauPions.size();
-        System.out.println(taille);
-        int nbEssais = 0;
+        int nbEssais = 0; //dessine les pions au bon endroit
         for (int nbpion=0; nbpion<tableauPions.size(); nbpion++) {
             if (nbpion+1<=4) nbEssais =1;
             else if (nbpion+1<=8) nbEssais =2;
@@ -69,7 +68,7 @@ public class PolygonPanel extends JPanel {
             Pion UnPion = tableauPions.get(nbpion);
             paintPion(coordX[nbpion], coordY[nbEssais-1], UnPion, nbEssais, g);
         }
-        if (gagnant) {
+        if (gagnant) { //affiche la ligne gagnante si gagnant = true
         Pion p1 = ligneGag.LigneAssociee[0];
         paintPionGag(120,90,p1,g);
         Pion p2 = ligneGag.LigneAssociee[1];
@@ -80,7 +79,7 @@ public class PolygonPanel extends JPanel {
         paintPionGag(420,90,p4,g);}
         
     }   
-    public void paintPion(int xCoord, int yCoord, Pion p, int nbEssais, Graphics g) {
+    public void paintPion(int xCoord, int yCoord, Pion p, int nbEssais, Graphics g) { //dessine un pion en fonction du nombre d'essai 
         Color c = Color.black;
         switch (p.Couleur) {
             case "rouge":
@@ -114,7 +113,7 @@ public class PolygonPanel extends JPanel {
         g.drawOval(xCoord, yCoord, 35+5*nbEssais, 35+5*nbEssais);
     }
     
-    public void paintPionGag(int xCoord, int yCoord, Pion p, Graphics g) {
+    public void paintPionGag(int xCoord, int yCoord, Pion p, Graphics g) { //dessine un pion gagnant
         Color c = Color.black;
         switch (p.Couleur) {
             case "rouge":
