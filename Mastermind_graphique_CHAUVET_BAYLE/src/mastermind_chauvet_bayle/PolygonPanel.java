@@ -68,13 +68,13 @@ public class PolygonPanel extends JPanel {
         }
         if (partie) {
         Pion p1 = ligneGag.LigneAssociee[0];
-        paintPionGag(100,50,p1,g);
+        paintPionGag(120,90,p1,g);
         Pion p2 = ligneGag.LigneAssociee[1];
-        paintPionGag(200,50,p2,g);
+        paintPionGag(220,90,p2,g);
         Pion p3 = ligneGag.LigneAssociee[2];
-        paintPionGag(300,50,p3,g);
+        paintPionGag(320,90,p3,g);
         Pion p4 = ligneGag.LigneAssociee[3];
-        paintPionGag(400,50,p4,g);}
+        paintPionGag(420,90,p4,g);}
         
     }   
     public void paintPion(int xCoord, int yCoord, Pion p, int nbEssais, Graphics g) {
