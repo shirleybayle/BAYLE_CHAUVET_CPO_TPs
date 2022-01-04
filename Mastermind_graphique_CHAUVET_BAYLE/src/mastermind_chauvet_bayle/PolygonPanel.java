@@ -46,5 +46,37 @@ public class PolygonPanel extends JPanel {
         g.drawLine(460,800,383,183); //trois quarts
         
     }   
-    
+    public void paintPion(int xCoord, int yCoord, Pion p, int nbEssais, Graphics g) {
+        Color c = Color.black;
+        switch (p.Couleur) {
+            case "rouge":
+                c = Color.red;
+                break;
+            case "jaune":
+                c = Color.yellow;
+                break;
+            case "vert":
+                c = Color.green;
+                break;
+            case "violet":
+                c = Color.black;
+                break;
+            case "blanc":
+                c = Color.white;
+                break;
+            case "bleu":
+                c = Color.blue;
+                break;
+            case "orange":
+                c = Color.orange;
+                break;
+            case "rose":
+                c = Color.pink;
+                break;
+            }
+        g.setColor(c);
+        g.fillOval(xCoord, yCoord, 40+5*nbEssais, 40+5*nbEssais);
+        g.setColor(Color.BLACK);
+        g.drawOval(xCoord, yCoord, 40+5*nbEssais, 40+5*nbEssais);
     }
+}
