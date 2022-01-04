@@ -5,8 +5,11 @@
 package mastermind_chauvet_bayle;
 
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Polygon;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
@@ -23,6 +26,10 @@ public class PolygonPanel extends JPanel {
     Color c3;
     Color c4;
     int nbEssais;
+    
+    public void dessinerPion(int nbEssais, Color couleur) {
+        
+    }
     
     @Override
     public void paintComponent(Graphics g) {
