@@ -18,7 +18,7 @@ import javax.swing.JPanel;
  * @author shirl
  */
 public class PolygonPanel extends JPanel {
-    ArrayList<Ligne> tableauLignes = new ArrayList<>();
+    ArrayList<Pion> tableauPions= new ArrayList<>();
     
     
     @Override
@@ -44,6 +44,7 @@ public class PolygonPanel extends JPanel {
         g.drawLine(310,800,310,183); //milieu
         g.drawLine(160,800,237,183); //un quart
         g.drawLine(460,800,383,183); //trois quarts
-       
+        
     }   
+    
     }

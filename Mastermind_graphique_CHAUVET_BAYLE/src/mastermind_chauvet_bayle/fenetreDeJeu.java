@@ -492,6 +492,7 @@ public class fenetreDeJeu extends JFrame{
         Pion p1 = new Pion(couleur);
         ligneTest.LigneAssociee[0] = p1;
         compteurPion = 1;
+        panneauJeu.tableauPions.add(p1);
         panneauJeu.repaint();
         
     }
@@ -500,6 +501,7 @@ public class fenetreDeJeu extends JFrame{
         Pion p2 = new Pion(couleur);
         ligneTest.LigneAssociee[1] = p2;
         compteurPion = 2;
+        panneauJeu.tableauPions.add(p2);
         panneauJeu.repaint();
     }
     
@@ -507,6 +509,7 @@ public class fenetreDeJeu extends JFrame{
         Pion p3 = new Pion(couleur);
         ligneTest.LigneAssociee[2] = p3;
         compteurPion = 3;
+        panneauJeu.tableauPions.add(p3);
         panneauJeu.repaint();
     }
     
@@ -514,6 +517,7 @@ public class fenetreDeJeu extends JFrame{
         Pion p4 = new Pion(couleur);
         ligneTest.LigneAssociee[3] = p4;
         compteurPion = 4;
+        panneauJeu.tableauPions.add(p4);
         panneauJeu.repaint();
         newTest = false;
         boolean finTest = true;
