@@ -50,17 +50,17 @@ public class PolygonPanel extends JPanel {
         System.out.println(taille);
         int nbEssais = 0;
         for (int nbpion=0; nbpion<tableauPions.size(); nbpion++) {
-            if (taille<=4) nbEssais =1;
-            else if (taille<=8) nbEssais =2;
-            else if (taille<=12) nbEssais = 3;
-            else if (taille<=16) nbEssais = 4;
-            else if (taille<=20) nbEssais =5;
-            else if (taille<=24) nbEssais =6;
-            else if (taille<=28) nbEssais = 7;
-            else if (taille <=32) nbEssais = 8;
-            else if (taille<=36) nbEssais =9;
-            else if (taille<=40) nbEssais =10;
-            else if (taille<=44) nbEssais =11;
+            if (nbpion+1<=4) nbEssais =1;
+            else if (nbpion+1<=8) nbEssais =2;
+            else if (nbpion+1<=12) nbEssais = 3;
+            else if (nbpion+1<=16) nbEssais = 4;
+            else if (nbpion+1<=20) nbEssais =5;
+            else if (nbpion+1<=24) nbEssais =6;
+            else if (nbpion+1<=28) nbEssais = 7;
+            else if (nbpion +1<=32) nbEssais = 8;
+            else if (nbpion+1<=36) nbEssais =9;
+            else if (nbpion+1<=40) nbEssais =10;
+            else if (nbpion+1<=44) nbEssais =11;
             Pion UnPion = tableauPions.get(nbpion);
             paintPion(coordX[nbpion], coordY[nbEssais], UnPion, nbEssais, g);
         }
