@@ -19,6 +19,8 @@ import javax.swing.JPanel;
  */
 public class PolygonPanel extends JPanel {
     ArrayList<Pion> tableauPions= new ArrayList<>();
+    Ligne ligneGag = new Ligne();
+    boolean partie = false;
     
     
     @Override
@@ -64,6 +66,15 @@ public class PolygonPanel extends JPanel {
             Pion UnPion = tableauPions.get(nbpion);
             paintPion(coordX[nbpion], coordY[nbEssais-1], UnPion, nbEssais, g);
         }
+        if (partie) {
+        Pion p1 = ligneGag.LigneAssociee[0];
+        paintPionGag(100,50,p1,g);
+        Pion p2 = ligneGag.LigneAssociee[1];
+        paintPionGag(200,50,p2,g);
+        Pion p3 = ligneGag.LigneAssociee[2];
+        paintPionGag(300,50,p3,g);
+        Pion p4 = ligneGag.LigneAssociee[3];
+        paintPionGag(400,50,p4,g);}
         
     }   
     public void paintPion(int xCoord, int yCoord, Pion p, int nbEssais, Graphics g) {
@@ -98,5 +109,39 @@ public class PolygonPanel extends JPanel {
         g.fillOval(xCoord, yCoord, 35+5*nbEssais, 35+5*nbEssais);
         g.setColor(Color.BLACK);
         g.drawOval(xCoord, yCoord, 35+5*nbEssais, 35+5*nbEssais);
+    }
+    
+    public void paintPionGag(int xCoord, int yCoord, Pion p, Graphics g) {
+        Color c = Color.black;
+        switch (p.Couleur) {
+            case "rouge":
+                c = Color.red;
+                break;
+            case "jaune":
+                c = Color.yellow;
+                break;
+            case "vert":
+                c = Color.green;
+                break;
+            case "violet":
+                c = Color.black;
+                break;
+            case "blanc":
+                c = Color.white;
+                break;
+            case "bleu":
+                c = Color.blue;
+                break;
+            case "orange":
+                c = Color.orange;
+                break;
+            case "rose":
+                c = Color.pink;
+                break;
+            }
+        g.setColor(c);
+        g.fillOval(xCoord, yCoord, 60, 60);
+        g.setColor(Color.black);
+        g.drawOval(xCoord, yCoord, 60, 60);
     }
 }

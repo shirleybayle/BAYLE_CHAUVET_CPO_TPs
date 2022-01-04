@@ -30,7 +30,7 @@ public class fenetreDeJeu extends JFrame{
     int nbEssais;
     Ligne ligneTest = new Ligne();
     Ligne ligneGagnante = new Ligne();
-    boolean newTest;
+    boolean initTest;
     int compteurPion = 0;
     boolean partie = false;
     
@@ -49,7 +49,6 @@ public class fenetreDeJeu extends JFrame{
         while (nbEssais != 11 || etreGagnante() == false) {
             if (partie) {
             initTest();
-            
             }
             
         }
@@ -103,7 +102,6 @@ public class fenetreDeJeu extends JFrame{
     
     private void initComponent() {
         this.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        
         
         panneauJeu = new PolygonPanel();
         add(panneauJeu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20,50,-1,-1));
@@ -345,6 +343,15 @@ public class fenetreDeJeu extends JFrame{
                 orangeActionPerformed(evt);
             }
         });
+        
+        blanc.setEnabled(false);
+        bleu.setEnabled(false);
+        orange.setEnabled(false);
+        rose.setEnabled(false);
+        rouge.setEnabled(false);
+        jaune.setEnabled(false);
+        vert.setEnabled(false);
+        violet.setEnabled(false);
     }
     
     private void rougeActionPerformed(java.awt.event.ActionEvent evt) {
@@ -492,13 +499,6 @@ public class fenetreDeJeu extends JFrame{
      
     private void demarrerPartieActionPerformed(java.awt.event.ActionEvent evt) {
         initialiserPartie();
-        partie = true;
-        initTest();
-        demarrerPartie.setVisible(false);
-    }
-    
-    public void initTest() {
-        nbEssais = nbEssais+1;
         blanc.setEnabled(true);
         bleu.setEnabled(true);
         orange.setEnabled(true);
@@ -507,6 +507,14 @@ public class fenetreDeJeu extends JFrame{
         jaune.setEnabled(true);
         vert.setEnabled(true);
         violet.setEnabled(true);
+        partie = true;
+        initTest();
+        demarrerPartie.setVisible(false);
+    }
+    
+    public void initTest() {
+        nbEssais = nbEssais+1;
+        initTest = true;
         viderLigne();
         texte.setText("<html>Veuillez choisir la couleur de vos pions<br>(de gauche à droite)</html>");
     }
@@ -552,7 +560,7 @@ public class fenetreDeJeu extends JFrame{
         compteurPion = 4;
         panneauJeu.tableauPions.add(p4);
         panneauJeu.repaint();
-        newTest = false;
+        initTest = false;
         boolean finTest = true;
         int tableau [] = new int[2];
         tableau = nbJuste();
@@ -624,7 +632,7 @@ public class fenetreDeJeu extends JFrame{
                 messagePasJuste11.setVisible(true);
                 break;
         }
-        
+        nbEssais = nbEssais+1;
         viderLigne();
         
                 
@@ -636,7 +644,6 @@ public class fenetreDeJeu extends JFrame{
             ligneTest.LigneAssociee[i] = null;
         }
         compteurPion = 0;
-        newTest = true;
     }
     
     public void initialiserPartie() {
@@ -651,8 +658,11 @@ public class fenetreDeJeu extends JFrame{
         Pion pion3 = new Pion(tabCouleurs[n3]);
         Pion pion4 = new Pion(tabCouleurs[n4]);
         ligneGagnante.placerPion(pion1, pion2, pion3, pion4);
-        newTest = false;
+        initTest = false;
         nbEssais = 0;
+        panneauJeu.ligneGag = ligneGagnante;
+        panneauJeu.partie = true;
+        panneauJeu.repaint();
     }
     
     private JLabel texte;
