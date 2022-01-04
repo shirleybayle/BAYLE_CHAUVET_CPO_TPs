@@ -30,11 +30,12 @@ public class PolygonPanel extends JPanel {
         int [] xValues = {10,610,456,165};
         int [] yValues = {800,800,183,183};
         Polygon p = new Polygon(xValues, yValues, 4);
-        g.setColor(Color.BLUE);
+        g.setColor(Color.black);
         g.drawPolygon(p);
-        //g.fillPolygon(p);
-        g.setColor(Color.BLACK);
-        g.drawLine(158,211,453,211);
+        g.setColor(new Color(179,139,109));
+        g.fillPolygon(p);
+        g.setColor(new Color(88,41,0));
+        g.drawLine(158,211,460,211);
         g.drawLine(149,243,470,243);
         g.drawLine(140,278,480,278);
         g.drawLine(131,318,489, 318);
@@ -47,6 +48,7 @@ public class PolygonPanel extends JPanel {
         g.drawLine(310,800,310,183); //milieu
         g.drawLine(160,800,237,183); //un quart
         g.drawLine(460,800,383,183); //trois quarts
+        
         int coordX [] = {174,250,330,410, 165,245,330,415, 155,240,335,420, 150,235,335,425, 135,230,330,430, 120,225,335,435, 110,220,325,440, 105,215,335,445, 95,210,330,450, 80,205,325,460, 60,200,325,470};
         int coordY[] = {160,185,220,250,290,340,390,450,520,600,690};
         int taille = tableauPions.size();
@@ -97,7 +99,7 @@ public class PolygonPanel extends JPanel {
                 c = Color.white;
                 break;
             case "bleu":
-                new Color(0,166,214);
+                c = new Color(0,166,214);
                 break;
             case "orange":
                 c = new Color(255,127,0);
@@ -134,7 +136,7 @@ public class PolygonPanel extends JPanel {
                 c = new Color(0,166,214);
                 break;
             case "orange":
-                c = Color.orange;
+                c = new Color(255,127,0);
                 break;
             case "rose":
                 c = new Color(253,108,158);
