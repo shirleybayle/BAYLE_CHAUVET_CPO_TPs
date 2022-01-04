@@ -588,8 +588,74 @@ public class fenetreDeJeu extends JFrame{
         boolean finTest = true;
         int tableau [] = new int[2];
         tableau = nbJuste();
-        messageJuste1.setText(tableau[0]+" justes");
-        messageJuste1.setVisible(true);
+        switch (nbEssais) {
+            case 1:
+                messageJuste1.setText(tableau[0]+"");
+                messageJuste1.setVisible(true);
+                messagePasJuste1.setText(tableau[1]+"");
+                messagePasJuste1.setVisible(true);
+                break;
+            case 2:
+                messageJuste2.setText(tableau[0]+"");
+                messageJuste2.setVisible(true);
+                messagePasJuste2.setText(tableau[1]+"");
+                messagePasJuste2.setVisible(true);
+                break;
+            case 3:
+                messageJuste3.setText(tableau[0]+"");
+                messageJuste3.setVisible(true);
+                messagePasJuste3.setText(tableau[1]+"");
+                messagePasJuste3.setVisible(true);
+                break;
+            case 4:
+                messageJuste4.setText(tableau[0]+"");
+                messageJuste4.setVisible(true);
+                messagePasJuste4.setText(tableau[1]+"");
+                messagePasJuste4.setVisible(true);
+                break;
+            case 5:
+                messageJuste5.setText(tableau[0]+"");
+                messageJuste5.setVisible(true);
+                messagePasJuste5.setText(tableau[1]+"");
+                messagePasJuste5.setVisible(true);
+                break;
+            case 6:
+                messageJuste6.setText(tableau[0]+"");
+                messageJuste6.setVisible(true);
+                messagePasJuste6.setText(tableau[1]+"");
+                messagePasJuste6.setVisible(true);
+                break;
+            case 7:
+                messageJuste7.setText(tableau[0]+"");
+                messageJuste7.setVisible(true);
+                messagePasJuste7.setText(tableau[1]+"");
+                messagePasJuste7.setVisible(true);
+                break;
+            case 8:
+                messageJuste8.setText(tableau[0]+"");
+                messageJuste8.setVisible(true);
+                messagePasJuste8.setText(tableau[1]+"");
+                messagePasJuste8.setVisible(true);
+                break;
+            case 9:
+                messageJuste9.setText(tableau[0]+"");
+                messageJuste9.setVisible(true);
+                messagePasJuste9.setText(tableau[1]+"");
+                messagePasJuste9.setVisible(true);
+                break;
+            case 10:
+                messageJuste10.setText(tableau[0]+"");
+                messageJuste10.setVisible(true);
+                messagePasJuste10.setText(tableau[1]+"");
+                messagePasJuste10.setVisible(true);
+                break;
+            case 11:
+                messageJuste11.setText(tableau[0]+"");
+                messageJuste11.setVisible(true);
+                messagePasJuste11.setText(tableau[1]+"");
+                messagePasJuste11.setVisible(true);
+                break;
+        }
         
         viderLigne();
         
