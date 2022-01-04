@@ -351,12 +351,16 @@ public class fenetreDeJeu extends JFrame{
             switch (compteurPion) {
                 case 0 :
                     nouveauTest1("rouge");
+                    break;
                 case 1 :
                     nouveauTest2("rouge");
+                    break;
                 case 2 :
                     nouveauTest3("rouge");
+                    break;
                 case 3 : 
                     nouveauTest4("rouge");
+                    break;
             }
         
     }
@@ -365,12 +369,16 @@ public class fenetreDeJeu extends JFrame{
             switch (compteurPion) {
                 case 0 :
                     nouveauTest1("jaune");
+                    break;
                 case 1 :
                     nouveauTest2("jaune");
+                    break;
                 case 2 :
                     nouveauTest3("jaune");
+                    break;
                 case 3 : 
                     nouveauTest4("jaune");
+                    break;
             }
         }
     
@@ -378,12 +386,16 @@ public class fenetreDeJeu extends JFrame{
             switch (compteurPion) {
                 case 0 :
                     nouveauTest1("vert");
+                    break;
                 case 1 :
                     nouveauTest2("vert");
+                    break;
                 case 2 :
                     nouveauTest3("vert");
+                    break;
                 case 3 : 
                     nouveauTest4("vert");
+                    break;
             }
     }
      
@@ -391,12 +403,16 @@ public class fenetreDeJeu extends JFrame{
             switch (compteurPion) {
                 case 0 :
                     nouveauTest1("bleu");
+                    break;
                 case 1 :
                     nouveauTest2("bleu");
+                    break;
                 case 2 :
                     nouveauTest3("bleu");
+                    break;
                 case 3 : 
                     nouveauTest4("bleu");
+                    break;
             }
         
     }
@@ -405,12 +421,16 @@ public class fenetreDeJeu extends JFrame{
             switch (compteurPion) {
                 case 0 :
                     nouveauTest1("blanc");
+                    break;
                 case 1 :
                     nouveauTest2("blanc");
+                    break;
                 case 2 :
                     nouveauTest3("blanc");
+                    break;
                 case 3 : 
                     nouveauTest4("blanc");
+                    break;
             }
         
     }
@@ -419,12 +439,16 @@ public class fenetreDeJeu extends JFrame{
             switch (compteurPion) {
                 case 0 :
                     nouveauTest1("violet");
+                    break;
                 case 1 :
                     nouveauTest2("violet");
+                    break;
                 case 2 :
                     nouveauTest3("violet");
+                    break;
                 case 3 : 
                     nouveauTest4("violet");
+                    break;
             }
         
     }
@@ -433,13 +457,18 @@ public class fenetreDeJeu extends JFrame{
             switch (compteurPion) {
                 case 0 :
                     nouveauTest1("rose");
+                    break;
                 case 1 :
                     nouveauTest2("rose");
+                    break;
                 case 2 :
                     nouveauTest3("rose");
+                    break;
                 case 3 : 
                     nouveauTest4("rose");
+                    break;
             }
+            
         
     }
      
@@ -447,12 +476,16 @@ public class fenetreDeJeu extends JFrame{
             switch (compteurPion) {
                 case 0 :
                     nouveauTest1("orange");
+                    break;
                 case 1 :
                     nouveauTest2("orange");
+                    break;
                 case 2 :
                     nouveauTest3("orange");
+                    break;
                 case 3 : 
                     nouveauTest4("orange");
+                    break;
             }
         
     }
