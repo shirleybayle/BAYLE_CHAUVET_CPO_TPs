@@ -44,6 +44,29 @@ public class PolygonPanel extends JPanel {
         g.drawLine(310,800,310,183); //milieu
         g.drawLine(160,800,237,183); //un quart
         g.drawLine(460,800,383,183); //trois quarts
+        int coordX [] = {174,250,330,410, 170,245,335,415, 165,240,340,420, 160,235,345,425, 155,230,350,430, 150,225,355,435, 145,220,360,440, 140,215,365,445, 135,210,370,450, 130,205,375,455, 125,200,380,460};
+        int coordY[] = {160,175,200,225,250,280,310,350,390,445,500};
+        int taille = tableauPions.size();
+        int nbEssais = 0;
+        for (int nbpion=0; nbpion<tableauPions.size(); nbpion++) {
+            for (int y=0; y<11; y++) {
+                for (int x=0; x<11; x++) {
+                    if (taille<=4) nbEssais =1;
+                    else if (taille<=8) nbEssais =2;
+                    else if (taille<=12) nbEssais = 3;
+                    else if (taille<=16) nbEssais = 4;
+                    else if (taille<=20) nbEssais =5;
+                    else if (taille<=24) nbEssais =6;
+                    else if (taille<=28) nbEssais = 7;
+                    else if (taille <=32) nbEssais = 8;
+                    else if (taille<=36) nbEssais =9;
+                    else if (taille<=40) nbEssais =10;
+                    else if (taille<=44) nbEssais =11;
+                    Pion UnPion = tableauPions.get(nbpion);
+                    paintPion(coordX[x], coordY[y], UnPion, nbEssais, g);
+            }
+            }
+        }
         
     }   
     public void paintPion(int xCoord, int yCoord, Pion p, int nbEssais, Graphics g) {
