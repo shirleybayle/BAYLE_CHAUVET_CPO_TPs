@@ -21,6 +21,7 @@ public class PolygonPanel extends JPanel {
     ArrayList<Pion> tableauPions= new ArrayList<>();
     Ligne ligneGag = new Ligne();
     boolean partie = false;
+    boolean gagnant = false;
     
     
     @Override
@@ -66,7 +67,7 @@ public class PolygonPanel extends JPanel {
             Pion UnPion = tableauPions.get(nbpion);
             paintPion(coordX[nbpion], coordY[nbEssais-1], UnPion, nbEssais, g);
         }
-        if (partie) {
+        if (gagnant) {
         Pion p1 = ligneGag.LigneAssociee[0];
         paintPionGag(120,90,p1,g);
         Pion p2 = ligneGag.LigneAssociee[1];

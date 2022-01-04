@@ -112,151 +112,170 @@ public class fenetreDeJeu extends JFrame{
         
         panneauJeu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         
+        regles = new JLabel("<html>REGLES DU JEU : <br> 1. Le but de ce jeu est de trouver une combinaison de pions gagnante.<br>Vous avez 11 essais pour placer vos pions de la même façon que la<br>combinaison gagnante.<br>2. Le chiffre à gauche du plateau indique le nombre de pions de la bonne couleur<br>placés au bon endroit de la ligne.<br>3. Le chiffre à droite du plateau indique le nombre de pions présents<br>dans la ligne gagnante mais placés au mauvais endroit.<br>Amusez vous !</html>");
+        Dimension sizer = regles.getPreferredSize();
+        regles.setFont(new Font("Cotton Butter", Font.PLAIN,20));
+        add(regles, new org.netbeans.lib.awtextra.AbsoluteConstraints(700,425));
+        
+        finDuJeu = new JLabel("Vous avez gagné !");
+        Dimension sizef = finDuJeu.getPreferredSize();
+        finDuJeu.setFont(new Font("Cotton Butter", Font.BOLD, 50));
+        finDuJeu.setForeground(Color.red);
+        add(finDuJeu, new org.netbeans.lib.awtextra.AbsoluteConstraints(800,775));
+        finDuJeu.setVisible(false);
+        
+        ligneGag = new JLabel ("Ligne Gagnante : ");
+        Dimension sizel = ligneGag.getPreferredSize();
+        ligneGag.setFont(new Font("Cotton Butter", Font.BOLD, 20));
+        ligneGag.setForeground(Color.red);
+        panneauJeu.add(ligneGag, new org.netbeans.lib.awtextra.AbsoluteConstraints(10,100));
+        ligneGag.setVisible(false);
+        
         messagePasJuste1 = new JLabel("1");
         Dimension sizep1 = messagePasJuste1.getPreferredSize();
-        messagePasJuste1.setFont(new Font("Serif",Font.BOLD,18));
+        messagePasJuste1.setFont(new Font("Cotton Butter",Font.BOLD,18));
         panneauJeu.add(messagePasJuste1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470,180));
         messagePasJuste1.setVisible(false);
         
         messagePasJuste2 = new JLabel("2");
         Dimension sizep2 = messagePasJuste2.getPreferredSize();
-        messagePasJuste2.setFont(new Font("Serif",Font.BOLD,18));
+        messagePasJuste2.setFont(new Font("Cotton Butter",Font.BOLD,18));
         panneauJeu.add(messagePasJuste2, new org.netbeans.lib.awtextra.AbsoluteConstraints(475,210));
         messagePasJuste2.setVisible(false);
         
         messagePasJuste3 = new JLabel("3");
         Dimension sizep3 = messagePasJuste3.getPreferredSize();
-        messagePasJuste3.setFont(new Font("Serif",Font.BOLD,18));
+        messagePasJuste3.setFont(new Font("Cotton Butter",Font.BOLD,18));
         panneauJeu.add(messagePasJuste3, new org.netbeans.lib.awtextra.AbsoluteConstraints(485,245));
         messagePasJuste3.setVisible(false);
         
         messagePasJuste4 = new JLabel("4");
         Dimension sizep4 = messagePasJuste4.getPreferredSize();
-        messagePasJuste4.setFont(new Font("Serif",Font.BOLD,18));
+        messagePasJuste4.setFont(new Font("Cotton Butter",Font.BOLD,18));
         panneauJeu.add(messagePasJuste4, new org.netbeans.lib.awtextra.AbsoluteConstraints(495,285));
         messagePasJuste4.setVisible(false);
         
         messagePasJuste5 = new JLabel("5");
         Dimension sizep5 = messagePasJuste5.getPreferredSize();
-        messagePasJuste5.setFont(new Font("Serif",Font.BOLD,18));
+        messagePasJuste5.setFont(new Font("Cotton Butter",Font.BOLD,18));
         panneauJeu.add(messagePasJuste5, new org.netbeans.lib.awtextra.AbsoluteConstraints(505,325));
         messagePasJuste5.setVisible(false);
         
         messagePasJuste6 = new JLabel("6");
         Dimension sizep6 = messagePasJuste6.getPreferredSize();
-        messagePasJuste6.setFont(new Font("Serif",Font.BOLD,18));
+        messagePasJuste6.setFont(new Font("Cotton Butter",Font.BOLD,18));
         panneauJeu.add(messagePasJuste6, new org.netbeans.lib.awtextra.AbsoluteConstraints(515,370));
         messagePasJuste6.setVisible(false);
         
         messagePasJuste7 = new JLabel("7");
         Dimension sizep7 = messagePasJuste7.getPreferredSize();
-        messagePasJuste7.setFont(new Font("Serif",Font.BOLD,18));
+        messagePasJuste7.setFont(new Font("Cotton Butter",Font.BOLD,18));
         panneauJeu.add(messagePasJuste7, new org.netbeans.lib.awtextra.AbsoluteConstraints(530,420));
         messagePasJuste7.setVisible(false);
         
         messagePasJuste8 = new JLabel("8");
         Dimension sizep8 = messagePasJuste8.getPreferredSize();
-        messagePasJuste8.setFont(new Font("Serif",Font.BOLD,18));
+        messagePasJuste8.setFont(new Font("Cotton Butter",Font.BOLD,18));
         panneauJeu.add(messagePasJuste8, new org.netbeans.lib.awtextra.AbsoluteConstraints(545,480));
         messagePasJuste8.setVisible(false);
         
         messagePasJuste9 = new JLabel("9");
         Dimension sizep9 = messagePasJuste9.getPreferredSize();
-        messagePasJuste9.setFont(new Font("Serif",Font.BOLD,18));
+        messagePasJuste9.setFont(new Font("Cotton Butter",Font.BOLD,18));
         panneauJeu.add(messagePasJuste9, new org.netbeans.lib.awtextra.AbsoluteConstraints(560,550));
         messagePasJuste9.setVisible(false);
         
         messagePasJuste10 = new JLabel("10");
         Dimension sizep10 = messagePasJuste10.getPreferredSize();
-        messagePasJuste10.setFont(new Font("Serif",Font.BOLD,18));
+        messagePasJuste10.setFont(new Font("Cotton Butter",Font.BOLD,18));
         panneauJeu.add(messagePasJuste10, new org.netbeans.lib.awtextra.AbsoluteConstraints(580,630));
         messagePasJuste10.setVisible(false);
         
         messagePasJuste11 = new JLabel("11");
         Dimension sizep11 = messagePasJuste11.getPreferredSize();
-        messagePasJuste11.setFont(new Font("Serif",Font.BOLD,18));
+        messagePasJuste11.setFont(new Font("Cotton Butter",Font.BOLD,18));
         panneauJeu.add(messagePasJuste11, new org.netbeans.lib.awtextra.AbsoluteConstraints(600,730));
         messagePasJuste11.setVisible(false);
         
         messageJuste1 = new JLabel("1");
         Dimension size1 = messageJuste1.getPreferredSize();
-        messageJuste1.setFont(new Font("Serif",Font.BOLD,18));
+        messageJuste1.setFont(new Font("Cotton Butter",Font.BOLD,18));
         panneauJeu.add(messageJuste1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140,180));
         messageJuste1.setVisible(false);
         
         messageJuste2 = new JLabel("2");
         Dimension size2 = messageJuste2.getPreferredSize();
-        messageJuste2.setFont(new Font("Serif",Font.BOLD,18));
+        messageJuste2.setFont(new Font("Cotton Butter",Font.BOLD,18));
         panneauJeu.add(messageJuste2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130,210));
         messageJuste2.setVisible(false);
         
         messageJuste3 = new JLabel("3");
         Dimension size3 = messageJuste3.getPreferredSize();
-        messageJuste3.setFont(new Font("Serif",Font.BOLD,18));
+        messageJuste3.setFont(new Font("Cotton Butter",Font.BOLD,18));
         panneauJeu.add(messageJuste3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120,245));
         messageJuste3.setVisible(false);
         
         messageJuste4 = new JLabel("4");
         Dimension size4 = messageJuste4.getPreferredSize();
-        messageJuste4.setFont(new Font("Serif",Font.BOLD,18));
+        messageJuste4.setFont(new Font("Cotton Butter",Font.BOLD,18));
         panneauJeu.add(messageJuste4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110,285));
         messageJuste4.setVisible(false);
         
         messageJuste5 = new JLabel("5");
         Dimension size5 = messageJuste5.getPreferredSize();
-        messageJuste5.setFont(new Font("Serif",Font.BOLD,18));
+        messageJuste5.setFont(new Font("Cotton Butter",Font.BOLD,18));
         panneauJeu.add(messageJuste5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100,325));
         messageJuste5.setVisible(false);
         
         messageJuste6 = new JLabel("6");
         Dimension size6 = messageJuste6.getPreferredSize();
-        messageJuste6.setFont(new Font("Serif",Font.BOLD,18));
+        messageJuste6.setFont(new Font("Cotton Butter",Font.BOLD,18));
         panneauJeu.add(messageJuste6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90,370));
         messageJuste6.setVisible(false);
         
         messageJuste7 = new JLabel("7");
         Dimension size7 = messageJuste7.getPreferredSize();
-        messageJuste7.setFont(new Font("Serif",Font.BOLD,18));
+        messageJuste7.setFont(new Font("Cotton Butter",Font.BOLD,18));
         panneauJeu.add(messageJuste7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80,420));
         messageJuste7.setVisible(false);
         
         messageJuste8 = new JLabel("8");
         Dimension size8 = messageJuste8.getPreferredSize();
-        messageJuste8.setFont(new Font("Serif",Font.BOLD,18));
+        messageJuste8.setFont(new Font("Cotton Butter",Font.BOLD,18));
         panneauJeu.add(messageJuste8, new org.netbeans.lib.awtextra.AbsoluteConstraints(65,480));
         messageJuste8.setVisible(false);
         
         messageJuste9 = new JLabel("9");
         Dimension size9 = messageJuste9.getPreferredSize();
-        messageJuste9.setFont(new Font("Serif",Font.BOLD,18));
+        messageJuste9.setFont(new Font("Cotton Butter",Font.BOLD,18));
         panneauJeu.add(messageJuste9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50,550));
         messageJuste9.setVisible(false);
         
         messageJuste10 = new JLabel("10");
         Dimension size10 = messageJuste10.getPreferredSize();
-        messageJuste10.setFont(new Font("Serif",Font.BOLD,18));
+        messageJuste10.setFont(new Font("Cotton Butter",Font.BOLD,18));
         panneauJeu.add(messageJuste10, new org.netbeans.lib.awtextra.AbsoluteConstraints(25,630));
         messageJuste10.setVisible(false);
         
         messageJuste11 = new JLabel("11");
         Dimension size11 = messageJuste11.getPreferredSize();
-        messageJuste11.setFont(new Font("Serif",Font.BOLD,18));
+        messageJuste11.setFont(new Font("Cotton Butter",Font.BOLD,18));
         panneauJeu.add(messageJuste11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,730));
         messageJuste11.setVisible(false);
         
         
         texte = new JLabel("Veuillez démarrer la partie.");
         //Dimension size = texte.getPreferredSize();
-        texte.setFont(new Font("Serif",Font.BOLD, 20));
+        texte.setFont(new Font("Cotton Butter",Font.PLAIN, 30));
         texte.setHorizontalAlignment(SwingConstants.CENTER);
         //texte.setBounds(620, 20, size.width, size.height);
-        add(texte, new org.netbeans.lib.awtextra.AbsoluteConstraints(750,50,360,100));
+        add(texte, new org.netbeans.lib.awtextra.AbsoluteConstraints(750,50,360,150));
         //texte.setOpaque(true);
         //texte.setBackground(Color.red);
         setVisible(true);
         
         demarrerPartie = new JButton("Démarrer la partie");
-        add(demarrerPartie,new org.netbeans.lib.awtextra.AbsoluteConstraints(850,500));
+        add(demarrerPartie,new org.netbeans.lib.awtextra.AbsoluteConstraints(850,400));
         demarrerPartie.addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
@@ -632,6 +651,24 @@ public class fenetreDeJeu extends JFrame{
                 messagePasJuste11.setVisible(true);
                 break;
         }
+        if (etreGagnante() || nbEssais == 11) {
+            panneauJeu.gagnant = true;
+            ligneGag.setVisible(true);
+            blanc.setEnabled(false);
+            bleu.setEnabled(false);
+            orange.setEnabled(false);
+            rose.setEnabled(false);
+            rouge.setEnabled(false);
+            jaune.setEnabled(false);
+            vert.setEnabled(false);
+            violet.setEnabled(false);
+            if (etreGagnante()) {
+                
+            }
+            else if (nbEssais == 11) {
+                
+            }
+        }
         nbEssais = nbEssais+1;
         viderLigne();
         
@@ -698,7 +735,9 @@ public class fenetreDeJeu extends JFrame{
     private JLabel messagePasJuste9;
     private JLabel messagePasJuste10;
     private JLabel messagePasJuste11;
-    
+    private JLabel ligneGag;
+    private JLabel finDuJeu;
+    private JLabel regles;
     
     public static void main(String [] args) {
         JFrame frame = new fenetreDeJeu();
