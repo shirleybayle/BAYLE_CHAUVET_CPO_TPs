@@ -117,6 +117,11 @@ public class fenetreDeJeu extends JFrame{
         regles.setFont(new Font("Cotton Butter", Font.PLAIN,20));
         add(regles, new org.netbeans.lib.awtextra.AbsoluteConstraints(700,425));
         
+        titre = new JLabel("MASTERMIND");
+        Dimension sizet = titre.getPreferredSize();
+        titre.setFont(new Font("Super Mario 256", Font.PLAIN, 50));
+        panneauJeu.add(titre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120,10));
+        
         finDuJeu = new JLabel("Vous avez gagné !");
         Dimension sizef = finDuJeu.getPreferredSize();
         finDuJeu.setFont(new Font("Cotton Butter", Font.BOLD, 50));
@@ -761,6 +766,7 @@ public class fenetreDeJeu extends JFrame{
     private JLabel ligneGag;
     private JLabel finDuJeu;
     private JLabel regles;
+    private JLabel titre;
     
     public static void main(String [] args) {
         JFrame frame = new fenetreDeJeu();
