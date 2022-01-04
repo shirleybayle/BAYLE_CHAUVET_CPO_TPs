@@ -1,4 +1,4 @@
-/*
+/* BAYLE Shirley - CHAUVET Ylan
  * Classe Pion
  */
 package mastermind_chauvet_bayle;

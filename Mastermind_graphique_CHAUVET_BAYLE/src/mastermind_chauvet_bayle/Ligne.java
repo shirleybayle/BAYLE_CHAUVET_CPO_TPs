@@ -1,4 +1,4 @@
-/*
+/* BAYLE Shirley - CHAUVET Ylan
  * Classe ligne
  */
 package mastermind_chauvet_bayle;

@@ -1,6 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+/* BAYLE Shirley - CHAUVET Ylan
+ * fenetre de jeu
  */
 package mastermind_chauvet_bayle;
 
