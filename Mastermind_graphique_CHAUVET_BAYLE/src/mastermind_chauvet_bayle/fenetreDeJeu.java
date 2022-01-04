@@ -114,6 +114,72 @@ public class fenetreDeJeu extends JFrame{
         
         panneauJeu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         
+        messagePasJuste1 = new JLabel("1");
+        Dimension sizep1 = messagePasJuste1.getPreferredSize();
+        messagePasJuste1.setFont(new Font("Serif",Font.BOLD,18));
+        panneauJeu.add(messagePasJuste1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470,180));
+        messagePasJuste1.setVisible(false);
+        
+        messagePasJuste2 = new JLabel("2");
+        Dimension sizep2 = messagePasJuste2.getPreferredSize();
+        messagePasJuste2.setFont(new Font("Serif",Font.BOLD,18));
+        panneauJeu.add(messagePasJuste2, new org.netbeans.lib.awtextra.AbsoluteConstraints(475,210));
+        messagePasJuste2.setVisible(false);
+        
+        messagePasJuste3 = new JLabel("3");
+        Dimension sizep3 = messagePasJuste3.getPreferredSize();
+        messagePasJuste3.setFont(new Font("Serif",Font.BOLD,18));
+        panneauJeu.add(messagePasJuste3, new org.netbeans.lib.awtextra.AbsoluteConstraints(485,245));
+        messagePasJuste3.setVisible(false);
+        
+        messagePasJuste4 = new JLabel("4");
+        Dimension sizep4 = messagePasJuste4.getPreferredSize();
+        messagePasJuste4.setFont(new Font("Serif",Font.BOLD,18));
+        panneauJeu.add(messagePasJuste4, new org.netbeans.lib.awtextra.AbsoluteConstraints(495,285));
+        messagePasJuste4.setVisible(false);
+        
+        messagePasJuste5 = new JLabel("5");
+        Dimension sizep5 = messagePasJuste5.getPreferredSize();
+        messagePasJuste5.setFont(new Font("Serif",Font.BOLD,18));
+        panneauJeu.add(messagePasJuste5, new org.netbeans.lib.awtextra.AbsoluteConstraints(505,325));
+        messagePasJuste5.setVisible(false);
+        
+        messagePasJuste6 = new JLabel("6");
+        Dimension sizep6 = messagePasJuste6.getPreferredSize();
+        messagePasJuste6.setFont(new Font("Serif",Font.BOLD,18));
+        panneauJeu.add(messagePasJuste6, new org.netbeans.lib.awtextra.AbsoluteConstraints(515,370));
+        messagePasJuste6.setVisible(false);
+        
+        messagePasJuste7 = new JLabel("7");
+        Dimension sizep7 = messagePasJuste7.getPreferredSize();
+        messagePasJuste7.setFont(new Font("Serif",Font.BOLD,18));
+        panneauJeu.add(messagePasJuste7, new org.netbeans.lib.awtextra.AbsoluteConstraints(530,420));
+        messagePasJuste7.setVisible(false);
+        
+        messagePasJuste8 = new JLabel("8");
+        Dimension sizep8 = messagePasJuste8.getPreferredSize();
+        messagePasJuste8.setFont(new Font("Serif",Font.BOLD,18));
+        panneauJeu.add(messagePasJuste8, new org.netbeans.lib.awtextra.AbsoluteConstraints(545,480));
+        messagePasJuste8.setVisible(false);
+        
+        messagePasJuste9 = new JLabel("9");
+        Dimension sizep9 = messagePasJuste9.getPreferredSize();
+        messagePasJuste9.setFont(new Font("Serif",Font.BOLD,18));
+        panneauJeu.add(messagePasJuste9, new org.netbeans.lib.awtextra.AbsoluteConstraints(560,550));
+        messagePasJuste9.setVisible(false);
+        
+        messagePasJuste10 = new JLabel("10");
+        Dimension sizep10 = messagePasJuste10.getPreferredSize();
+        messagePasJuste10.setFont(new Font("Serif",Font.BOLD,18));
+        panneauJeu.add(messagePasJuste10, new org.netbeans.lib.awtextra.AbsoluteConstraints(580,630));
+        messagePasJuste10.setVisible(false);
+        
+        messagePasJuste11 = new JLabel("11");
+        Dimension sizep11 = messagePasJuste11.getPreferredSize();
+        messagePasJuste11.setFont(new Font("Serif",Font.BOLD,18));
+        panneauJeu.add(messagePasJuste11, new org.netbeans.lib.awtextra.AbsoluteConstraints(600,730));
+        messagePasJuste11.setVisible(false);
+        
         messageJuste1 = new JLabel("1");
         Dimension size1 = messageJuste1.getPreferredSize();
         messageJuste1.setFont(new Font("Serif",Font.BOLD,18));
@@ -577,7 +643,17 @@ public class fenetreDeJeu extends JFrame{
     private JLabel messageJuste9;
     private JLabel messageJuste10;
     private JLabel messageJuste11;
-    private JLabel messageJuste12;
+    private JLabel messagePasJuste1;
+    private JLabel messagePasJuste2;
+    private JLabel messagePasJuste3;
+    private JLabel messagePasJuste4;
+    private JLabel messagePasJuste5;
+    private JLabel messagePasJuste6;
+    private JLabel messagePasJuste7;
+    private JLabel messagePasJuste8;
+    private JLabel messagePasJuste9;
+    private JLabel messagePasJuste10;
+    private JLabel messagePasJuste11;
     
     
     public static void main(String [] args) {
